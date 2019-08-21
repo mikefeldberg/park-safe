@@ -1,0 +1,19 @@
+.NavBar {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 40px;
+}
+
+.NavBar-link {
+  margin: 0 10px;
+  color: #ffcc00;
+}
+
+.NavBar-welcome {
+  text-transform: lowercase;
+  color: #ffcc00;
+}
+
+
+
+
