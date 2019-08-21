@@ -6,14 +6,15 @@ import userService from '../../utils/userService';
 class LoginPage extends Component {
   
   state = {
-    email: '',
+    phone: '',
     pw: ''
   };
 
   handleChange = (e) => {
     this.setState({
       // Using ES2015 Computed Property Names
-      [e.target.name]: e.target.value
+      phone: e.target.value,
+      pw: e.target.value
     });
   }
 
@@ -38,12 +39,7 @@ class LoginPage extends Component {
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">
             <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+              <input type="phone" className="form-control" placeholder="Email" value={this.state.phone} name="phone" onChange={this.handleChange} />
             </div>
           </div>
           <div className="form-group">
