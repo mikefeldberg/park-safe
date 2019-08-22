@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var applicantSchema = new mongoose.Schema({
+var applicationSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
     phone: String,
@@ -45,4 +45,4 @@ var applicantSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Applicant', applicantSchema);
+module.exports = mongoose.model('Application', applicationSchema);
