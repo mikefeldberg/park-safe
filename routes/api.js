@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const usersController = require('../controllers/users');
+const applicantsController = require('../controllers/applicants')
 // const applicantsController = require('../controllers/applicants');
 
 /*---------- Public Routes ----------*/
 router.post('/signup', usersController.signup);
 router.post('/login', usersController.login);
 
+
+router.get('/applicants', applicantsController.getAllApplicants);
 /*--------- Protected Routes --------*/
 
 // router.put('/applicants/:id', applicantsController.updateApplicant);
