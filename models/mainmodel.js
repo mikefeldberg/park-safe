@@ -31,6 +31,9 @@ var applicantSchema = new mongoose.Schema({
     currentSituation: String,
     hasIncome: Boolean,
     incomeDescription: String,
+    emergencyContactPhone: String,
+    emergencyContactName: String,
+    emergencyContactRelationship: String,
     deletedAt: {
         type: Date,
         default: null,

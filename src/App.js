@@ -6,9 +6,9 @@ import LoginPage from '../src/pages/LoginPage/LoginPage';
 import userService from '../src/utils/userService';
 import NavBar from '../src/components/NavBar/NavBar';
 import HomePage from '../src/pages/HomePage/HomePage'
-// import CreateApplicantPage from '../CreateApplicantPage/CreateApplicantPage';
-// import ShowApplicantPage from '../ShowApplicantPage/ShowApplicantPage';
-// import EditApplicantPage from '../EditApplicantPage/EditApplicantPage';
+import CreateApplicantPage from '../src/pages/CreateApplicantPage/CreateApplicantPage';
+// import ShowApplicantPage from '../src/pages/ShowApplicantPage/ShowApplicantPage';
+// import EditApplicantPage from '../src/pages/EditApplicantPage/EditApplicantPage';
 
 
 class App extends Component {
@@ -49,7 +49,7 @@ class App extends Component {
                             user={this.state.user}
                         />
                     } />
-                    {/* <Route exact path='/newapplicant'
+                    <Route exact path='/newapplicant'
                         render={props =>
                             userService.getUser() ? (
                                 <CreateApplicantPage
@@ -62,7 +62,7 @@ class App extends Component {
                             )
                         }
                     />
-                    <Route exact path='/applicants/:id'
+                    {/* <Route exact path='/applicants/:id'
                         render={props =>
                             userService.getUser() ? (
                                 <ShowApplicantPage
