@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import CreateApplicantPageData from './CreateApplicantPageData';
+// import CreateApplicationPageData from './CreateApplicationPageData';
 
 class TestPage extends Component {
     constructor(props) {

@@ -7,7 +7,7 @@ const csvData = [
     ['Jane', 'Doe', 'jane.doe@xyz.com'],
 ];
 
-class ApplicantsPage extends Component {
+class DownloadPage extends Component {
     render() {
         return (
             <div>
@@ -16,4 +16,4 @@ class ApplicantsPage extends Component {
         );
     }
 }
-export default ApplicantsPage;
+export default DownloadPage;

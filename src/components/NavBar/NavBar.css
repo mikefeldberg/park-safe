@@ -6,12 +6,12 @@
 
 .NavBar-link {
   margin: 0 10px;
-  color: #ffcc00;
+  color: #12669B;
 }
 
 .NavBar-welcome {
-  text-transform: lowercase;
-  color: #ffcc00;
+  /* text-transform: lowercase; */
+  color: #12669B;
 }
 
 
