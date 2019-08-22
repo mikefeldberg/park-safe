@@ -8,6 +8,7 @@ import NavBar from '../src/components/NavBar/NavBar';
 import HomePage from '../src/pages/HomePage/HomePage'
 import CreateApplicantPage from '../src/pages/CreateApplicantPage/CreateApplicantPage';
 import ApplicantsPage from '../src/pages/ApplicantsPage/ApplicantsPage'
+import TestPage from '../src/pages/CreateApplicantPage/TestPage'
 // import ShowApplicantPage from '../src/pages/ShowApplicantPage/ShowApplicantPage';
 // import EditApplicantPage from '../src/pages/EditApplicantPage/EditApplicantPage';
 
@@ -64,8 +65,8 @@ class App extends Component {
                                     handleLogOut={this.handleLogOut}
                                 />
                             ) : (
-                                <Redirect to="/login" />
-                            )
+                                    <Redirect to="/login" />
+                                )
                         }
                     />
                     {/* <Route exact path='/applicants/:id'
@@ -99,11 +100,11 @@ class App extends Component {
                             userService.getUser() ? (
                                 <Redirect to="/index" />
                             ) : (
-                                <SignupPage
-                                    history={history}
-                                    handleSignupOrLogin={this.handleSignupOrLogin}
-                                />
-                            )
+                                    <SignupPage
+                                        history={history}
+                                        handleSignupOrLogin={this.handleSignupOrLogin}
+                                    />
+                                )
                         }
                     />
                     <Route exact path='/login'
@@ -112,14 +113,16 @@ class App extends Component {
                             userService.getUser() ? (
                                 <Redirect to="/index" />
                             ) : (
-                                <LoginPage
-                                    history={history}
-                                    handleSignupOrLogin={this.handleSignupOrLogin}
-                                />
-                            )
+                                    <LoginPage
+                                        history={history}
+                                        handleSignupOrLogin={this.handleSignupOrLogin}
+                                    />
+                                )
                         }
                     />
-
+                    <Route exact path='/test' render={({ history }) =>
+                        <TestPage />
+                    } />
                     {/* <Route exact path='/signup' render={({ history }) =>
                         <SignupPage
                             history={history}

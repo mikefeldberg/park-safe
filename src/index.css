@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.mb10 {
+  margin-bottom: 10px;
+}
+
 .mb15 {
   margin-bottom: 15px;
 }
@@ -54,4 +58,12 @@ code {
 
 .rounded {
   border-radius: 5%;
+}
+
+.mp5 {
+  margin: 0 5px;
+}
+
+.btn:focus {
+  outline: none !important; 
 }
