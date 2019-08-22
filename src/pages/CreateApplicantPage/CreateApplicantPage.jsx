@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import DateSelector from '../../components/DateSelector/DateSelector';
 // import NewApplicantForm from '../../components/NewApplicantForm/NewApplicantForm';
 import { createApplicant } from '../../services/api';
-import { Link } from 'react-router-dom';
 
 class CreateApplicantPage extends Component {
     constructor(props) {

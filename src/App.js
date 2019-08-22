@@ -7,7 +7,6 @@ import userService from '../src/utils/userService';
 import NavBar from '../src/components/NavBar/NavBar';
 import HomePage from '../src/pages/HomePage/HomePage'
 import CreateApplicantPage from '../src/pages/CreateApplicantPage/CreateApplicantPage';
-import CreateApplicationTest from '../src/pages/CreateApplicantPage/CreateApplicationTest';
 import ApplicantsPage from '../src/pages/ApplicantsPage/ApplicantsPage'
 // import ShowApplicantPage from '../src/pages/ShowApplicantPage/ShowApplicantPage';
 // import EditApplicantPage from '../src/pages/EditApplicantPage/EditApplicantPage';
@@ -67,11 +66,6 @@ class App extends Component {
                             ) : (
                                 <Redirect to="/login" />
                             )
-                        }
-                    />
-                    <Route exact path='/test'
-                        render={props =>
-                            <CreateApplicationTest />
                         }
                     />
                     {/* <Route exact path='/applicants/:id'
