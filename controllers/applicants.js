@@ -1,5 +1,5 @@
 
-const Applicant = require('../models/mainmodel');
+const Applicant = require('../models/applicant');
 
 module.exports = {
     getAllApplicants

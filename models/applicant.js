@@ -18,7 +18,7 @@ var applicantSchema = new mongoose.Schema({
     cats: Number,
     other: Number,
     reasonUnemployment: Boolean,
-    reasonIncomeTooLow: Boolean,
+    reasonLowIncome: Boolean,
     reasonRelationship: Boolean,
     reasonHealth: Boolean,
     reasonOther: Boolean,

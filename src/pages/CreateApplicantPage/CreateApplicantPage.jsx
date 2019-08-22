@@ -7,7 +7,8 @@ class CreateApplicantPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
+            firstName: '',
+            lastName: '',
             phone: '',
             email: '',
             // language: '',
@@ -24,7 +25,7 @@ class CreateApplicantPage extends Component {
             cats: 0,
             other: 0,
             reasonUnemployment: false,
-            reasonIncomeTooLow: false,
+            reasonLowIncome: false,
             reasonRelationship: false,
             reasonHealth: false,
             reasonOther: false,
@@ -40,14 +41,13 @@ class CreateApplicantPage extends Component {
             emergencyContactPhone: '',
             emergencyContactName: '',
             emergencyContactRelationship: '',
-    
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange(event) {
-        console.log(event.target.value)
+        console.log(event.target.value);
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -57,16 +57,29 @@ class CreateApplicantPage extends Component {
         });
     }
 
+    handleButton(event) {
+        
+    }
+
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <label for="name">Name:</label>
                     <input
                         id="name"
                         type="text"
                         className="form-control"
-                        name="name"
+                        placeholder="First Name"
+                        name="firstName"
+                        onChange={this.handleInputChange}
+                    />
+                    <input
+                        id="name"
+                        type="text"
+                        className="form-control"
+                        placeholder="Last Name"
+                        name="lastName"
                         onChange={this.handleInputChange}
                     />
                 </div>
@@ -91,35 +104,95 @@ class CreateApplicantPage extends Component {
                         onChange={this.handleInputChange}
                     />
                 </div>
-                <label>Do you have a valid driver's license?</label>
-                <div className="form-check mb20">
-                    <input
-                        type="checkbox"
-                        className="form-check-input"
-                        id="license"
-                        name="license"
-                        onChange={this.handleInputChange}
-                    />
-                    <label className="form-check-label" for="license">
-                        Yes
-                    </label>
-                </div>
-                <label>Do you have a functioning vehicle?</label>
-                <div className="form-check mb20">
-                    <input
-                        type="checkbox"
-                        className="form-check-input"
-                        id="vehicle"
-                        name="vehicle"
-                        onChange={this.handleInputChange}
-                    />
-                    <label className="form-check-label" for="vehicle">
-                        Yes
-                    </label>
-                </div>
                 <div className="mb20">
                     <label>How old are you?</label>
-                    <div className="form-check">
+                    <div class="btn-row row mb10">
+                        <div className="col-1" />
+                        <button
+                            className="btn btn-primary col mp5"
+                            data-toggle="button"
+                            aria-pressed="false"
+                            autocomplete="off"
+                            type="button"
+                            id="age1"
+                            value="17 or younger"
+                            name="age"
+                            onClick={this.handleInputChange}
+                        >
+                            Under 18
+                        </button>
+                        <button
+                            className="btn btn-primary col mp5"
+                            data-toggle="button"
+                            aria-pressed="false"
+                            autocomplete="off"
+                            type="button"
+                            id="age2"
+                            value="18 to 28"
+                            name="age"
+                            onClick={this.handleInputChange}
+                        >
+                            18 - 28
+                        </button>
+                        <button
+                            className="btn btn-primary col mp5"
+                            data-toggle="button"
+                            aria-pressed="false"
+                            autocomplete="off"
+                            type="button"
+                            id="age3"
+                            value="29 to 39"
+                            name="age"
+                            onClick={this.handleInputChange}
+                        >
+                            29 - 39
+                        </button>
+                        <div className="col-1" />
+                    </div>
+                    <div class="btn-row row">
+                        <div className="col-1" />
+                        <button
+                            className="btn btn-primary col mp5"
+                            data-toggle="button"
+                            aria-pressed="false"
+                            autocomplete="off"
+                            type="button"
+                            id="age4"
+                            value="40 to 50"
+                            name="age"
+                            onClick={this.handleInputChange}
+                        >
+                            40 - 50
+                        </button>
+                        <button
+                            className="btn btn-primary col mp5"
+                            data-toggle="button"
+                            aria-pressed="false"
+                            autocomplete="off"
+                            type="button"
+                            id="age5"
+                            value="51 to 61"
+                            name="age"
+                            onClick={this.handleInputChange}
+                        >
+                            51 - 61
+                        </button>
+                        <button
+                            className="btn btn-primary col mp5"
+                            data-toggle="button"
+                            aria-pressed="false"
+                            autocomplete="off"
+                            type="button"
+                            id="age6"
+                            value="62 or older"
+                            name="age"
+                            onClick={this.handleInputChange}
+                        >
+                            62 or older
+                        </button>
+                        <div className="col-1" />
+                    </div>
+                    {/* <div className="form-check">
                         <input
                             className="form-check-input"
                             type="radio"
@@ -209,10 +282,10 @@ class CreateApplicantPage extends Component {
                         <label className="form-check-label" for="age7">
                             62 or older
                         </label>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="mb30">
-                    <label>Does anyone else live in your vehicle with you?</label>
+                    <label>Additional occupants in vehicle:</label>
                     <div className="form-check">
                         <input
                             type="checkbox"
@@ -225,50 +298,53 @@ class CreateApplicantPage extends Component {
                             Yes
                         </label>
                     </div>
-                    <div className="form-group row mb20">
-                        <label for="children" className="col-sm-2 col-form-label text-right">
-                            Children (Under 18)
-                        </label>
-                        <div className="col-sm-1">
-                            <input
-                                type="number"
-                                className="form-control"
-                                id="children"
-                                placeholder="0"
-                                name="children"
-                                onChange={this.handleInputChange}
-                            />
+                    {this.state.multipleOccupants && (
+                        <div className="form-group row mb20">
+                            <label for="children" className="col-sm-2 col-form-label">
+                                Children (Under 18)
+                            </label>
+                            <div className="col-sm-1">
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    id="children"
+                                    placeholder="0"
+                                    name="children"
+                                    onChange={this.handleInputChange}
+                                />
+                            </div>
+                            <label for="adults" className="col-sm-2 col-form-label">
+                                Adults (Age 18 - 61)
+                            </label>
+                            <div className="col-sm-1">
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    id="adults"
+                                    placeholder="0"
+                                    name="adults"
+                                    onChange={this.handleInputChange}
+                                />
+                            </div>
+                            <label for="seniors" className="col-sm-2 col-form-label">
+                                Seniors (62 or older)
+                            </label>
+                            <div className="col-sm-1">
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    id="seniors"
+                                    placeholder="0"
+                                    name="seniors"
+                                    onChange={this.handleInputChange}
+                                />
+                                {/* <hr /> */}
+                            </div>
                         </div>
-                        <label for="adults" className="col-sm-2 col-form-label text-right">
-                            Adults (Age 18 - 61)
-                        </label>
-                        <div className="col-sm-1">
-                            <input
-                                type="number"
-                                className="form-control"
-                                id="adults"
-                                placeholder="0"
-                                name="adults"
-                                onChange={this.handleInputChange}
-                            />
-                        </div>
-                        <label for="seniors" className="col-sm-2 col-form-label text-right">
-                            Seniors (62 or older)
-                        </label>
-                        <div className="col-sm-1">
-                            <input
-                                type="number"
-                                className="form-control"
-                                id="seniors"
-                                placeholder="0"
-                                name="seniors"
-                                onChange={this.handleInputChange}
-                            />
-                        </div>
-                    </div>
+                    )}
                 </div>
                 <div className="mb30">
-                    <label>Does any pets live in your vehicle with you?</label>
+                    <label>Pets in vehicle:</label>
                     <div className="form-check">
                         <input
                             type="checkbox"
@@ -281,110 +357,166 @@ class CreateApplicantPage extends Component {
                             Yes
                         </label>
                     </div>
-                    <div className="form-group row mb20">
-                        <label for="dogs" className="col-sm-2 col-form-label text-right">
-                            Dogs
-                        </label>
-                        <div className="col-sm-1">
-                            <input
-                                type="number"
-                                className="form-control"
-                                id="dogs"
-                                placeholder="0"
-                                name="dogs"
-                                onChange={this.handleInputChange}
-                            />
+                    {this.state.pets && (
+                        <div className="form-group row mb20">
+                            <label for="dogs" className="col-sm-2 col-form-label">
+                                Dogs
+                            </label>
+                            <div className="col-sm-1">
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    id="dogs"
+                                    placeholder="0"
+                                    name="dogs"
+                                    onChange={this.handleInputChange}
+                                />
+                            </div>
+                            <label for="cats" className="col-sm-2 col-form-label">
+                                Cats
+                            </label>
+                            <div className="col-sm-1">
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    id="cats"
+                                    placeholder="0"
+                                    name="cats"
+                                    onChange={this.handleInputChange}
+                                />
+                            </div>
+                            <label for="other" className="col-sm-2 col-form-label">
+                                Other
+                            </label>
+                            <div className="col-sm-1">
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    id="other"
+                                    placeholder="0"
+                                    name="other"
+                                    onChange={this.handleInputChange}
+                                />
+                                {/* <hr /> */}
+                            </div>
                         </div>
-                        <label for="cats" className="col-sm-2 col-form-label text-right">
-                            Cats
-                        </label>
-                        <div className="col-sm-1">
-                            <input
-                                type="number"
-                                className="form-control"
-                                id="cats"
-                                placeholder="0"
-                                name="cats"
-                                onChange={this.handleInputChange}
-                            />
-                        </div>
-                        <label for="other" className="col-sm-2 col-form-label text-right">
-                            Other
-                        </label>
-                        <div className="col-sm-1">
-                            <input
-                                type="number"
-                                className="form-control"
-                                id="other"
-                                placeholder="0"
-                                name="other"
-                                onChange={this.handleInputChange}
-                            />
-                        </div>
-                    </div>
+                    )}
                 </div>
+                <label>Do you have a valid driver's license?</label>
+                <div className="form-check mb20">
+                    <input
+                        type="checkbox"
+                        className="form-check-input"
+                        id="license"
+                        name="license"
+                        onChange={this.handleInputChange}
+                    />
+                    <label className="form-check-label" for="license">
+                        Yes
+                    </label>
+                </div>
+                <label>Is your car in working condition?</label>
+                <div className="form-check mb20">
+                    <input
+                        type="checkbox"
+                        className="form-check-input"
+                        id="vehicle"
+                        name="vehicle"
+                        onChange={this.handleInputChange}
+                    />
+                    <label className="form-check-label" for="vehicle">
+                        Yes
+                    </label>
+                </div>
+
                 <div className="mb30">
-                    <label>List the reasons for your current housing situation:</label>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
+                    <label>What caused your current housing situation? (Please select all that apply):</label>
+
+                    <div class="btn-row row mb10">
+                        <div className="col-1" />
+                        <button
+                            className="btn btn-primary col mp5"
+                            data-toggle="button"
+                            aria-pressed={this.state.reasonUnemployment}
+                            autocomplete="off"
+                            type="button"
                             id="reasonUnemployment"
                             name="reasonUnemployment"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="reasonUnemployment">
+                            onClick={this.handleInputChange}
+                        >
                             Unemployment
-                        </label>
+                        </button>
+                        <button
+                            className="btn btn-primary col mp5"
+                            data-toggle="button"
+                            aria-pressed={this.state.reasonLowIncome}
+                            autocomplete="off"
+                            type="button"
+                            id="reasonLowIncome"
+                            name="reasonLowIncome"
+                            onClick={this.handleInputChange}
+                        >
+                            Low Income
+                        </button>
+                        <div className="col-1" />
                     </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="reasonIncomeTooLow"
-                            name="reasonIncomeTooLow"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="reasonIncomeTooLow">
-                            Employed but insufficient income
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
+                    <div class="btn-row row mb10">
+                        <div className="col-1" />
+                        <button
+                            className="btn btn-primary col mp5"
+                            data-toggle="button"
+                            aria-pressed={this.state.reasonRelationship}
+                            autocomplete="off"
+                            type="button"
                             id="reasonRelationship"
                             name="reasonRelationship"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="reasonRelationship">
+                            onClick={this.handleInputChange}
+                        >
                             Relationship
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
+                        </button>
+                        <button
+                            className="btn btn-primary col mp5"
+                            data-toggle="button"
+                            aria-pressed={this.state.reasonHealth}
+                            autocomplete="off"
+                            type="button"
                             id="reasonHealth"
                             name="reasonHealth"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="reasonHealth">
-                            Health complications
-                        </label>
+                            onClick={this.handleInputChange}
+                        >
+                            Health Issues
+                        </button>
+                        <div className="col-1" />
                     </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
+                    <div class="btn-row row">
+                        <div className="col-1" />
+                        <button
+                            className="btn btn-primary col mp5"
+                            data-toggle="button"
+                            aria-pressed={this.state.reasonEvicted}
+                            autocomplete="off"
+                            type="button"
+                            id="reasonEvicted"
+                            name="reasonEvicted"
+                            onClick={this.handleInputChange}
+                        >
+                            Eviction
+                        </button>
+                        <button
+                            className="btn btn-primary col mp5"
+                            data-toggle="button"
+                            aria-pressed={this.state.reasonOther}
+                            autocomplete="off"
+                            type="button"
                             id="reasonOther"
                             name="reasonOther"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="reasonOther">
+                            onClick={this.handleInputChange}
+                        >
                             Other
-                        </label>
+                        </button>
+                        <div className="col-1" />
                     </div>
+                    {/* <hr /> */}
                 </div>
                 <div className="mb20">
                     <label>How long have you been without permanent housing?</label>
@@ -454,6 +586,7 @@ class CreateApplicantPage extends Component {
                         </label>
                     </div>
                 </div>
+                {/* <hr /> */}
                 <label>Are you a veteran?</label>
                 <div className="form-check mb20">
                     <input type="checkbox" className="form-check-input" id="veteran" name="veteran" />
@@ -463,45 +596,63 @@ class CreateApplicantPage extends Component {
                 </div>
                 <label>Are you receiving financial or housing support from any other organizations?</label>
                 <div className="form-check mb20">
-                    <input type="checkbox" className="form-check-input" id="receivingSupport" name="receivingSupport" />
+                    <input
+                        type="checkbox"
+                        className="form-check-input"
+                        id="receivingSupport"
+                        name="receivingSupport"
+                        onChange={this.handleInputChange}
+                    />
                     <label className="form-check-label" for="receivingSupport">
                         Yes
                     </label>
                 </div>
-                <div className="form-group">
-                    <label for="sourceOfSupport">
-                        Which organizations are you currently receiving assistance from?
-                    </label>
-                    <input
-                        id="sourceOfSupport"
-                        type="text"
-                        className="form-control"
-                        name="sourceOfSupport"
-                        onChange={this.handleInputChange}
-                    />
-                </div>
+                {this.state.receivingSupport && (
+                    <div className="form-group">
+                        <label for="sourceOfSupport">
+                            Which organizations are you currently receiving assistance from?
+                        </label>
+                        <input
+                            id="sourceOfSupport"
+                            type="text"
+                            className="form-control"
+                            name="sourceOfSupport"
+                            onChange={this.handleInputChange}
+                        />
+                    </div>
+                )}
                 <label>Do you currently have a source of income (not including outside support)?</label>
                 <div className="form-check mb20">
-                    <input type="checkbox" className="form-check-input" id="hasIncome" name="hasIncome" onChange={this.handleCheck} checked={this.state.hasIncome}/>
+                    <input
+                        type="checkbox"
+                        className="form-check-input"
+                        id="hasIncome"
+                        name="hasIncome"
+                        onChange={this.handleInputChange}
+                        checked={this.state.hasIncome}
+                    />
                     <label className="form-check-label" for="hasIncome">
                         Yes
                     </label>
                 </div>
-                <div className="form-group">
-                    <label for="incomeDescription">What is your current source of income?</label>
-                    <input
-                        id="incomeDescription"
-                        type="text"
-                        className="form-control"
-                        name="incomeDescription"
-                        onChange={this.handleInputChange}
-                    />
+                {this.state.hasIncome && (
+                    <div className="form-group">
+                        <label for="incomeDescription">What is your current source of income?</label>
+                        <input
+                            id="incomeDescription"
+                            type="text"
+                            className="form-control"
+                            name="incomeDescription"
+                            onChange={this.handleInputChange}
+                        />
+                    </div>
+                )}
+                <div className="text-center">
+                    <button className="btn btn-success">Submit Application</button>
                 </div>
             </form>
         );
     }
 }
-
-
 
 export default CreateApplicantPage;
