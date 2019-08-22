@@ -9,4 +9,4 @@ function getAllApplicants (req,res){
     Applicant.find({}).then(function(applicants){
         res.status(200).json(applicants)
     })
- };
+};
