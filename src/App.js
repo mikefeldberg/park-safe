@@ -7,6 +7,7 @@ import userService from '../src/utils/userService';
 import NavBar from '../src/components/NavBar/NavBar';
 import HomePage from '../src/pages/HomePage/HomePage'
 import CreateApplicantPage from '../src/pages/CreateApplicantPage/CreateApplicantPage';
+import ApplicantsPage from '../src/pages/ApplicantsPage/ApplicantsPage'
 // import ShowApplicantPage from '../src/pages/ShowApplicantPage/ShowApplicantPage';
 // import EditApplicantPage from '../src/pages/EditApplicantPage/EditApplicantPage';
 
@@ -44,6 +45,11 @@ class App extends Component {
                     className="mb30"
                 />
                 <Switch>
+                    <Route exact path='/applicants' component={
+                        ApplicantsPage
+                    }
+
+                    />
                     <Route exact path='/index' render={() =>
                         <HomePage
                             user={this.state.user}

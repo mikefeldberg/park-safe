@@ -20,9 +20,14 @@ const NavBar = props => {
                 new applicant
             </Link>
             &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+            <Link to="/applicants" className="NavBar-link">
+                Download applications
+            </Link>
+            &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
             <Link to="" className="NavBar-link" onClick={props.handleLogout}>
                 log out
             </Link>
+
         </div>
     ) : (
         <div>
