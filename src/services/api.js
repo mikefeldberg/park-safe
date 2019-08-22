@@ -1,21 +1,21 @@
-export function getAllMAINMODELs() {
-    return fetch(`/api/mainmodels`).then(function (res) {
+export function getAllApplicants() {
+    return fetch(`/api/applicants`).then(function (res) {
         return res.json();
     })
 }
 
 // show
-export function getOneMAINMODEL(mainmodelId) {
-    return fetch(`/api/mainmodels/${mainmodelId}`).then(function (res) {
+export function getOneApplicant(applicantId) {
+    return fetch(`/api/applicants/${applicantId}`).then(function (res) {
         return res.json();
     })
 }
 // create
-export function createMAINMODEL(mainmodel) {
-    return fetch(`/api/mainmodels`, {
+export function createApplicant(applicant) {
+    return fetch(`/api/applicants`, {
         method: 'POST',
         body: JSON.stringify({
-            userId: mainmodel.userId,
+            userId: applicant.userId,
         }),
         headers: {
             'content-type': 'application/json'
@@ -23,11 +23,11 @@ export function createMAINMODEL(mainmodel) {
     })
 }
 
-export function updateMAINMODEL(mainmodel) {
-    return fetch(`/api/mainmodels/${mainmodel._id}`, {
+export function updateApplicant(applicant) {
+    return fetch(`/api/applicants/${applicant._id}`, {
         method: 'PUT',
         body: JSON.stringify({
-            userId: mainmodel.userId,
+            userId: applicant.userId,
         }),
         headers: {
             'content-type': 'application/json'
@@ -35,8 +35,8 @@ export function updateMAINMODEL(mainmodel) {
     })
 }
 
-export function deleteMAINMODEL(id) {
-    return fetch(`/api/mainmodels/${id}`, {
+export function deleteApplicant(id) {
+    return fetch(`/api/applicants/${id}`, {
         method: 'delete'
     }).then(function (res) {
         return res.json()

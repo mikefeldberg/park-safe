@@ -1,7 +1,39 @@
 var mongoose = require('mongoose');
 
-var mainmodelSchema = new mongoose.Schema({
-    userId: String,
+var applicantSchema = new mongoose.Schema({
+    name: String,
+    phone: String,
+    email: String,
+    language: String,
+    location: String,
+    license: Boolean,
+    vehicle: Boolean,
+    age: String,
+    multipleOccupants: Boolean,
+    children: Number,
+    adults: Number,
+    seniors: Number,
+    pets: Boolean,
+    dogs: Number,
+    cats: Number,
+    other: Number,
+    reasonUnemployment: Boolean,
+    reasonIncomeTooLow: Boolean,
+    reasonRelationship: Boolean,
+    reasonHealth: Boolean,
+    reasonOther: Boolean,
+    veteran: Boolean,
+    receivingSupport: Boolean,
+    sourceOfSupport: String,
+    highPriority: Boolean,
+    durationHomeless: String,
+    durationInCar: String,
+    currentSituation: String,
+    hasIncome: Boolean,
+    incomeDescription: String,
+    emergencyContactPhone: String,
+    emergencyContactName: String,
+    emergencyContactRelationship: String,
     deletedAt: {
         type: Date,
         default: null,
@@ -10,4 +42,4 @@ var mainmodelSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('MAINMODEL', mainmodelSchema);
+module.exports = mongoose.model('Applicant', applicantSchema);
