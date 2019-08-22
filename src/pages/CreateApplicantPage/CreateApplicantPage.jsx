@@ -125,7 +125,6 @@ class CreateApplicantPage extends Component {
                             type="radio"
                             id="age1"
                             value="17 or younger"
-                            checked
                             name="age"
                             onChange={this.handleInputChange}
                         />
@@ -139,7 +138,6 @@ class CreateApplicantPage extends Component {
                             type="radio"
                             id="age2"
                             value="18 to 24"
-                            checked
                             name="age"
                             onChange={this.handleInputChange}
                         />
@@ -153,7 +151,6 @@ class CreateApplicantPage extends Component {
                             type="radio"
                             id="age3"
                             value="25 to 34"
-                            checked
                             name="age"
                             onChange={this.handleInputChange}
                         />
@@ -167,7 +164,6 @@ class CreateApplicantPage extends Component {
                             type="radio"
                             id="age4"
                             value="35 to 44"
-                            checked
                             name="age"
                             onChange={this.handleInputChange}
                         />
@@ -181,7 +177,6 @@ class CreateApplicantPage extends Component {
                             type="radio"
                             id="age5"
                             value="45 to 54"
-                            checked
                             name="age"
                             onChange={this.handleInputChange}
                         />
@@ -195,7 +190,6 @@ class CreateApplicantPage extends Component {
                             type="radio"
                             id="age6"
                             value="55 to 61"
-                            checked
                             name="age"
                             onChange={this.handleInputChange}
                         />
@@ -209,7 +203,6 @@ class CreateApplicantPage extends Component {
                             type="radio"
                             id="age7"
                             value="62 or older"
-                            checked
                             name="age"
                             onChange={this.handleInputChange}
                         />
@@ -401,7 +394,6 @@ class CreateApplicantPage extends Component {
                             type="radio"
                             id="durationHomeless1"
                             value="Less than one week"
-                            checked
                             name="durationHomeless"
                             onChange={this.handleInputChange}
                         />
@@ -415,7 +407,6 @@ class CreateApplicantPage extends Component {
                             type="radio"
                             id="durationHomeless2"
                             value="One week to one month"
-                            checked
                             name="durationHomeless"
                             onChange={this.handleInputChange}
                         />
@@ -429,7 +420,6 @@ class CreateApplicantPage extends Component {
                             type="radio"
                             id="durationHomeless3"
                             value="One to three months"
-                            checked
                             name="durationHomeless"
                             onChange={this.handleInputChange}
                         />
@@ -443,7 +433,6 @@ class CreateApplicantPage extends Component {
                             type="radio"
                             id="durationHomeless4"
                             value="Three to six months"
-                            checked
                             name="durationHomeless"
                             onChange={this.handleInputChange}
                         />
@@ -457,7 +446,6 @@ class CreateApplicantPage extends Component {
                             type="radio"
                             id="durationHomeless5"
                             value="Longer than 6 months"
-                            checked
                             name="durationHomeless"
                             onChange={this.handleInputChange}
                         />
