@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 // import DateSelector from '../../components/DateSelector/DateSelector';
-// import NewApplicantForm from '../../components/NewApplicantForm/NewApplicantForm';
-import { createApplicant } from '../../services/api';
-import CreateApplicantPageData from './CreateApplicantPageData';
+// import NewApplicationForm from '../../components/NewApplicationForm/NewApplicationForm';
+import { createApplication } from '../../services/api';
+import CreateApplicationPageData from './CreateApplicationPageData';
 
-class CreateApplicantPage extends Component {
+class CreateApplicationPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,6 +12,7 @@ class CreateApplicantPage extends Component {
             lastName: '',
             phone: '',
             email: '',
+            gender: '',
             // language: '',
             // location: '',
             license: false,
@@ -35,15 +36,16 @@ class CreateApplicantPage extends Component {
             veteran: false,
             receivingSupport: false,
             sourceOfSupport: '',
-            highPriority: false,
             durationHomeless: '',
             durationInCar: '',
             currentSituation: '',
             hasIncome: false,
             incomeDescription: '',
+            hasEmergencyContact: false,
             emergencyContactPhone: '',
             emergencyContactName: '',
             emergencyContactRelationship: '',
+            highPriority: false,
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -64,7 +66,7 @@ class CreateApplicantPage extends Component {
         e.preventDefault();
 
         const self = this;
-        createApplicant(this.state).then(function() {
+        createApplication(this.state).then(function() {
             self.props.history.push(`/index`);
         });
     };
@@ -73,7 +75,7 @@ class CreateApplicantPage extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label for="name">Name:</label>
+                    <label for="name">Name</label>
                     <input
                         id="name"
                         type="text"
@@ -92,7 +94,7 @@ class CreateApplicantPage extends Component {
                     />
                 </div>
                 <div className="form-group">
-                    <label for="phone">Phone Number:</label>
+                    <label for="phone">Phone Number</label>
                     <input
                         id="phone"
                         type="text"
@@ -103,7 +105,7 @@ class CreateApplicantPage extends Component {
                     />
                 </div>
                 <div className="form-group">
-                    <label for="email">Email:</label>
+                    <label for="email">Email</label>
                     <input
                         id="email"
                         type="email"
@@ -113,13 +115,13 @@ class CreateApplicantPage extends Component {
                     />
                 </div>
                 <div className="mb20">
-                    <label>How old are you?</label>
+                    <label>Age</label>
                     <div className="btn-group-toggle btn-row row mb20" data-toggle="buttons">
                         <div className="col-1" />
                         <label
                             className={[
                                 'btn btn-secondary col mp5',
-                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange1.value}`
+                                this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange1.value}`
                                     ? 'active'
                                     : '',
                             ].join(' ')}
@@ -130,15 +132,15 @@ class CreateApplicantPage extends Component {
                                 autocomplete="off"
                                 checked={this.state.ageRange}
                                 name="ageRange"
-                                value={CreateApplicantPageData.ageRanges.ageRange1.value}
+                                value={CreateApplicationPageData.ageRanges.ageRange1.value}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.ageRanges.ageRange1.label}
+                            {CreateApplicationPageData.ageRanges.ageRange1.label}
                         </label>
                         <label
                             className={[
                                 'btn btn-secondary col mp5',
-                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange2.value}`
+                                this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange2.value}`
                                     ? 'active'
                                     : '',
                             ].join(' ')}
@@ -149,15 +151,15 @@ class CreateApplicantPage extends Component {
                                 autocomplete="off"
                                 checked={this.state.ageRange}
                                 name="ageRange"
-                                value={CreateApplicantPageData.ageRanges.ageRange2.value}
+                                value={CreateApplicationPageData.ageRanges.ageRange2.value}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.ageRanges.ageRange2.label}
+                            {CreateApplicationPageData.ageRanges.ageRange2.label}
                         </label>
                         <label
                             className={[
                                 'btn btn-secondary col mp5',
-                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange3.value}`
+                                this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange3.value}`
                                     ? 'active'
                                     : '',
                             ].join(' ')}
@@ -168,10 +170,10 @@ class CreateApplicantPage extends Component {
                                 autocomplete="off"
                                 checked={this.state.ageRange}
                                 name="ageRange"
-                                value={CreateApplicantPageData.ageRanges.ageRange3.value}
+                                value={CreateApplicationPageData.ageRanges.ageRange3.value}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.ageRanges.ageRange3.label}
+                            {CreateApplicationPageData.ageRanges.ageRange3.label}
                         </label>
                         <div className="col-1" />
                     </div>
@@ -180,7 +182,7 @@ class CreateApplicantPage extends Component {
                         <label
                             className={[
                                 'btn btn-secondary col mp5',
-                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange4.value}`
+                                this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange4.value}`
                                     ? 'active'
                                     : '',
                             ].join(' ')}
@@ -191,15 +193,15 @@ class CreateApplicantPage extends Component {
                                 autocomplete="off"
                                 checked={this.state.ageRange}
                                 name="ageRange"
-                                value={CreateApplicantPageData.ageRanges.ageRange4.value}
+                                value={CreateApplicationPageData.ageRanges.ageRange4.value}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.ageRanges.ageRange4.label}
+                            {CreateApplicationPageData.ageRanges.ageRange4.label}
                         </label>
                         <label
                             className={[
                                 'btn btn-secondary col mp5',
-                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange5.value}`
+                                this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange5.value}`
                                     ? 'active'
                                     : '',
                             ].join(' ')}
@@ -210,15 +212,15 @@ class CreateApplicantPage extends Component {
                                 autocomplete="off"
                                 checked={this.state.ageRange}
                                 name="ageRange"
-                                value={CreateApplicantPageData.ageRanges.ageRange5.value}
+                                value={CreateApplicationPageData.ageRanges.ageRange5.value}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.ageRanges.ageRange5.label}
+                            {CreateApplicationPageData.ageRanges.ageRange5.label}
                         </label>
                         <label
                             className={[
                                 'btn btn-secondary col mp5',
-                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange6.value}`
+                                this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange6.value}`
                                     ? 'active'
                                     : '',
                             ].join(' ')}
@@ -229,10 +231,10 @@ class CreateApplicantPage extends Component {
                                 autocomplete="off"
                                 checked={this.state.ageRange}
                                 name="ageRange"
-                                value={CreateApplicantPageData.ageRanges.ageRange6.value}
+                                value={CreateApplicationPageData.ageRanges.ageRange6.value}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.ageRanges.ageRange6.label}
+                            {CreateApplicationPageData.ageRanges.ageRange6.label}
                         </label>
                         <div className="col-1" />
                     </div>
@@ -252,46 +254,52 @@ class CreateApplicantPage extends Component {
                         </label>
                     </div>
                     {this.state.multipleOccupants && (
-                        <div className="form-group row mb20">
-                            <label for="children" className="col-sm-2 col-form-label">
-                                Children (Under 18)
-                            </label>
-                            <div className="col-sm-1">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="children"
-                                    placeholder="0"
-                                    name="children"
-                                    onChange={this.handleInputChange}
-                                />
+                        <div className="form-group mb20">
+                            <div className="row mb5">
+                                <label for="children" className="col col-form-label">
+                                    Children (Under 18)
+                                </label>
+                                <div className="col-3">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="children"
+                                        placeholder="0"
+                                        name="children"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
                             </div>
-                            <label for="adults" className="col-sm-2 col-form-label">
-                                Adults (Age 18 - 61)
-                            </label>
-                            <div className="col-sm-1">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="adults"
-                                    placeholder="0"
-                                    name="adults"
-                                    onChange={this.handleInputChange}
-                                />
+                            <div className="row mb5">
+                                <label for="adults" className="col col-form-label">
+                                    Adults (Age 18 - 61)
+                                </label>
+                                <div className="col-3">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="adults"
+                                        placeholder="0"
+                                        name="adults"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
                             </div>
-                            <label for="seniors" className="col-sm-2 col-form-label">
-                                Seniors (62 or older)
-                            </label>
-                            <div className="col-sm-1">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="seniors"
-                                    placeholder="0"
-                                    name="seniors"
-                                    onChange={this.handleInputChange}
-                                />
-                                {/* <hr /> */}
+                            <div className="row mb5">
+                                <label for="seniors" className="col col-form-label">
+                                    Seniors (62 or older)
+                                </label>
+                                <div className="col-3">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="seniors"
+                                        placeholder="0"
+                                        name="seniors"
+                                        onChange={this.handleInputChange}
+                                    />
+                                    {/* <hr /> */}
+                                </div>
                             </div>
                         </div>
                     )}
@@ -311,46 +319,52 @@ class CreateApplicantPage extends Component {
                         </label>
                     </div>
                     {this.state.pets && (
-                        <div className="form-group row mb20">
-                            <label for="dogs" className="col-sm-2 col-form-label">
-                                Dogs
-                            </label>
-                            <div className="col-sm-1">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="dogs"
-                                    placeholder="0"
-                                    name="dogs"
-                                    onChange={this.handleInputChange}
-                                />
+                        <div className="form-group mb20">
+                            <div className="row mb5">
+                                <label for="dogs" className="col col-form-label">
+                                    Dogs
+                                </label>
+                                <div className="col-3">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="dogs"
+                                        placeholder="0"
+                                        name="dogs"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
                             </div>
-                            <label for="cats" className="col-sm-2 col-form-label">
-                                Cats
-                            </label>
-                            <div className="col-sm-1">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="cats"
-                                    placeholder="0"
-                                    name="cats"
-                                    onChange={this.handleInputChange}
-                                />
+                            <div className="row mb5">
+                                <label for="cats" className="col col-form-label">
+                                    Cats
+                                </label>
+                                <div className="col-3">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="cats"
+                                        placeholder="0"
+                                        name="cats"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
                             </div>
-                            <label for="other" className="col-sm-2 col-form-label">
-                                Other
-                            </label>
-                            <div className="col-sm-1">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="other"
-                                    placeholder="0"
-                                    name="other"
-                                    onChange={this.handleInputChange}
-                                />
-                                {/* <hr /> */}
+                            <div className="row mb5">
+                                <label for="other" className="col col-form-label">
+                                    Other
+                                </label>
+                                <div className="col-3">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="other"
+                                        placeholder="0"
+                                        name="other"
+                                        onChange={this.handleInputChange}
+                                    />
+                                    {/* <hr /> */}
+                                </div>
                             </div>
                         </div>
                     )}
@@ -383,6 +397,70 @@ class CreateApplicantPage extends Component {
                 </div>
 
                 <div className="mb30">
+                    <label>Add emergency contact?</label>
+                    <div className="form-check">
+                        <input
+                            type="checkbox"
+                            className="form-check-input"
+                            id="hasEmergencyContact"
+                            name="hasEmergencyContact"
+                            onChange={this.handleInputChange}
+                        />
+                        <label className="form-check-label" for="hasEmergencyContact">
+                            Yes
+                        </label>
+                    </div>
+                    {this.state.hasEmergencyContact && (
+                        <div className="form-group mb20">
+                            <div className="row mb5">
+                                <label for="emergencyContactPhone" className="col col-form-label">
+                                    Phone
+                                </label>
+                                <div className="col-6">
+                                    <input
+                                        type="text"
+                                        pattern="\d*"
+                                        className="form-control"
+                                        id="emergencyContactPhone"
+                                        name="emergencyContactPhone"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="row mb5">
+                                <label for="emergencyContactName" className="col col-form-label">
+                                    Name
+                                </label>
+                                <div className="col-6">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="emergencyContactName"
+                                        name="emergencyContactName"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="row mb5">
+                                <label for="emergencyContactRelationship" className="col col-form-label">
+                                    Relationship
+                                </label>
+                                <div className="col-6">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="emergencyContactRelationship"
+                                        name="emergencyContactRelationship"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+
+
+                <div className="mb30">
                     <label>
                         What circumstances contributed to your current housing situation? (Please select all that
                         apply):
@@ -396,13 +474,13 @@ class CreateApplicantPage extends Component {
                             ].join(' ')}
                         >
                             <input
-                                id={CreateApplicantPageData.circumstances.circumstance1.nameAndId}
+                                id={CreateApplicationPageData.circumstances.circumstance1.nameAndId}
                                 autocomplete="off"
                                 type="checkbox"
-                                name={CreateApplicantPageData.circumstances.circumstance1.nameAndId}
+                                name={CreateApplicationPageData.circumstances.circumstance1.nameAndId}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.circumstances.circumstance1.label}
+                            {CreateApplicationPageData.circumstances.circumstance1.label}
                         </label>
                         <label
                             className={[
@@ -411,13 +489,13 @@ class CreateApplicantPage extends Component {
                             ].join(' ')}
                         >
                             <input
-                                id={CreateApplicantPageData.circumstances.circumstance2.nameAndId}
+                                id={CreateApplicationPageData.circumstances.circumstance2.nameAndId}
                                 autocomplete="off"
                                 type="checkbox"
-                                name={CreateApplicantPageData.circumstances.circumstance2.nameAndId}
+                                name={CreateApplicationPageData.circumstances.circumstance2.nameAndId}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.circumstances.circumstance2.label}
+                            {CreateApplicationPageData.circumstances.circumstance2.label}
                         </label>
                         <div className="col-1" />
                     </div>
@@ -430,13 +508,13 @@ class CreateApplicantPage extends Component {
                             ].join(' ')}
                         >
                             <input
-                                id={CreateApplicantPageData.circumstances.circumstance3.nameAndId}
+                                id={CreateApplicationPageData.circumstances.circumstance3.nameAndId}
                                 autocomplete="off"
                                 type="checkbox"
-                                name={CreateApplicantPageData.circumstances.circumstance3.nameAndId}
+                                name={CreateApplicationPageData.circumstances.circumstance3.nameAndId}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.circumstances.circumstance3.label}
+                            {CreateApplicationPageData.circumstances.circumstance3.label}
                         </label>
                         <label
                             className={[
@@ -445,13 +523,13 @@ class CreateApplicantPage extends Component {
                             ].join(' ')}
                         >
                             <input
-                                id={CreateApplicantPageData.circumstances.circumstance4.nameAndId}
+                                id={CreateApplicationPageData.circumstances.circumstance4.nameAndId}
                                 autocomplete="off"
                                 type="checkbox"
-                                name={CreateApplicantPageData.circumstances.circumstance4.nameAndId}
+                                name={CreateApplicationPageData.circumstances.circumstance4.nameAndId}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.circumstances.circumstance4.label}
+                            {CreateApplicationPageData.circumstances.circumstance4.label}
                         </label>
                         <div className="col-1" />
                     </div>
@@ -464,13 +542,13 @@ class CreateApplicantPage extends Component {
                             ].join(' ')}
                         >
                             <input
-                                id={CreateApplicantPageData.circumstances.circumstance5.nameAndId}
+                                id={CreateApplicationPageData.circumstances.circumstance5.nameAndId}
                                 autocomplete="off"
                                 type="checkbox"
-                                name={CreateApplicantPageData.circumstances.circumstance5.nameAndId}
+                                name={CreateApplicationPageData.circumstances.circumstance5.nameAndId}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.circumstances.circumstance5.label}
+                            {CreateApplicationPageData.circumstances.circumstance5.label}
                         </label>
                         <label
                             className={[
@@ -479,13 +557,13 @@ class CreateApplicantPage extends Component {
                             ].join(' ')}
                         >
                             <input
-                                id={CreateApplicantPageData.circumstances.circumstance6.nameAndId}
+                                id={CreateApplicationPageData.circumstances.circumstance6.nameAndId}
                                 autocomplete="off"
                                 type="checkbox"
-                                name={CreateApplicantPageData.circumstances.circumstance6.nameAndId}
+                                name={CreateApplicationPageData.circumstances.circumstance6.nameAndId}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.circumstances.circumstance6.label}
+                            {CreateApplicationPageData.circumstances.circumstance6.label}
                         </label>
                         <div className="col-1" />
                     </div>
@@ -645,4 +723,4 @@ class CreateApplicantPage extends Component {
     }
 }
 
-export default CreateApplicantPage;
+export default CreateApplicationPage;

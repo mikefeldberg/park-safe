@@ -5,12 +5,13 @@ import SignupPage from '../src/pages/SignupPage/SignupPage';
 import LoginPage from '../src/pages/LoginPage/LoginPage';
 import userService from '../src/utils/userService';
 import NavBar from '../src/components/NavBar/NavBar';
+import NavTest from '../src/components/NavBar/NavTest';
 import HomePage from '../src/pages/HomePage/HomePage'
-import CreateApplicantPage from '../src/pages/CreateApplicantPage/CreateApplicantPage';
-import ApplicantsPage from '../src/pages/ApplicantsPage/ApplicantsPage'
-import TestPage from '../src/pages/CreateApplicantPage/TestPage'
-// import ShowApplicantPage from '../src/pages/ShowApplicantPage/ShowApplicantPage';
-// import EditApplicantPage from '../src/pages/EditApplicantPage/EditApplicantPage';
+import CreateApplicationPage from '../src/pages/CreateApplicationPage/CreateApplicationPage';
+import DownloadPage from '../src/pages/DownloadPage/DownloadPage'
+import TestPage from '../src/pages/CreateApplicationPage/TestPage'
+// import ShowApplicationPage from '../src/pages/ShowApplicationPage/ShowApplicationPage';
+// import EditApplicationPage from '../src/pages/EditApplicationPage/EditApplicationPage';
 
 
 class App extends Component {
@@ -39,27 +40,28 @@ class App extends Component {
     render() {
         return (
             <div className="container">
-                <header className='header-footer center'><h1>Home Hack</h1></header>
-                <NavBar
+                {/* <header className='header-footer center'><h1>Home Hack</h1></header> */}
+                <NavTest
                     user={this.state.user}
                     handleLogout={this.handleLogout}
                     className="mb30"
                 />
                 <Switch>
-                    <Route exact path='/applicants' component={
-                        ApplicantsPage
-                    }
-
-                    />
+                    <Route exact path='/application' render={() =>
+                        <CreateApplicationPage />
+                    } />
                     <Route exact path='/index' render={() =>
                         <HomePage
                             user={this.state.user}
                         />
                     } />
-                    <Route exact path='/newapplicant'
+                    <Route exact path='/test' render={({ history }) =>
+                        <TestPage />
+                    } />
+                    <Route exact path='/newapplication'
                         render={props =>
                             userService.getUser() ? (
-                                <CreateApplicantPage
+                                <CreateApplicationPage
                                     {...props}
                                     user={this.state.user}
                                     handleLogOut={this.handleLogOut}
@@ -69,10 +71,10 @@ class App extends Component {
                                 )
                         }
                     />
-                    {/* <Route exact path='/applicants/:id'
+                    {/* <Route exact path='/applications/:id'
                         render={props =>
                             userService.getUser() ? (
-                                <ShowApplicantPage
+                                <ShowApplicationPage
                                     {...props}
                                     user={this.state.user}
                                     handleLogOut={this.handleLogOut}
@@ -82,10 +84,10 @@ class App extends Component {
                             )
                         }
                     />
-                    <Route exact path='/applicants/:id/edit'
+                    <Route exact path='/applications/:id/edit'
                         render={props =>
                             userService.getUser() ? (
-                                <EditApplicantPage
+                                <EditApplicationPage
                                     {...props}
                                     user={this.state.user}
                                     handleLogOut={this.handleLogOut}
@@ -122,6 +124,9 @@ class App extends Component {
                     />
                     <Route exact path='/test' render={({ history }) =>
                         <TestPage />
+                    } />
+                    <Route exact path='/download' render={({ history }) =>
+                        <DownloadPage />
                     } />
                     {/* <Route exact path='/signup' render={({ history }) =>
                         <SignupPage

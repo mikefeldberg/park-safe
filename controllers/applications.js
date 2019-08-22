@@ -1,13 +1,13 @@
 
-const Applicant = require('../models/applicant');
+const Application = require('../models/application');
 
 module.exports = {
-    getAllApplicants,
-    createApplicant
+    getAllApplications,
+    createApplication
 }
 
-function createApplicant(req, res) {
-    let applicant = new Applicant({
+function createApplication(req, res) {
+    let application = new Application({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         phone: req.body.phone,
@@ -46,14 +46,14 @@ function createApplicant(req, res) {
         emergencyContactRelationship: req.body.emergencyContactRelationship,
     });
 
-    console.log(applicant)
+    console.log(application)
 
-    applicant.save()
-    res.status(200).json(applicant);
+    application.save()
+    res.status(200).json(application);
 }
 
-function getAllApplicants (req,res){
-    Applicant.find({}).then(function(applicants){
-        res.status(200).json(applicants)
+function getAllApplications (req,res){
+    Application.find({}).then(function(applications){
+        res.status(200).json(applications)
     })
 };
