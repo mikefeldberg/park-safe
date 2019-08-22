@@ -41,57 +41,70 @@ class CreateApplicantPage extends Component {
         emergencyContactRelationship: '',
     };
 
-    handleCheck = e => {
-        console.log('handling check')
-        let value = e.target.checked;
-        this.setState({
-            [e.target.name]: e.target.value,
-        });
-        // this.setState({[e.target.name]: !this.state.checked});
-    }
 
-    toggleBoolean = e => {
-        console.log('toggling boolean')
-        console.log(e.target.name)
-        console.log(e.target.value)
-        const name = e.target.name;
-        this.setState(prevState => ({
-            [name]: !prevState.name,
-        }));
-    }
 
-    handleTextChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value,
-        });
-    };
+    
+    // handleCheck = e => {
+    //     console.log('handling check')
+    //     let value = e.target.checked;
+    //     this.setState({
+    //         [e.target.name]: e.target.value,
+    //     });
+    //     // this.setState({[e.target.name]: !this.state.checked});
+    // }
+    // handleCheck = e => {
+    //     let target = e.target;
+    //     let value = target.type === 'checkbox' ? target.checked : target.value;
+    //     let name = target.name;
 
-    // handleBooleanChange = e => {
+    //     console.log(e.target.name)
+                    
+    //     console.log(e.target.type)
+    //     this.setState(prevState => ({
+    //         [name]: !prevState.name
+    //     }));
+    // }
+
+    // handleInputChange(event) {
+    //     const target = event.target;
+    //     const value = target.type === 'checkbox' ? target.checked : target.value;
+    //     const name = target.name;
+    
+    //     this.setState({
+    //         [name]: value
+    //     });
+    // }
+
+
+    // toggleBoolean = e => {
+    //     console.log('toggling boolean')
+    //     console.log(e.target.name)
+    //     console.log(e.target.value)
+    //     const name = e.target.name;
+    //     this.setState(prevState => ({
+    //         [name]: !prevState.name,
+    //     }));
+    // }
+
+    // handleTextChange = e => {
     //     this.setState({
     //         [e.target.name]: e.target.value,
     //     });
     // };
 
-    // toggleBoolean(e) {
-    //     const self = this;
-    //     let value = null
-    //     console.log(e.target.name)
-    //     if (e.target.type === 'checkbox') {
-    //         console.log(e.target.checked)
-    //         value = e.target.checked
-    //     } else {
-    //         console.log(e.target.value)
-    //         value = e.target.value
-    //     }
-    //     // const target = e.target;
-    //     // const value = target.type === 'checkbox' ? target.checked : target.value;
-    //     // const name = target.name;
-
-    //     self.setState({
-    //         [e.target.name]: value,
+    // handleReminderChange = e => {
+    //     const index = e.target.value;
+    //     const name = e.target.name;
+    //     console.log('$$$$$$$$$$$$$$$$$$$$name')
+    //     console.log(name)
+    //     this.setState(prevState => {
+    //         let reminderOptions = [...prevState.reminderOptions];
+    //         reminderOptions[index].checked
+    //             ? (name.checked = '')
+    //             : (name.checked = name);
+    //         return reminderOptions;
     //     });
-    // }
-
+    // };
 
 
     handleSubmit = e => {
@@ -165,6 +178,7 @@ class CreateApplicantPage extends Component {
                         type="checkbox"
                         className="form-check-input"
                         id="license"
+                        name="license"
                         onChange={this.toggleBoolean}
                     />
                     <label className="form-check-label" for="license">
@@ -177,6 +191,7 @@ class CreateApplicantPage extends Component {
                         type="checkbox"
                         className="form-check-input"
                         id="vehicle"
+                        name="vehicle"
                         onChange={this.toggleBoolean}
                     />
                     <label className="form-check-label" for="vehicle">
@@ -189,10 +204,10 @@ class CreateApplicantPage extends Component {
                         <input
                             className="form-check-input"
                             type="radio"
-                            name="age"
                             id="age1"
                             value="17 or younger"
                             checked
+                            name="age"
                             onChange={this.handleTextChange}
                         />
                         <label className="form-check-label" for="age1">
@@ -203,10 +218,10 @@ class CreateApplicantPage extends Component {
                         <input
                             className="form-check-input"
                             type="radio"
-                            name="age"
                             id="age2"
                             value="18 to 24"
                             checked
+                            name="age"
                             onChange={this.handleTextChange}
                         />
                         <label className="form-check-label" for="age2">
@@ -217,10 +232,10 @@ class CreateApplicantPage extends Component {
                         <input
                             className="form-check-input"
                             type="radio"
-                            name="age"
                             id="age3"
                             value="25 to 34"
                             checked
+                            name="age"
                             onChange={this.handleTextChange}
                         />
                         <label className="form-check-label" for="age3">
@@ -231,10 +246,10 @@ class CreateApplicantPage extends Component {
                         <input
                             className="form-check-input"
                             type="radio"
-                            name="age"
                             id="age4"
                             value="35 to 44"
                             checked
+                            name="age"
                             onChange={this.handleTextChange}
                         />
                         <label className="form-check-label" for="age4">
@@ -245,10 +260,10 @@ class CreateApplicantPage extends Component {
                         <input
                             className="form-check-input"
                             type="radio"
-                            name="age"
                             id="age5"
                             value="45 to 54"
                             checked
+                            name="age"
                             onChange={this.handleTextChange}
                         />
                         <label className="form-check-label" for="age5">
@@ -259,10 +274,10 @@ class CreateApplicantPage extends Component {
                         <input
                             className="form-check-input"
                             type="radio"
-                            name="age"
                             id="age6"
                             value="55 to 61"
                             checked
+                            name="age"
                             onChange={this.handleTextChange}
                         />
                         <label className="form-check-label" for="age6">
@@ -273,10 +288,10 @@ class CreateApplicantPage extends Component {
                         <input
                             className="form-check-input"
                             type="radio"
-                            name="age"
                             id="age7"
                             value="62 or older"
                             checked
+                            name="age"
                             onChange={this.handleTextChange}
                         />
                         <label className="form-check-label" for="age7">
@@ -290,8 +305,8 @@ class CreateApplicantPage extends Component {
                         <input
                             type="checkbox"
                             className="form-check-input"
-                            name="multipleOccupants"
                             id="multipleOccupants"
+                            name="multipleOccupants"
                             onChange={this.toggleBoolean}
                         />
                         <label className="form-check-label" for="multipleOccupants">
@@ -306,9 +321,9 @@ class CreateApplicantPage extends Component {
                             <input
                                 type="number"
                                 className="form-control"
-                                name="children"
                                 id="children"
                                 placeholder="0"
+                                name="children"
                                 onChange={this.handleTextChange}
                             />
                         </div>
@@ -319,9 +334,9 @@ class CreateApplicantPage extends Component {
                             <input
                                 type="number"
                                 className="form-control"
-                                name="adults"
                                 id="adults"
                                 placeholder="0"
+                                name="adults"
                                 onChange={this.handleTextChange}
                             />
                         </div>
@@ -332,9 +347,9 @@ class CreateApplicantPage extends Component {
                             <input
                                 type="number"
                                 className="form-control"
-                                name="seniors"
                                 id="seniors"
                                 placeholder="0"
+                                name="seniors"
                                 onChange={this.handleTextChange}
                             />
                         </div>
@@ -362,9 +377,9 @@ class CreateApplicantPage extends Component {
                             <input
                                 type="number"
                                 className="form-control"
-                                name="dogs"
                                 id="dogs"
                                 placeholder="0"
+                                name="dogs"
                                 onChange={this.handleTextChange}
                             />
                         </div>
@@ -375,9 +390,9 @@ class CreateApplicantPage extends Component {
                             <input
                                 type="number"
                                 className="form-control"
-                                name="cats"
                                 id="cats"
                                 placeholder="0"
+                                name="cats"
                                 onChange={this.handleTextChange}
                             />
                         </div>
@@ -388,9 +403,9 @@ class CreateApplicantPage extends Component {
                             <input
                                 type="number"
                                 className="form-control"
-                                name="other"
                                 id="other"
                                 placeholder="0"
+                                name="other"
                                 onChange={this.handleTextChange}
                             />
                         </div>
@@ -400,10 +415,10 @@ class CreateApplicantPage extends Component {
                     <label>List the reasons for your current housing situation:</label>
                     <div className="form-check">
                         <input
-                            name="reasonUnemployment"
                             className="form-check-input"
                             type="checkbox"
                             id="reasonUnemployment"
+                            name="reasonUnemployment"
                             onChange={this.toggleBoolean}
                         />
                         <label className="form-check-label" for="reasonUnemployment">
@@ -412,10 +427,10 @@ class CreateApplicantPage extends Component {
                     </div>
                     <div className="form-check">
                         <input
-                            name="reasonIncomeTooLow"
                             className="form-check-input"
                             type="checkbox"
                             id="reasonIncomeTooLow"
+                            name="reasonIncomeTooLow"
                             onChange={this.toggleBoolean}
                         />
                         <label className="form-check-label" for="reasonIncomeTooLow">
@@ -424,10 +439,10 @@ class CreateApplicantPage extends Component {
                     </div>
                     <div className="form-check">
                         <input
-                            name="reasonRelationship"
                             className="form-check-input"
                             type="checkbox"
                             id="reasonRelationship"
+                            name="reasonRelationship"
                             onChange={this.toggleBoolean}
                         />
                         <label className="form-check-label" for="reasonRelationship">
@@ -436,10 +451,10 @@ class CreateApplicantPage extends Component {
                     </div>
                     <div className="form-check">
                         <input
-                            name="reasonHealth"
                             className="form-check-input"
                             type="checkbox"
                             id="reasonHealth"
+                            name="reasonHealth"
                             onChange={this.toggleBoolean}
                         />
                         <label className="form-check-label" for="reasonHealth">
@@ -448,10 +463,10 @@ class CreateApplicantPage extends Component {
                     </div>
                     <div className="form-check">
                         <input
-                            name="reasonOther"
                             className="form-check-input"
                             type="checkbox"
                             id="reasonOther"
+                            name="reasonOther"
                             onChange={this.toggleBoolean}
                         />
                         <label className="form-check-label" for="reasonOther">
@@ -465,10 +480,10 @@ class CreateApplicantPage extends Component {
                         <input
                             className="form-check-input"
                             type="radio"
-                            name="age"
                             id="durationHomeless1"
                             value="Less than one week"
                             checked
+                            name="durationHomeless"
                             onChange={this.toggleBoolean}
                         />
                         <label className="form-check-label" for="durationHomeless1">
@@ -479,10 +494,10 @@ class CreateApplicantPage extends Component {
                         <input
                             className="form-check-input"
                             type="radio"
-                            name="age"
                             id="durationHomeless2"
                             value="One week to one month"
                             checked
+                            name="durationHomeless"
                             onChange={this.toggleBoolean}
                         />
                         <label className="form-check-label" for="durationHomeless2">
@@ -493,10 +508,10 @@ class CreateApplicantPage extends Component {
                         <input
                             className="form-check-input"
                             type="radio"
-                            name="age"
                             id="durationHomeless3"
                             value="One to three months"
                             checked
+                            name="durationHomeless"
                             onChange={this.toggleBoolean}
                         />
                         <label className="form-check-label" for="durationHomeless3">
@@ -507,10 +522,10 @@ class CreateApplicantPage extends Component {
                         <input
                             className="form-check-input"
                             type="radio"
-                            name="age"
                             id="durationHomeless4"
                             value="Three to six months"
                             checked
+                            name="durationHomeless"
                             onChange={this.toggleBoolean}
                         />
                         <label className="form-check-label" for="durationHomeless4">
@@ -521,10 +536,10 @@ class CreateApplicantPage extends Component {
                         <input
                             className="form-check-input"
                             type="radio"
-                            name="age"
                             id="durationHomeless5"
                             value="Longer than 6 months"
                             checked
+                            name="durationHomeless"
                             onChange={this.toggleBoolean}
                         />
                         <label className="form-check-label" for="durationHomeless5">
@@ -560,8 +575,8 @@ class CreateApplicantPage extends Component {
                 </div>
                 <label>Do you currently have a source of income (not including outside support)?</label>
                 <div className="form-check mb20">
-                    <input type="checkbox" className="form-check-input" id="receivingSupport" />
-                    <label className="form-check-label" for="receivingSupport">
+                    <input type="checkbox" className="form-check-input" id="hasIncome" name="hasIncome" onChange={this.handleCheck} checked={this.state.hasIncome}/>
+                    <label className="form-check-label" for="hasIncome">
                         Yes
                     </label>
                 </div>
