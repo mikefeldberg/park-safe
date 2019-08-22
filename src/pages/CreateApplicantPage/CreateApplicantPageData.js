@@ -26,6 +26,32 @@ const CreateApplicantPageData = {
             label: '62 +',
         },
     },
+    circumstances: {
+        circumstance1: {
+            nameAndId: 'reasonUnemployment',
+            label: 'Unemployment',
+        },
+        circumstance2: {
+            nameAndId: 'reasonLowIncome',
+            label: 'Low Income',
+        },
+        circumstance3: {
+            nameAndId: 'reasonRelationship',
+            label: 'Relationship',
+        },
+        circumstance4: {
+            nameAndId: 'reasonDisability',
+            label: 'Health Issues',
+        },
+        circumstance5: {
+            nameAndId: 'reasonEviction',
+            label: 'Eviction',
+        },
+        circumstance6: {
+            nameAndId: 'reasonOther',
+            label: 'Other',
+        },
+    }
 }
 
 export default CreateApplicantPageData;

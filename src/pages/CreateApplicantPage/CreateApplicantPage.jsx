@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DateSelector from '../../components/DateSelector/DateSelector';
+// import DateSelector from '../../components/DateSelector/DateSelector';
 // import NewApplicantForm from '../../components/NewApplicantForm/NewApplicantForm';
 import { createApplicant } from '../../services/api';
 import CreateApplicantPageData from './CreateApplicantPageData';
@@ -28,9 +28,10 @@ class CreateApplicantPage extends Component {
             reasonUnemployment: false,
             reasonLowIncome: false,
             reasonRelationship: false,
-            reasonHealth: false,
+            reasonDisability: false,
             reasonEviction: false,
             reasonOther: false,
+            reasonOtherDescription: '',
             veteran: false,
             receivingSupport: false,
             sourceOfSupport: '',
@@ -59,9 +60,14 @@ class CreateApplicantPage extends Component {
         });
     }
 
-    handleButton(event) {
-        
-    }
+    handleSubmit = e => {
+        e.preventDefault();
+
+        const self = this;
+        createApplicant(this.state).then(function() {
+            self.props.history.push(`/index`);
+        });
+    };
 
     render() {
         return (
@@ -110,7 +116,14 @@ class CreateApplicantPage extends Component {
                     <label>How old are you?</label>
                     <div className="btn-group-toggle btn-row row mb20" data-toggle="buttons">
                         <div className="col-1" />
-                        <label className={['btn btn-secondary col mp5', this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange1.value}` ? 'active' : ''].join(' ')}>
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange1.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
                             <input
                                 id="option1"
                                 type="radio"
@@ -119,10 +132,17 @@ class CreateApplicantPage extends Component {
                                 name="ageRange"
                                 value={CreateApplicantPageData.ageRanges.ageRange1.value}
                                 onChange={this.handleInputChange}
-                            />{' '}
+                            />
                             {CreateApplicantPageData.ageRanges.ageRange1.label}
                         </label>
-                        <label className={['btn btn-secondary col mp5', this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange2.value}` ? 'active' : ''].join(' ')}>
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange2.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
                             <input
                                 id="option1"
                                 type="radio"
@@ -131,10 +151,17 @@ class CreateApplicantPage extends Component {
                                 name="ageRange"
                                 value={CreateApplicantPageData.ageRanges.ageRange2.value}
                                 onChange={this.handleInputChange}
-                            />{' '}
+                            />
                             {CreateApplicantPageData.ageRanges.ageRange2.label}
                         </label>
-                        <label className={['btn btn-secondary col mp5', this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange3.value}` ? 'active' : ''].join(' ')}>
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange3.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
                             <input
                                 id="option1"
                                 type="radio"
@@ -143,14 +170,21 @@ class CreateApplicantPage extends Component {
                                 name="ageRange"
                                 value={CreateApplicantPageData.ageRanges.ageRange3.value}
                                 onChange={this.handleInputChange}
-                            />{' '}
+                            />
                             {CreateApplicantPageData.ageRanges.ageRange3.label}
                         </label>
                         <div className="col-1" />
                     </div>
                     <div className="btn-group-toggle btn-row row" data-toggle="buttons">
                         <div className="col-1" />
-                        <label className={['btn btn-secondary col mp5', this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange4.value}` ? 'active' : ''].join(' ')}>
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange4.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
                             <input
                                 id="option1"
                                 type="radio"
@@ -159,10 +193,17 @@ class CreateApplicantPage extends Component {
                                 name="ageRange"
                                 value={CreateApplicantPageData.ageRanges.ageRange4.value}
                                 onChange={this.handleInputChange}
-                            />{' '}
+                            />
                             {CreateApplicantPageData.ageRanges.ageRange4.label}
                         </label>
-                        <label className={['btn btn-secondary col mp5', this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange5.value}` ? 'active' : ''].join(' ')}>
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange5.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
                             <input
                                 id="option1"
                                 type="radio"
@@ -171,10 +212,17 @@ class CreateApplicantPage extends Component {
                                 name="ageRange"
                                 value={CreateApplicantPageData.ageRanges.ageRange5.value}
                                 onChange={this.handleInputChange}
-                            />{' '}
+                            />
                             {CreateApplicantPageData.ageRanges.ageRange5.label}
                         </label>
-                        <label className={['btn btn-secondary col mp5', this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange6.value}` ? 'active' : ''].join(' ')}>
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange6.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
                             <input
                                 id="option1"
                                 type="radio"
@@ -183,7 +231,7 @@ class CreateApplicantPage extends Component {
                                 name="ageRange"
                                 value={CreateApplicantPageData.ageRanges.ageRange6.value}
                                 onChange={this.handleInputChange}
-                            />{' '}
+                            />
                             {CreateApplicantPageData.ageRanges.ageRange6.label}
                         </label>
                         <div className="col-1" />
@@ -335,93 +383,130 @@ class CreateApplicantPage extends Component {
                 </div>
 
                 <div className="mb30">
-                    <label>What caused your current housing situation? (Please select all that apply):</label>
-
-                    <div className="btn-row row mb10">
+                    <label>
+                        What circumstances contributed to your current housing situation? (Please select all that
+                        apply):
+                    </label>
+                    <div className="btn-group-toggle btn-row row mb10" data-toggle="buttons">
                         <div className="col-1" />
-                        <button
-                            className="btn btn-primary col mp5"
-                            data-toggle="button"
-                            aria-pressed={this.state.reasonUnemployment}
-                            autocomplete="off"
-                            type="button"
-                            id="reasonUnemployment"
-                            name="reasonUnemployment"
-                            onClick={this.handleInputChange}
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.reasonUnemployment === true ? 'active' : '',
+                            ].join(' ')}
                         >
-                            Unemployment
-                        </button>
-                        <button
-                            className="btn btn-primary col mp5"
-                            data-toggle="button"
-                            aria-pressed={this.state.reasonLowIncome}
-                            autocomplete="off"
-                            type="button"
-                            id="reasonLowIncome"
-                            name="reasonLowIncome"
-                            onClick={this.handleInputChange}
+                            <input
+                                id={CreateApplicantPageData.circumstances.circumstance1.nameAndId}
+                                autocomplete="off"
+                                type="checkbox"
+                                name={CreateApplicantPageData.circumstances.circumstance1.nameAndId}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicantPageData.circumstances.circumstance1.label}
+                        </label>
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.reasonLowIncome === true ? 'active' : '',
+                            ].join(' ')}
                         >
-                            Low Income
-                        </button>
-                        <div className="col-1" />
-                    </div>
-                    <div className="btn-row row mb10">
-                        <div className="col-1" />
-                        <button
-                            className="btn btn-primary col mp5"
-                            data-toggle="button"
-                            aria-pressed={this.state.reasonRelationship}
-                            autocomplete="off"
-                            type="button"
-                            id="reasonRelationship"
-                            name="reasonRelationship"
-                            onClick={this.handleInputChange}
-                        >
-                            Relationship
-                        </button>
-                        <button
-                            className="btn btn-primary col mp5"
-                            data-toggle="button"
-                            aria-pressed={this.state.reasonHealth}
-                            autocomplete="off"
-                            type="button"
-                            id="reasonHealth"
-                            name="reasonHealth"
-                            onClick={this.handleInputChange}
-                        >
-                            Health Issues
-                        </button>
+                            <input
+                                id={CreateApplicantPageData.circumstances.circumstance2.nameAndId}
+                                autocomplete="off"
+                                type="checkbox"
+                                name={CreateApplicantPageData.circumstances.circumstance2.nameAndId}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicantPageData.circumstances.circumstance2.label}
+                        </label>
                         <div className="col-1" />
                     </div>
-                    <div className="btn-row row">
+                    <div className="btn-group-toggle btn-row row mb10" data-toggle="buttons">
                         <div className="col-1" />
-                        <button
-                            className="btn btn-primary col mp5"
-                            data-toggle="button"
-                            aria-pressed={this.state.reasonEvicted}
-                            autocomplete="off"
-                            type="button"
-                            id="reasonEvicted"
-                            name="reasonEvicted"
-                            onClick={this.handleInputChange}
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.reasonRelationship === true ? 'active' : '',
+                            ].join(' ')}
                         >
-                            Eviction
-                        </button>
-                        <button
-                            className="btn btn-primary col mp5"
-                            data-toggle="button"
-                            aria-pressed={this.state.reasonOther}
-                            autocomplete="off"
-                            type="button"
-                            id="reasonOther"
-                            name="reasonOther"
-                            onClick={this.handleInputChange}
+                            <input
+                                id={CreateApplicantPageData.circumstances.circumstance3.nameAndId}
+                                autocomplete="off"
+                                type="checkbox"
+                                name={CreateApplicantPageData.circumstances.circumstance3.nameAndId}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicantPageData.circumstances.circumstance3.label}
+                        </label>
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.reasonDisability === true ? 'active' : '',
+                            ].join(' ')}
                         >
-                            Other
-                        </button>
+                            <input
+                                id={CreateApplicantPageData.circumstances.circumstance4.nameAndId}
+                                autocomplete="off"
+                                type="checkbox"
+                                name={CreateApplicantPageData.circumstances.circumstance4.nameAndId}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicantPageData.circumstances.circumstance4.label}
+                        </label>
                         <div className="col-1" />
                     </div>
-                    {/* <hr /> */}
+                    <div className="btn-group-toggle btn-row row mb10" data-toggle="buttons">
+                        <div className="col-1" />
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.reasonEviction === true ? 'active' : '',
+                            ].join(' ')}
+                        >
+                            <input
+                                id={CreateApplicantPageData.circumstances.circumstance5.nameAndId}
+                                autocomplete="off"
+                                type="checkbox"
+                                name={CreateApplicantPageData.circumstances.circumstance5.nameAndId}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicantPageData.circumstances.circumstance5.label}
+                        </label>
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.reasonOther === true ? 'active' : '',
+                            ].join(' ')}
+                        >
+                            <input
+                                id={CreateApplicantPageData.circumstances.circumstance6.nameAndId}
+                                autocomplete="off"
+                                type="checkbox"
+                                name={CreateApplicantPageData.circumstances.circumstance6.nameAndId}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicantPageData.circumstances.circumstance6.label}
+                        </label>
+                        <div className="col-1" />
+                    </div>
+                    {this.state.reasonOther && (
+                        <React.Fragment>
+                            <div className="row">
+                                <div className="col-1" />
+                                <label>If 'other', please explain:</label>
+                                <div className="col-1" />
+                            </div>
+                            <div className="row">
+                                <div className="col-1" />
+                                <textarea
+                                    className="form-control col"
+                                    name="reasonOtherDescription"
+                                    onChange={this.handleInputChange}
+                                />
+                                <div className="col-1" />
+                            </div>
+                        </React.Fragment>
+                    )}
                 </div>
                 <div className="mb20">
                     <label>How long have you been without permanent housing?</label>
@@ -549,7 +634,7 @@ class CreateApplicantPage extends Component {
                             className="form-control"
                             name="incomeDescription"
                             onChange={this.handleInputChange}
-                        ></textarea>
+                        />
                     </div>
                 )}
                 <div className="text-center">

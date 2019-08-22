@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import CreateApplicantPageData from './CreateApplicantPageData';
 
 class TestPage extends Component {
     constructor(props) {
@@ -7,9 +8,10 @@ class TestPage extends Component {
             reasonUnemployment: false,
             reasonLowIncome: false,
             reasonRelationship: false,
-            reasonHealth: false,
+            reasonDisability: false,
             reasonEviction: false,
             reasonOther: false,
+            reasonOtherDescription: '',
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -37,38 +39,7 @@ class TestPage extends Component {
         return (
             <div>
                 <h1>We testin now</h1>
-                <div className="btn-group-toggle" data-toggle="buttons">
-                    <label className="btn btn-primary active">
-                        <input
-                            id="reasonUnemployment"
-                            autocomplete="off"
-                            type="checkbox"
-                            name="reasonUnemployment"
-                            onChange={this.handleInputChange}
-                            checked={this.state.reasonUnemployment}
-                            active
-                        />{' '}
-                        Checked
-                    </label>
-                </div>
-                <div className="btn-group-toggle" data-toggle="buttons">
-                    <label className="btn btn-primary active">
-                        <input
-                            id="reasonUnemployment"
-                            autocomplete="off"
-                            type="checkbox"
-                            name="reasonUnemployment"
-                            onChange={this.handleInputChange}
-                            checked={this.state.reasonUnemployment}
-                        />{' '}
-                        Checked
-                    </label>
-                </div>
-                <div class="btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary active">
-                        <input type="checkbox" checked autocomplete="off" /> Checked
-                    </label>
-                </div>
+
             </div>
         );
     }

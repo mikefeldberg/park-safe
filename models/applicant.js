@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 
 var applicantSchema = new mongoose.Schema({
-    name: String,
+    firstName: String,
+    lastName: String,
     phone: String,
     email: String,
     language: String,
@@ -20,9 +21,10 @@ var applicantSchema = new mongoose.Schema({
     reasonUnemployment: Boolean,
     reasonLowIncome: Boolean,
     reasonRelationship: Boolean,
-    reasonHealth: Boolean,
+    reasonDisability: Boolean,
     reasonEviction: Boolean,
     reasonOther: Boolean,
+    reasonOtherDescription: String,
     veteran: Boolean,
     receivingSupport: Boolean,
     sourceOfSupport: String,

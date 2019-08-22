@@ -10,6 +10,7 @@ router.post('/login', usersController.login);
 
 
 router.get('/applicants', applicantsController.getAllApplicants);
+router.post('/applicants', applicantsController.createApplicant);
 /*--------- Protected Routes --------*/
 
 // router.put('/applicants/:id', applicantsController.updateApplicant);
