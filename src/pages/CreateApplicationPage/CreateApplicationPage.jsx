@@ -12,6 +12,7 @@ class CreateApplicationPage extends Component {
             lastName: '',
             phone: '',
             email: '',
+            gender: '',
             // language: '',
             // location: '',
             license: false,
@@ -35,15 +36,16 @@ class CreateApplicationPage extends Component {
             veteran: false,
             receivingSupport: false,
             sourceOfSupport: '',
-            highPriority: false,
             durationHomeless: '',
             durationInCar: '',
             currentSituation: '',
             hasIncome: false,
             incomeDescription: '',
+            hasEmergencyContact: false,
             emergencyContactPhone: '',
             emergencyContactName: '',
             emergencyContactRelationship: '',
+            highPriority: false,
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -393,6 +395,70 @@ class CreateApplicationPage extends Component {
                         Yes
                     </label>
                 </div>
+
+                <div className="mb30">
+                    <label>Add emergency contact?</label>
+                    <div className="form-check">
+                        <input
+                            type="checkbox"
+                            className="form-check-input"
+                            id="hasEmergencyContact"
+                            name="hasEmergencyContact"
+                            onChange={this.handleInputChange}
+                        />
+                        <label className="form-check-label" for="hasEmergencyContact">
+                            Yes
+                        </label>
+                    </div>
+                    {this.state.hasEmergencyContact && (
+                        <div className="form-group mb20">
+                            <div className="row mb5">
+                                <label for="emergencyContactPhone" className="col col-form-label">
+                                    Phone
+                                </label>
+                                <div className="col-6">
+                                    <input
+                                        type="text"
+                                        pattern="\d*"
+                                        className="form-control"
+                                        id="emergencyContactPhone"
+                                        name="emergencyContactPhone"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="row mb5">
+                                <label for="emergencyContactName" className="col col-form-label">
+                                    Name
+                                </label>
+                                <div className="col-6">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="emergencyContactName"
+                                        name="emergencyContactName"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="row mb5">
+                                <label for="emergencyContactRelationship" className="col col-form-label">
+                                    Relationship
+                                </label>
+                                <div className="col-6">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="emergencyContactRelationship"
+                                        name="emergencyContactRelationship"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+
 
                 <div className="mb30">
                     <label>
