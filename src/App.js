@@ -47,8 +47,10 @@ class App extends Component {
                     className="mb30"
                 />
                 <Switch>
-                    <Route exact path='/application' render={() =>
-                        <CreateApplicationPage />
+                    <Route exact path='/application' render={({ history }) =>
+                        <CreateApplicationPage
+                            history={history}
+                        />
                     } />
                     <Route exact path='/index' render={() =>
                         <HomePage
