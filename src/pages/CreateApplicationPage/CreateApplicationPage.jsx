@@ -71,6 +71,16 @@ class CreateApplicationPage extends Component {
         });
     };
 
+    // handleSubmit = e => {
+    //     e.preventDefault();
+
+    //     const self = this;
+    //     createPlant(this.state).then(function() {
+    //         self.props.history.push(`/index`);
+    //     });
+    // };
+
+
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
@@ -114,6 +124,34 @@ class CreateApplicationPage extends Component {
                         onChange={this.handleInputChange}
                     />
                 </div>
+                <div>
+                    <label>Gender</label>
+                    <div class="form-check form-check-inline">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio1"
+                            value="option1"
+                        />
+                        <label class="form-check-label" for="inlineRadio1">
+                            1
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio2"
+                            value="option2"
+                        />
+                        <label class="form-check-label" for="inlineRadio2">
+                            2
+                        </label>
+                    </div>
+                </div>
+
                 <div className="mb20">
                     <label>Age</label>
                     <div className="btn-group-toggle btn-row row mb20" data-toggle="buttons">
@@ -458,7 +496,6 @@ class CreateApplicationPage extends Component {
                         </div>
                     )}
                 </div>
-
 
                 <div className="mb30">
                     <label>
