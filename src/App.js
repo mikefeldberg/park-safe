@@ -69,6 +69,11 @@ class App extends Component {
                             )
                         }
                     />
+                    <Route exact path='/test'
+                        render={props =>
+                            <CreateApplicationTest />
+                        }
+                    />
                     {/* <Route exact path='/applicants/:id'
                         render={props =>
                             userService.getUser() ? (

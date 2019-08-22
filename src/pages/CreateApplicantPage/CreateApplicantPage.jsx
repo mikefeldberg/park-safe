@@ -5,120 +5,62 @@ import { createApplicant } from '../../services/api';
 import { Link } from 'react-router-dom';
 
 class CreateApplicantPage extends Component {
-    state = {
-        name: '',
-        phone: '',
-        email: '',
-        // language: '',
-        // location: '',
-        license: false,
-        vehicle: false,
-        age: '',
-        multipleOccupants: false,
-        children: 0,
-        adults: 0,
-        seniors: 0,
-        pets: false,
-        dogs: 0,
-        cats: 0,
-        other: 0,
-        reasonUnemployment: false,
-        reasonIncomeTooLow: false,
-        reasonRelationship: false,
-        reasonHealth: false,
-        reasonOther: false,
-        veteran: false,
-        receivingSupport: false,
-        sourceOfSupport: '',
-        highPriority: false,
-        durationHomeless: '',
-        durationInCar: '',
-        currentSituation: '',
-        hasIncome: false,
-        incomeDescription: '',
-        emergencyContactPhone: '',
-        emergencyContactName: '',
-        emergencyContactRelationship: '',
-    };
-
-
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            phone: '',
+            email: '',
+            // language: '',
+            // location: '',
+            license: false,
+            vehicle: false,
+            age: '',
+            multipleOccupants: false,
+            children: 0,
+            adults: 0,
+            seniors: 0,
+            pets: false,
+            dogs: 0,
+            cats: 0,
+            other: 0,
+            reasonUnemployment: false,
+            reasonIncomeTooLow: false,
+            reasonRelationship: false,
+            reasonHealth: false,
+            reasonOther: false,
+            veteran: false,
+            receivingSupport: false,
+            sourceOfSupport: '',
+            highPriority: false,
+            durationHomeless: '',
+            durationInCar: '',
+            currentSituation: '',
+            hasIncome: false,
+            incomeDescription: '',
+            emergencyContactPhone: '',
+            emergencyContactName: '',
+            emergencyContactRelationship: '',
     
-    // handleCheck = e => {
-    //     console.log('handling check')
-    //     let value = e.target.checked;
-    //     this.setState({
-    //         [e.target.name]: e.target.value,
-    //     });
-    //     // this.setState({[e.target.name]: !this.state.checked});
-    // }
-    // handleCheck = e => {
-    //     let target = e.target;
-    //     let value = target.type === 'checkbox' ? target.checked : target.value;
-    //     let name = target.name;
+        };
 
-    //     console.log(e.target.name)
-                    
-    //     console.log(e.target.type)
-    //     this.setState(prevState => ({
-    //         [name]: !prevState.name
-    //     }));
-    // }
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
 
-    // handleInputChange(event) {
-    //     const target = event.target;
-    //     const value = target.type === 'checkbox' ? target.checked : target.value;
-    //     const name = target.name;
-    
-    //     this.setState({
-    //         [name]: value
-    //     });
-    // }
+    handleInputChange(event) {
+        console.log(event.target.value)
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
 
-
-    // toggleBoolean = e => {
-    //     console.log('toggling boolean')
-    //     console.log(e.target.name)
-    //     console.log(e.target.value)
-    //     const name = e.target.name;
-    //     this.setState(prevState => ({
-    //         [name]: !prevState.name,
-    //     }));
-    // }
-
-    // handleTextChange = e => {
-    //     this.setState({
-    //         [e.target.name]: e.target.value,
-    //     });
-    // };
-
-    // handleReminderChange = e => {
-    //     const index = e.target.value;
-    //     const name = e.target.name;
-    //     console.log('$$$$$$$$$$$$$$$$$$$$name')
-    //     console.log(name)
-    //     this.setState(prevState => {
-    //         let reminderOptions = [...prevState.reminderOptions];
-    //         reminderOptions[index].checked
-    //             ? (name.checked = '')
-    //             : (name.checked = name);
-    //         return reminderOptions;
-    //     });
-    // };
-
-
-    handleSubmit = e => {
-        e.preventDefault();
-
-        const self = this;
-        createApplicant(this.state).then(function() {
-            self.props.history.push(`/index`);
+        this.setState({
+            [name]: value,
         });
-    };
+    }
 
     render() {
         return (
-            <form className="form-horizontal" onSubmit={this.handleSubmit}>
+            <form>
                 <div className="form-group">
                     <label for="name">Name:</label>
                     <input
@@ -126,7 +68,7 @@ class CreateApplicantPage extends Component {
                         type="text"
                         className="form-control"
                         name="name"
-                        onChange={this.handleTextChange}
+                        onChange={this.handleInputChange}
                     />
                 </div>
                 <div className="form-group">
@@ -137,7 +79,7 @@ class CreateApplicantPage extends Component {
                         pattern="\d*"
                         className="form-control"
                         name="phone"
-                        onChange={this.handleTextChange}
+                        onChange={this.handleInputChange}
                     />
                 </div>
                 <div className="form-group">
@@ -147,31 +89,9 @@ class CreateApplicantPage extends Component {
                         type="email"
                         className="form-control"
                         name="email"
-                        onChange={this.handleTextChange}
+                        onChange={this.handleInputChange}
                     />
                 </div>
-                {/* <div className="form-group">
-                    <div>
-                        <label for="language">Preferred Language:</label>
-                        <input
-                            id="language"
-                            type="text"
-                            className="form-control"
-                            name="language"
-                            onChange={this.handleTextChange}
-                        />
-                    </div>
-                </div> */}
-                {/* <div className="form-group">
-                    <label for="language">Preferred Language:</label>
-                    <input
-                        id="language"
-                        type="text"
-                        className="form-control"
-                        name="language"
-                        onChange={this.handleTextChange}
-                    />
-                </div> */}
                 <label>Do you have a valid driver's license?</label>
                 <div className="form-check mb20">
                     <input
@@ -179,7 +99,7 @@ class CreateApplicantPage extends Component {
                         className="form-check-input"
                         id="license"
                         name="license"
-                        onChange={this.toggleBoolean}
+                        onChange={this.handleInputChange}
                     />
                     <label className="form-check-label" for="license">
                         Yes
@@ -192,7 +112,7 @@ class CreateApplicantPage extends Component {
                         className="form-check-input"
                         id="vehicle"
                         name="vehicle"
-                        onChange={this.toggleBoolean}
+                        onChange={this.handleInputChange}
                     />
                     <label className="form-check-label" for="vehicle">
                         Yes
@@ -208,7 +128,7 @@ class CreateApplicantPage extends Component {
                             value="17 or younger"
                             checked
                             name="age"
-                            onChange={this.handleTextChange}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="age1">
                             Under 18
@@ -222,7 +142,7 @@ class CreateApplicantPage extends Component {
                             value="18 to 24"
                             checked
                             name="age"
-                            onChange={this.handleTextChange}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="age2">
                             18 - 24
@@ -236,7 +156,7 @@ class CreateApplicantPage extends Component {
                             value="25 to 34"
                             checked
                             name="age"
-                            onChange={this.handleTextChange}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="age3">
                             25 - 34
@@ -250,7 +170,7 @@ class CreateApplicantPage extends Component {
                             value="35 to 44"
                             checked
                             name="age"
-                            onChange={this.handleTextChange}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="age4">
                             35 - 44
@@ -264,7 +184,7 @@ class CreateApplicantPage extends Component {
                             value="45 to 54"
                             checked
                             name="age"
-                            onChange={this.handleTextChange}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="age5">
                             45 - 54
@@ -278,7 +198,7 @@ class CreateApplicantPage extends Component {
                             value="55 to 61"
                             checked
                             name="age"
-                            onChange={this.handleTextChange}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="age6">
                             55 - 61
@@ -292,7 +212,7 @@ class CreateApplicantPage extends Component {
                             value="62 or older"
                             checked
                             name="age"
-                            onChange={this.handleTextChange}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="age7">
                             62 or older
@@ -307,7 +227,7 @@ class CreateApplicantPage extends Component {
                             className="form-check-input"
                             id="multipleOccupants"
                             name="multipleOccupants"
-                            onChange={this.toggleBoolean}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="multipleOccupants">
                             Yes
@@ -324,7 +244,7 @@ class CreateApplicantPage extends Component {
                                 id="children"
                                 placeholder="0"
                                 name="children"
-                                onChange={this.handleTextChange}
+                                onChange={this.handleInputChange}
                             />
                         </div>
                         <label for="adults" className="col-sm-2 col-form-label text-right">
@@ -337,7 +257,7 @@ class CreateApplicantPage extends Component {
                                 id="adults"
                                 placeholder="0"
                                 name="adults"
-                                onChange={this.handleTextChange}
+                                onChange={this.handleInputChange}
                             />
                         </div>
                         <label for="seniors" className="col-sm-2 col-form-label text-right">
@@ -350,7 +270,7 @@ class CreateApplicantPage extends Component {
                                 id="seniors"
                                 placeholder="0"
                                 name="seniors"
-                                onChange={this.handleTextChange}
+                                onChange={this.handleInputChange}
                             />
                         </div>
                     </div>
@@ -363,7 +283,7 @@ class CreateApplicantPage extends Component {
                             className="form-check-input"
                             id="pets"
                             name="pets"
-                            onChange={this.toggleBoolean}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="pets">
                             Yes
@@ -380,7 +300,7 @@ class CreateApplicantPage extends Component {
                                 id="dogs"
                                 placeholder="0"
                                 name="dogs"
-                                onChange={this.handleTextChange}
+                                onChange={this.handleInputChange}
                             />
                         </div>
                         <label for="cats" className="col-sm-2 col-form-label text-right">
@@ -393,7 +313,7 @@ class CreateApplicantPage extends Component {
                                 id="cats"
                                 placeholder="0"
                                 name="cats"
-                                onChange={this.handleTextChange}
+                                onChange={this.handleInputChange}
                             />
                         </div>
                         <label for="other" className="col-sm-2 col-form-label text-right">
@@ -406,7 +326,7 @@ class CreateApplicantPage extends Component {
                                 id="other"
                                 placeholder="0"
                                 name="other"
-                                onChange={this.handleTextChange}
+                                onChange={this.handleInputChange}
                             />
                         </div>
                     </div>
@@ -419,7 +339,7 @@ class CreateApplicantPage extends Component {
                             type="checkbox"
                             id="reasonUnemployment"
                             name="reasonUnemployment"
-                            onChange={this.toggleBoolean}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="reasonUnemployment">
                             Unemployment
@@ -431,7 +351,7 @@ class CreateApplicantPage extends Component {
                             type="checkbox"
                             id="reasonIncomeTooLow"
                             name="reasonIncomeTooLow"
-                            onChange={this.toggleBoolean}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="reasonIncomeTooLow">
                             Employed but insufficient income
@@ -443,7 +363,7 @@ class CreateApplicantPage extends Component {
                             type="checkbox"
                             id="reasonRelationship"
                             name="reasonRelationship"
-                            onChange={this.toggleBoolean}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="reasonRelationship">
                             Relationship
@@ -455,7 +375,7 @@ class CreateApplicantPage extends Component {
                             type="checkbox"
                             id="reasonHealth"
                             name="reasonHealth"
-                            onChange={this.toggleBoolean}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="reasonHealth">
                             Health complications
@@ -467,7 +387,7 @@ class CreateApplicantPage extends Component {
                             type="checkbox"
                             id="reasonOther"
                             name="reasonOther"
-                            onChange={this.toggleBoolean}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="reasonOther">
                             Other
@@ -484,7 +404,7 @@ class CreateApplicantPage extends Component {
                             value="Less than one week"
                             checked
                             name="durationHomeless"
-                            onChange={this.toggleBoolean}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="durationHomeless1">
                             Less than 1 week
@@ -498,7 +418,7 @@ class CreateApplicantPage extends Component {
                             value="One week to one month"
                             checked
                             name="durationHomeless"
-                            onChange={this.toggleBoolean}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="durationHomeless2">
                             1 week to 1 month
@@ -512,7 +432,7 @@ class CreateApplicantPage extends Component {
                             value="One to three months"
                             checked
                             name="durationHomeless"
-                            onChange={this.toggleBoolean}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="durationHomeless3">
                             1 to 3 months
@@ -526,7 +446,7 @@ class CreateApplicantPage extends Component {
                             value="Three to six months"
                             checked
                             name="durationHomeless"
-                            onChange={this.toggleBoolean}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="durationHomeless4">
                             3 to 6 months
@@ -540,7 +460,7 @@ class CreateApplicantPage extends Component {
                             value="Longer than 6 months"
                             checked
                             name="durationHomeless"
-                            onChange={this.toggleBoolean}
+                            onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="durationHomeless5">
                             Over 6 months
@@ -570,7 +490,7 @@ class CreateApplicantPage extends Component {
                         type="text"
                         className="form-control"
                         name="sourceOfSupport"
-                        onChange={this.handleTextChange}
+                        onChange={this.handleInputChange}
                     />
                 </div>
                 <label>Do you currently have a source of income (not including outside support)?</label>
@@ -587,12 +507,14 @@ class CreateApplicantPage extends Component {
                         type="text"
                         className="form-control"
                         name="incomeDescription"
-                        onChange={this.handleTextChange}
+                        onChange={this.handleInputChange}
                     />
                 </div>
             </form>
         );
     }
 }
+
+
 
 export default CreateApplicantPage;

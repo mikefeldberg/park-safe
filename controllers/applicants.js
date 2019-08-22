@@ -6,7 +6,7 @@ module.exports = {
 }
 
 function getAllApplicants(req, res) {
-    Applicant.find({}).then(function (Applicants) {
+    Applicant.find({}).then(function(Applicants) {
         res.status(200).json(Applicants)
     })
 };
