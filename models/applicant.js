@@ -21,6 +21,7 @@ var applicantSchema = new mongoose.Schema({
     reasonLowIncome: Boolean,
     reasonRelationship: Boolean,
     reasonHealth: Boolean,
+    reasonEviction: Boolean,
     reasonOther: Boolean,
     veteran: Boolean,
     receivingSupport: Boolean,

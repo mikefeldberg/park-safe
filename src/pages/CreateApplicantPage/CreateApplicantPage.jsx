@@ -29,6 +29,7 @@ class CreateApplicantPage extends Component {
             reasonLowIncome: false,
             reasonRelationship: false,
             reasonHealth: false,
+            reasonEviction: false,
             reasonOther: false,
             veteran: false,
             receivingSupport: false,
@@ -109,7 +110,7 @@ class CreateApplicantPage extends Component {
                     <label>How old are you?</label>
                     <div className="btn-group-toggle btn-row row mb20" data-toggle="buttons">
                         <div className="col-1" />
-                        <label className={['btn btn-secondary col mp5', this.state.ageRange === '1' ? 'active' : ''].join(' ')}>
+                        <label className={['btn btn-secondary col mp5', this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange1.value}` ? 'active' : ''].join(' ')}>
                             <input
                                 id="option1"
                                 type="radio"
@@ -121,7 +122,7 @@ class CreateApplicantPage extends Component {
                             />{' '}
                             {CreateApplicantPageData.ageRanges.ageRange1.label}
                         </label>
-                        <label className={['btn btn-secondary col mp5', this.state.ageRange === '2' ? 'active' : ''].join(' ')}>
+                        <label className={['btn btn-secondary col mp5', this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange2.value}` ? 'active' : ''].join(' ')}>
                             <input
                                 id="option1"
                                 type="radio"
@@ -133,7 +134,7 @@ class CreateApplicantPage extends Component {
                             />{' '}
                             {CreateApplicantPageData.ageRanges.ageRange2.label}
                         </label>
-                        <label className={['btn btn-secondary col mp5', this.state.ageRange === '3' ? 'active' : ''].join(' ')}>
+                        <label className={['btn btn-secondary col mp5', this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange3.value}` ? 'active' : ''].join(' ')}>
                             <input
                                 id="option1"
                                 type="radio"
@@ -149,7 +150,7 @@ class CreateApplicantPage extends Component {
                     </div>
                     <div className="btn-group-toggle btn-row row" data-toggle="buttons">
                         <div className="col-1" />
-                        <label className={['btn btn-secondary col mp5', this.state.ageRange === '1' ? 'active' : ''].join(' ')}>
+                        <label className={['btn btn-secondary col mp5', this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange4.value}` ? 'active' : ''].join(' ')}>
                             <input
                                 id="option1"
                                 type="radio"
@@ -161,7 +162,7 @@ class CreateApplicantPage extends Component {
                             />{' '}
                             {CreateApplicantPageData.ageRanges.ageRange4.label}
                         </label>
-                        <label className={['btn btn-secondary col mp5', this.state.ageRange === '2' ? 'active' : ''].join(' ')}>
+                        <label className={['btn btn-secondary col mp5', this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange5.value}` ? 'active' : ''].join(' ')}>
                             <input
                                 id="option1"
                                 type="radio"
@@ -173,7 +174,7 @@ class CreateApplicantPage extends Component {
                             />{' '}
                             {CreateApplicantPageData.ageRanges.ageRange5.label}
                         </label>
-                        <label className={['btn btn-secondary col mp5', this.state.ageRange === '3' ? 'active' : ''].join(' ')}>
+                        <label className={['btn btn-secondary col mp5', this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange6.value}` ? 'active' : ''].join(' ')}>
                             <input
                                 id="option1"
                                 type="radio"
@@ -336,7 +337,7 @@ class CreateApplicantPage extends Component {
                 <div className="mb30">
                     <label>What caused your current housing situation? (Please select all that apply):</label>
 
-                    <div class="btn-row row mb10">
+                    <div className="btn-row row mb10">
                         <div className="col-1" />
                         <button
                             className="btn btn-primary col mp5"
@@ -364,7 +365,7 @@ class CreateApplicantPage extends Component {
                         </button>
                         <div className="col-1" />
                     </div>
-                    <div class="btn-row row mb10">
+                    <div className="btn-row row mb10">
                         <div className="col-1" />
                         <button
                             className="btn btn-primary col mp5"
@@ -392,7 +393,7 @@ class CreateApplicantPage extends Component {
                         </button>
                         <div className="col-1" />
                     </div>
-                    <div class="btn-row row">
+                    <div className="btn-row row">
                         <div className="col-1" />
                         <button
                             className="btn btn-primary col mp5"
