@@ -8,7 +8,7 @@ var applicantSchema = new mongoose.Schema({
     location: String,
     license: Boolean,
     vehicle: Boolean,
-    age: String,
+    ageRange: String,
     multipleOccupants: Boolean,
     children: Number,
     adults: Number,

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DateSelector from '../../components/DateSelector/DateSelector';
 // import NewApplicantForm from '../../components/NewApplicantForm/NewApplicantForm';
 import { createApplicant } from '../../services/api';
+import CreateApplicantPageData from './CreateApplicantPageData';
 
 class CreateApplicantPage extends Component {
     constructor(props) {
@@ -15,7 +16,7 @@ class CreateApplicantPage extends Component {
             // location: '',
             license: false,
             vehicle: false,
-            age: '',
+            ageRange: '',
             multipleOccupants: false,
             children: 0,
             adults: 0,
@@ -106,183 +107,86 @@ class CreateApplicantPage extends Component {
                 </div>
                 <div className="mb20">
                     <label>How old are you?</label>
-                    <div class="btn-row row mb10">
+                    <div className="btn-group-toggle btn-row row mb20" data-toggle="buttons">
                         <div className="col-1" />
-                        <button
-                            className="btn btn-primary col mp5"
-                            data-toggle="button"
-                            aria-pressed="false"
-                            autocomplete="off"
-                            type="button"
-                            id="age1"
-                            value="17 or younger"
-                            name="age"
-                            onClick={this.handleInputChange}
-                        >
-                            Under 18
-                        </button>
-                        <button
-                            className="btn btn-primary col mp5"
-                            data-toggle="button"
-                            aria-pressed="false"
-                            autocomplete="off"
-                            type="button"
-                            id="age2"
-                            value="18 to 28"
-                            name="age"
-                            onClick={this.handleInputChange}
-                        >
-                            18 - 28
-                        </button>
-                        <button
-                            className="btn btn-primary col mp5"
-                            data-toggle="button"
-                            aria-pressed="false"
-                            autocomplete="off"
-                            type="button"
-                            id="age3"
-                            value="29 to 39"
-                            name="age"
-                            onClick={this.handleInputChange}
-                        >
-                            29 - 39
-                        </button>
+                        <label className={['btn btn-secondary col mp5', this.state.ageRange === '1' ? 'active' : ''].join(' ')}>
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.ageRange}
+                                name="ageRange"
+                                value={CreateApplicantPageData.ageRanges.ageRange1.value}
+                                onChange={this.handleInputChange}
+                            />{' '}
+                            {CreateApplicantPageData.ageRanges.ageRange1.label}
+                        </label>
+                        <label className={['btn btn-secondary col mp5', this.state.ageRange === '2' ? 'active' : ''].join(' ')}>
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.ageRange}
+                                name="ageRange"
+                                value={CreateApplicantPageData.ageRanges.ageRange2.value}
+                                onChange={this.handleInputChange}
+                            />{' '}
+                            {CreateApplicantPageData.ageRanges.ageRange2.label}
+                        </label>
+                        <label className={['btn btn-secondary col mp5', this.state.ageRange === '3' ? 'active' : ''].join(' ')}>
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.ageRange}
+                                name="ageRange"
+                                value={CreateApplicantPageData.ageRanges.ageRange3.value}
+                                onChange={this.handleInputChange}
+                            />{' '}
+                            {CreateApplicantPageData.ageRanges.ageRange3.label}
+                        </label>
                         <div className="col-1" />
                     </div>
-                    <div class="btn-row row">
+                    <div className="btn-group-toggle btn-row row" data-toggle="buttons">
                         <div className="col-1" />
-                        <button
-                            className="btn btn-primary col mp5"
-                            data-toggle="button"
-                            aria-pressed="false"
-                            autocomplete="off"
-                            type="button"
-                            id="age4"
-                            value="40 to 50"
-                            name="age"
-                            onClick={this.handleInputChange}
-                        >
-                            40 - 50
-                        </button>
-                        <button
-                            className="btn btn-primary col mp5"
-                            data-toggle="button"
-                            aria-pressed="false"
-                            autocomplete="off"
-                            type="button"
-                            id="age5"
-                            value="51 to 61"
-                            name="age"
-                            onClick={this.handleInputChange}
-                        >
-                            51 - 61
-                        </button>
-                        <button
-                            className="btn btn-primary col mp5"
-                            data-toggle="button"
-                            aria-pressed="false"
-                            autocomplete="off"
-                            type="button"
-                            id="age6"
-                            value="62 or older"
-                            name="age"
-                            onClick={this.handleInputChange}
-                        >
-                            62 or older
-                        </button>
+                        <label className={['btn btn-secondary col mp5', this.state.ageRange === '1' ? 'active' : ''].join(' ')}>
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.ageRange}
+                                name="ageRange"
+                                value={CreateApplicantPageData.ageRanges.ageRange4.value}
+                                onChange={this.handleInputChange}
+                            />{' '}
+                            {CreateApplicantPageData.ageRanges.ageRange4.label}
+                        </label>
+                        <label className={['btn btn-secondary col mp5', this.state.ageRange === '2' ? 'active' : ''].join(' ')}>
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.ageRange}
+                                name="ageRange"
+                                value={CreateApplicantPageData.ageRanges.ageRange5.value}
+                                onChange={this.handleInputChange}
+                            />{' '}
+                            {CreateApplicantPageData.ageRanges.ageRange5.label}
+                        </label>
+                        <label className={['btn btn-secondary col mp5', this.state.ageRange === '3' ? 'active' : ''].join(' ')}>
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.ageRange}
+                                name="ageRange"
+                                value={CreateApplicantPageData.ageRanges.ageRange6.value}
+                                onChange={this.handleInputChange}
+                            />{' '}
+                            {CreateApplicantPageData.ageRanges.ageRange6.label}
+                        </label>
                         <div className="col-1" />
                     </div>
-                    {/* <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="age1"
-                            value="17 or younger"
-                            name="age"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="age1">
-                            Under 18
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="age2"
-                            value="18 to 24"
-                            name="age"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="age2">
-                            18 - 24
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="age3"
-                            value="25 to 34"
-                            name="age"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="age3">
-                            25 - 34
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="age4"
-                            value="35 to 44"
-                            name="age"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="age4">
-                            35 - 44
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="age5"
-                            value="45 to 54"
-                            name="age"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="age5">
-                            45 - 54
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="age6"
-                            value="55 to 61"
-                            name="age"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="age6">
-                            55 - 61
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="age7"
-                            value="62 or older"
-                            name="age"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="age7">
-                            62 or older
-                        </label>
-                    </div> */}
                 </div>
                 <div className="mb30">
                     <label>Additional occupants in vehicle:</label>
@@ -621,7 +525,7 @@ class CreateApplicantPage extends Component {
                         />
                     </div>
                 )}
-                <label>Do you currently have a source of income (not including outside support)?</label>
+                <label>Do you currently have a source of income (not including outside support?</label>
                 <div className="form-check mb20">
                     <input
                         type="checkbox"
@@ -638,13 +542,13 @@ class CreateApplicantPage extends Component {
                 {this.state.hasIncome && (
                     <div className="form-group">
                         <label for="incomeDescription">What is your current source of income?</label>
-                        <input
+                        <textarea
                             id="incomeDescription"
                             type="text"
                             className="form-control"
                             name="incomeDescription"
                             onChange={this.handleInputChange}
-                        />
+                        ></textarea>
                     </div>
                 )}
                 <div className="text-center">
