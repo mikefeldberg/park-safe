@@ -125,29 +125,41 @@ class CreateApplicationPage extends Component {
                     />
                 </div>
                 <div>
-                    <label>Gender</label>
-                    <div class="form-check form-check-inline">
+                    <label className="mr10">Gender</label>
+                    <div className="form-check form-check-inline">
                         <input
-                            class="form-check-input"
+                            className="form-check-input"
                             type="radio"
-                            name="inlineRadioOptions"
-                            id="inlineRadio1"
-                            value="option1"
+                            name="gender"
+                            id="gender"
+                            value="M"
                         />
-                        <label class="form-check-label" for="inlineRadio1">
-                            1
+                        <label className="form-check-label" for="inlineRadio1">
+                            M
                         </label>
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div className="form-check form-check-inline">
                         <input
-                            class="form-check-input"
+                            className="form-check-input"
                             type="radio"
-                            name="inlineRadioOptions"
-                            id="inlineRadio2"
-                            value="option2"
+                            name="gender"
+                            id="gender"
+                            value="F"
                         />
-                        <label class="form-check-label" for="inlineRadio2">
-                            2
+                        <label className="form-check-label" for="inlineRadio2">
+                            F
+                        </label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input
+                            className="form-check-input"
+                            type="radio"
+                            name="gender"
+                            id="gender"
+                            value="O"
+                        />
+                        <label className="form-check-label" for="inlineRadio2">
+                            Other
                         </label>
                     </div>
                 </div>
