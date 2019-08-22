@@ -1,22 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const usersController = require('../controllers/users');
-const applicantsController = require('../controllers/applicants')
-// const applicantsController = require('../controllers/applicants');
+const applicationsController = require('../controllers/applications')
+// const applicationsController = require('../controllers/applications');
 
 /*---------- Public Routes ----------*/
 router.post('/signup', usersController.signup);
 router.post('/login', usersController.login);
 
 
-router.get('/applicants', applicantsController.getAllApplicants);
-router.post('/applicants', applicantsController.createApplicant);
+router.get('/applications', applicationsController.getAllApplications);
+router.post('/applications', applicationsController.createApplication);
 /*--------- Protected Routes --------*/
 
-// router.put('/applicants/:id', applicantsController.updateApplicant);
-// router.get('/applicants', applicantsController.getAllApplicants);
-// router.get('/applicants/:id', applicantsController.getOneApplicant);
-// router.post('/applicants', applicantsController.createApplicant);
-// router.delete('/applicants/:id', applicantsController.deleteApplicant);
+// router.put('/applications/:id', applicationsController.updateApplication);
+// router.get('/applications', applicationsController.getAllApplications);
+// router.get('/applications/:id', applicationsController.getOneApplication);
+// router.post('/applications', applicationsController.createApplication);
+// router.delete('/applications/:id', applicationsController.deleteApplication);
 
 module.exports = router;

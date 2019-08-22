@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 // import DateSelector from '../../components/DateSelector/DateSelector';
-// import NewApplicantForm from '../../components/NewApplicantForm/NewApplicantForm';
-import { createApplicant } from '../../services/api';
-import CreateApplicantPageData from './CreateApplicantPageData';
+// import NewApplicationForm from '../../components/NewApplicationForm/NewApplicationForm';
+import { createApplication } from '../../services/api';
+import CreateApplicationPageData from './CreateApplicationPageData';
 
-class CreateApplicantPage extends Component {
+class CreateApplicationPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -64,7 +64,7 @@ class CreateApplicantPage extends Component {
         e.preventDefault();
 
         const self = this;
-        createApplicant(this.state).then(function() {
+        createApplication(this.state).then(function() {
             self.props.history.push(`/index`);
         });
     };
@@ -119,7 +119,7 @@ class CreateApplicantPage extends Component {
                         <label
                             className={[
                                 'btn btn-secondary col mp5',
-                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange1.value}`
+                                this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange1.value}`
                                     ? 'active'
                                     : '',
                             ].join(' ')}
@@ -130,15 +130,15 @@ class CreateApplicantPage extends Component {
                                 autocomplete="off"
                                 checked={this.state.ageRange}
                                 name="ageRange"
-                                value={CreateApplicantPageData.ageRanges.ageRange1.value}
+                                value={CreateApplicationPageData.ageRanges.ageRange1.value}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.ageRanges.ageRange1.label}
+                            {CreateApplicationPageData.ageRanges.ageRange1.label}
                         </label>
                         <label
                             className={[
                                 'btn btn-secondary col mp5',
-                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange2.value}`
+                                this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange2.value}`
                                     ? 'active'
                                     : '',
                             ].join(' ')}
@@ -149,15 +149,15 @@ class CreateApplicantPage extends Component {
                                 autocomplete="off"
                                 checked={this.state.ageRange}
                                 name="ageRange"
-                                value={CreateApplicantPageData.ageRanges.ageRange2.value}
+                                value={CreateApplicationPageData.ageRanges.ageRange2.value}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.ageRanges.ageRange2.label}
+                            {CreateApplicationPageData.ageRanges.ageRange2.label}
                         </label>
                         <label
                             className={[
                                 'btn btn-secondary col mp5',
-                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange3.value}`
+                                this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange3.value}`
                                     ? 'active'
                                     : '',
                             ].join(' ')}
@@ -168,10 +168,10 @@ class CreateApplicantPage extends Component {
                                 autocomplete="off"
                                 checked={this.state.ageRange}
                                 name="ageRange"
-                                value={CreateApplicantPageData.ageRanges.ageRange3.value}
+                                value={CreateApplicationPageData.ageRanges.ageRange3.value}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.ageRanges.ageRange3.label}
+                            {CreateApplicationPageData.ageRanges.ageRange3.label}
                         </label>
                         <div className="col-1" />
                     </div>
@@ -180,7 +180,7 @@ class CreateApplicantPage extends Component {
                         <label
                             className={[
                                 'btn btn-secondary col mp5',
-                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange4.value}`
+                                this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange4.value}`
                                     ? 'active'
                                     : '',
                             ].join(' ')}
@@ -191,15 +191,15 @@ class CreateApplicantPage extends Component {
                                 autocomplete="off"
                                 checked={this.state.ageRange}
                                 name="ageRange"
-                                value={CreateApplicantPageData.ageRanges.ageRange4.value}
+                                value={CreateApplicationPageData.ageRanges.ageRange4.value}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.ageRanges.ageRange4.label}
+                            {CreateApplicationPageData.ageRanges.ageRange4.label}
                         </label>
                         <label
                             className={[
                                 'btn btn-secondary col mp5',
-                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange5.value}`
+                                this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange5.value}`
                                     ? 'active'
                                     : '',
                             ].join(' ')}
@@ -210,15 +210,15 @@ class CreateApplicantPage extends Component {
                                 autocomplete="off"
                                 checked={this.state.ageRange}
                                 name="ageRange"
-                                value={CreateApplicantPageData.ageRanges.ageRange5.value}
+                                value={CreateApplicationPageData.ageRanges.ageRange5.value}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.ageRanges.ageRange5.label}
+                            {CreateApplicationPageData.ageRanges.ageRange5.label}
                         </label>
                         <label
                             className={[
                                 'btn btn-secondary col mp5',
-                                this.state.ageRange === `${CreateApplicantPageData.ageRanges.ageRange6.value}`
+                                this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange6.value}`
                                     ? 'active'
                                     : '',
                             ].join(' ')}
@@ -229,10 +229,10 @@ class CreateApplicantPage extends Component {
                                 autocomplete="off"
                                 checked={this.state.ageRange}
                                 name="ageRange"
-                                value={CreateApplicantPageData.ageRanges.ageRange6.value}
+                                value={CreateApplicationPageData.ageRanges.ageRange6.value}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.ageRanges.ageRange6.label}
+                            {CreateApplicationPageData.ageRanges.ageRange6.label}
                         </label>
                         <div className="col-1" />
                     </div>
@@ -396,13 +396,13 @@ class CreateApplicantPage extends Component {
                             ].join(' ')}
                         >
                             <input
-                                id={CreateApplicantPageData.circumstances.circumstance1.nameAndId}
+                                id={CreateApplicationPageData.circumstances.circumstance1.nameAndId}
                                 autocomplete="off"
                                 type="checkbox"
-                                name={CreateApplicantPageData.circumstances.circumstance1.nameAndId}
+                                name={CreateApplicationPageData.circumstances.circumstance1.nameAndId}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.circumstances.circumstance1.label}
+                            {CreateApplicationPageData.circumstances.circumstance1.label}
                         </label>
                         <label
                             className={[
@@ -411,13 +411,13 @@ class CreateApplicantPage extends Component {
                             ].join(' ')}
                         >
                             <input
-                                id={CreateApplicantPageData.circumstances.circumstance2.nameAndId}
+                                id={CreateApplicationPageData.circumstances.circumstance2.nameAndId}
                                 autocomplete="off"
                                 type="checkbox"
-                                name={CreateApplicantPageData.circumstances.circumstance2.nameAndId}
+                                name={CreateApplicationPageData.circumstances.circumstance2.nameAndId}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.circumstances.circumstance2.label}
+                            {CreateApplicationPageData.circumstances.circumstance2.label}
                         </label>
                         <div className="col-1" />
                     </div>
@@ -430,13 +430,13 @@ class CreateApplicantPage extends Component {
                             ].join(' ')}
                         >
                             <input
-                                id={CreateApplicantPageData.circumstances.circumstance3.nameAndId}
+                                id={CreateApplicationPageData.circumstances.circumstance3.nameAndId}
                                 autocomplete="off"
                                 type="checkbox"
-                                name={CreateApplicantPageData.circumstances.circumstance3.nameAndId}
+                                name={CreateApplicationPageData.circumstances.circumstance3.nameAndId}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.circumstances.circumstance3.label}
+                            {CreateApplicationPageData.circumstances.circumstance3.label}
                         </label>
                         <label
                             className={[
@@ -445,13 +445,13 @@ class CreateApplicantPage extends Component {
                             ].join(' ')}
                         >
                             <input
-                                id={CreateApplicantPageData.circumstances.circumstance4.nameAndId}
+                                id={CreateApplicationPageData.circumstances.circumstance4.nameAndId}
                                 autocomplete="off"
                                 type="checkbox"
-                                name={CreateApplicantPageData.circumstances.circumstance4.nameAndId}
+                                name={CreateApplicationPageData.circumstances.circumstance4.nameAndId}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.circumstances.circumstance4.label}
+                            {CreateApplicationPageData.circumstances.circumstance4.label}
                         </label>
                         <div className="col-1" />
                     </div>
@@ -464,13 +464,13 @@ class CreateApplicantPage extends Component {
                             ].join(' ')}
                         >
                             <input
-                                id={CreateApplicantPageData.circumstances.circumstance5.nameAndId}
+                                id={CreateApplicationPageData.circumstances.circumstance5.nameAndId}
                                 autocomplete="off"
                                 type="checkbox"
-                                name={CreateApplicantPageData.circumstances.circumstance5.nameAndId}
+                                name={CreateApplicationPageData.circumstances.circumstance5.nameAndId}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.circumstances.circumstance5.label}
+                            {CreateApplicationPageData.circumstances.circumstance5.label}
                         </label>
                         <label
                             className={[
@@ -479,13 +479,13 @@ class CreateApplicantPage extends Component {
                             ].join(' ')}
                         >
                             <input
-                                id={CreateApplicantPageData.circumstances.circumstance6.nameAndId}
+                                id={CreateApplicationPageData.circumstances.circumstance6.nameAndId}
                                 autocomplete="off"
                                 type="checkbox"
-                                name={CreateApplicantPageData.circumstances.circumstance6.nameAndId}
+                                name={CreateApplicationPageData.circumstances.circumstance6.nameAndId}
                                 onChange={this.handleInputChange}
                             />
-                            {CreateApplicantPageData.circumstances.circumstance6.label}
+                            {CreateApplicationPageData.circumstances.circumstance6.label}
                         </label>
                         <div className="col-1" />
                     </div>
@@ -645,4 +645,4 @@ class CreateApplicantPage extends Component {
     }
 }
 
-export default CreateApplicantPage;
+export default CreateApplicationPage;

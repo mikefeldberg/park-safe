@@ -1,5 +1,5 @@
 
-const CreateApplicantPageData = {
+const CreateApplicationPageData = {
     ageRanges: {
         ageRange1: {
             value: '17 or younger',
@@ -54,4 +54,4 @@ const CreateApplicantPageData = {
     }
 }
 
-export default CreateApplicantPageData;
+export default CreateApplicationPageData;
