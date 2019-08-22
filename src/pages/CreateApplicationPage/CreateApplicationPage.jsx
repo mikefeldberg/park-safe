@@ -73,7 +73,7 @@ class CreateApplicationPage extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label for="name">Name:</label>
+                    <label for="name">Name</label>
                     <input
                         id="name"
                         type="text"
@@ -92,7 +92,7 @@ class CreateApplicationPage extends Component {
                     />
                 </div>
                 <div className="form-group">
-                    <label for="phone">Phone Number:</label>
+                    <label for="phone">Phone Number</label>
                     <input
                         id="phone"
                         type="text"
@@ -103,7 +103,7 @@ class CreateApplicationPage extends Component {
                     />
                 </div>
                 <div className="form-group">
-                    <label for="email">Email:</label>
+                    <label for="email">Email</label>
                     <input
                         id="email"
                         type="email"
@@ -113,7 +113,7 @@ class CreateApplicationPage extends Component {
                     />
                 </div>
                 <div className="mb20">
-                    <label>How old are you?</label>
+                    <label>Age</label>
                     <div className="btn-group-toggle btn-row row mb20" data-toggle="buttons">
                         <div className="col-1" />
                         <label
@@ -252,46 +252,52 @@ class CreateApplicationPage extends Component {
                         </label>
                     </div>
                     {this.state.multipleOccupants && (
-                        <div className="form-group row mb20">
-                            <label for="children" className="col-sm-2 col-form-label">
-                                Children (Under 18)
-                            </label>
-                            <div className="col-sm-1">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="children"
-                                    placeholder="0"
-                                    name="children"
-                                    onChange={this.handleInputChange}
-                                />
+                        <div className="form-group mb20">
+                            <div className="row mb5">
+                                <label for="children" className="col col-form-label">
+                                    Children (Under 18)
+                                </label>
+                                <div className="col-3">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="children"
+                                        placeholder="0"
+                                        name="children"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
                             </div>
-                            <label for="adults" className="col-sm-2 col-form-label">
-                                Adults (Age 18 - 61)
-                            </label>
-                            <div className="col-sm-1">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="adults"
-                                    placeholder="0"
-                                    name="adults"
-                                    onChange={this.handleInputChange}
-                                />
+                            <div className="row mb5">
+                                <label for="adults" className="col col-form-label">
+                                    Adults (Age 18 - 61)
+                                </label>
+                                <div className="col-3">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="adults"
+                                        placeholder="0"
+                                        name="adults"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
                             </div>
-                            <label for="seniors" className="col-sm-2 col-form-label">
-                                Seniors (62 or older)
-                            </label>
-                            <div className="col-sm-1">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="seniors"
-                                    placeholder="0"
-                                    name="seniors"
-                                    onChange={this.handleInputChange}
-                                />
-                                {/* <hr /> */}
+                            <div className="row mb5">
+                                <label for="seniors" className="col col-form-label">
+                                    Seniors (62 or older)
+                                </label>
+                                <div className="col-3">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="seniors"
+                                        placeholder="0"
+                                        name="seniors"
+                                        onChange={this.handleInputChange}
+                                    />
+                                    {/* <hr /> */}
+                                </div>
                             </div>
                         </div>
                     )}
@@ -311,46 +317,52 @@ class CreateApplicationPage extends Component {
                         </label>
                     </div>
                     {this.state.pets && (
-                        <div className="form-group row mb20">
-                            <label for="dogs" className="col-sm-2 col-form-label">
-                                Dogs
-                            </label>
-                            <div className="col-sm-1">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="dogs"
-                                    placeholder="0"
-                                    name="dogs"
-                                    onChange={this.handleInputChange}
-                                />
+                        <div className="form-group mb20">
+                            <div className="row mb5">
+                                <label for="dogs" className="col col-form-label">
+                                    Dogs
+                                </label>
+                                <div className="col-3">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="dogs"
+                                        placeholder="0"
+                                        name="dogs"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
                             </div>
-                            <label for="cats" className="col-sm-2 col-form-label">
-                                Cats
-                            </label>
-                            <div className="col-sm-1">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="cats"
-                                    placeholder="0"
-                                    name="cats"
-                                    onChange={this.handleInputChange}
-                                />
+                            <div className="row mb5">
+                                <label for="cats" className="col col-form-label">
+                                    Cats
+                                </label>
+                                <div className="col-3">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="cats"
+                                        placeholder="0"
+                                        name="cats"
+                                        onChange={this.handleInputChange}
+                                    />
+                                </div>
                             </div>
-                            <label for="other" className="col-sm-2 col-form-label">
-                                Other
-                            </label>
-                            <div className="col-sm-1">
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    id="other"
-                                    placeholder="0"
-                                    name="other"
-                                    onChange={this.handleInputChange}
-                                />
-                                {/* <hr /> */}
+                            <div className="row mb5">
+                                <label for="other" className="col col-form-label">
+                                    Other
+                                </label>
+                                <div className="col-3">
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="other"
+                                        placeholder="0"
+                                        name="other"
+                                        onChange={this.handleInputChange}
+                                    />
+                                    {/* <hr /> */}
+                                </div>
                             </div>
                         </div>
                     )}
