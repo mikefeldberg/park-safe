@@ -6,20 +6,20 @@ const CreateApplicationPageData = {
             label: 'Under 18',
         },
         ageRange2: {
-            value: '18 to 28',
-            label: '18 - 28',
+            value: '18 to 24',
+            label: '18 - 24',
         },
         ageRange3: {
-            value: '29 to 39',
-            label: '29 - 39',
+            value: '25 to 36',
+            label: '25 - 36',
         },
         ageRange4: {
-            value: '40 to 50',
-            label: '40 - 50',
+            value: '37 to 49',
+            label: '37 - 49',
         },
         ageRange5: {
-            value: '51 to 61',
-            label: '51 - 61',
+            value: '50 to 61',
+            label: '50 - 61',
         },
         ageRange6: {
             value: '62 or older',
@@ -51,6 +51,24 @@ const CreateApplicationPageData = {
             nameAndId: 'reasonOther',
             label: 'Other',
         },
+    },
+    urgency: {
+        urgency1: {
+            value: 'urgencyAlreadyInCar',
+            label: 'Already living in my vehicle',
+        },
+        urgency2: {
+            value: 'urgencyThisWeek',
+            label: 'Within the next week',
+        },
+        urgency3: {
+            value: 'urgencyThisMonth',
+            label: 'Within next month',
+        },
+        urgency4: {
+            value: 'urgencyNextMonth',
+            label: 'More than one month',
+        }
     }
 }
 

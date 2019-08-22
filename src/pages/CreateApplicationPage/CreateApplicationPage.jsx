@@ -51,15 +51,17 @@ class CreateApplicationPage extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    handleInputChange(event) {
-        console.log(event.target.value);
-        const target = event.target;
+    handleInputChange = e => {
+        console.log(e.target.value);
+        const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
 
         this.setState({
             [name]: value,
         });
+
+        this.flagHighPriority()
     }
 
     handleSubmit = e => {
@@ -71,15 +73,24 @@ class CreateApplicationPage extends Component {
         });
     };
 
-    // handleSubmit = e => {
-    //     e.preventDefault();
-
-    //     const self = this;
-    //     createPlant(this.state).then(function() {
-    //         self.props.history.push(`/index`);
-    //     });
-    // };
-
+    flagHighPriority = () => {
+        const self = this;
+        if (
+            this.state.ageRange === '17 or younger' || 
+            this.state.ageRange === '18 to 24' || 
+            this.state.ageRange === '62 or older' || 
+            this.state.children > 0 || 
+            this.state.seniors > 0
+        ) {
+            this.setState({
+                highPriority: true
+            });
+        } else {
+            this.setState({
+                highPriority: false
+            });
+        }
+    }
 
     render() {
         return (
@@ -166,7 +177,7 @@ class CreateApplicationPage extends Component {
 
                 <div className="mb20">
                     <label>Age</label>
-                    <div className="btn-group-toggle btn-row row mb20" data-toggle="buttons">
+                    <div className="btn-group-toggle btn-row row mb10" data-toggle="buttons">
                         <div className="col-1" />
                         <label
                             className={[
@@ -508,6 +519,39 @@ class CreateApplicationPage extends Component {
                         </div>
                     )}
                 </div>
+                <label>Are you a veteran?</label>
+                <div className="form-check mb20">
+                    <input type="checkbox" className="form-check-input" id="veteran" name="veteran" />
+                    <label className="form-check-label" for="veteran">
+                        Yes
+                    </label>
+                </div>
+                <label>Do you currently have a source of income (not including outside support?</label>
+                <div className="form-check mb20">
+                    <input
+                        type="checkbox"
+                        className="form-check-input"
+                        id="hasIncome"
+                        name="hasIncome"
+                        onChange={this.handleInputChange}
+                        checked={this.state.hasIncome}
+                    />
+                    <label className="form-check-label" for="hasIncome">
+                        Yes
+                    </label>
+                </div>
+                {this.state.hasIncome && (
+                    <div className="form-group">
+                        <label for="incomeDescription">What is your current source of income?</label>
+                        <textarea
+                            id="incomeDescription"
+                            type="text"
+                            className="form-control"
+                            name="incomeDescription"
+                            onChange={this.handleInputChange}
+                        />
+                    </div>
+                )}
 
                 <div className="mb30">
                     <label>
@@ -635,6 +679,101 @@ class CreateApplicationPage extends Component {
                         </React.Fragment>
                     )}
                 </div>
+
+
+
+                <label>How soon will you need safe parking?</label>
+                <div className="btn-group-toggle btn-row row mb10" data-toggle="buttons">
+                        <div className="col-1" />
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.urgency === `${CreateApplicationPageData.urgency.urgency1.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.urgency}
+                                name="urgency"
+                                value={CreateApplicationPageData.urgency.urgency1.value}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicationPageData.urgency.urgency1.label}
+                        </label>
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.urgency === `${CreateApplicationPageData.urgency.urgency2.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.urgency}
+                                name="urgency"
+                                value={CreateApplicationPageData.urgency.urgency2.value}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicationPageData.urgency.urgency2.label}
+                        </label>
+                        <div className="col-1" />
+                        </div>
+                        <div className="btn-group-toggle btn-row row mb10" data-toggle="buttons">
+
+                        <div className="col-1" />
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.urgency === `${CreateApplicationPageData.urgency.urgency3.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.urgency}
+                                name="urgency"
+                                value={CreateApplicationPageData.urgency.urgency3.value}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicationPageData.urgency.urgency3.label}
+                        </label>
+
+
+                        <label
+                            className={[
+                                'btn btn-secondary col mp5',
+                                this.state.urgency === `${CreateApplicationPageData.urgency.urgency4.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.urgency}
+                                name="urgency"
+                                value={CreateApplicationPageData.urgency.urgency4.value}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicationPageData.urgency.urgency4.label}
+                        </label>
+                        <div className="col-1" />
+                    </div>
+
+
+
+
                 <div className="mb20">
                     <label>How long have you been without permanent housing?</label>
                     <div className="form-check">
@@ -704,13 +843,7 @@ class CreateApplicationPage extends Component {
                     </div>
                 </div>
                 {/* <hr /> */}
-                <label>Are you a veteran?</label>
-                <div className="form-check mb20">
-                    <input type="checkbox" className="form-check-input" id="veteran" name="veteran" />
-                    <label className="form-check-label" for="veteran">
-                        Yes
-                    </label>
-                </div>
+
                 <label>Are you receiving financial or housing support from any other organizations?</label>
                 <div className="form-check mb20">
                     <input
@@ -734,32 +867,6 @@ class CreateApplicationPage extends Component {
                             type="text"
                             className="form-control"
                             name="sourceOfSupport"
-                            onChange={this.handleInputChange}
-                        />
-                    </div>
-                )}
-                <label>Do you currently have a source of income (not including outside support?</label>
-                <div className="form-check mb20">
-                    <input
-                        type="checkbox"
-                        className="form-check-input"
-                        id="hasIncome"
-                        name="hasIncome"
-                        onChange={this.handleInputChange}
-                        checked={this.state.hasIncome}
-                    />
-                    <label className="form-check-label" for="hasIncome">
-                        Yes
-                    </label>
-                </div>
-                {this.state.hasIncome && (
-                    <div className="form-group">
-                        <label for="incomeDescription">What is your current source of income?</label>
-                        <textarea
-                            id="incomeDescription"
-                            type="text"
-                            className="form-control"
-                            name="incomeDescription"
                             onChange={this.handleInputChange}
                         />
                     </div>
