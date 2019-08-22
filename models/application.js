@@ -34,6 +34,7 @@ var applicationSchema = new mongoose.Schema({
     currentSituation: String,
     hasIncome: Boolean,
     incomeDescription: String,
+    hasEmergencyContact: Boolean,
     emergencyContactPhone: String,
     emergencyContactName: String,
     emergencyContactRelationship: String,
