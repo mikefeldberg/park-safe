@@ -16,8 +16,8 @@ const NavBar = props => {
                 home
             </Link>
             &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-            <Link to="/newmainmodel" className="NavBar-link">
-                new mainmodel
+            <Link to="/newapplicant" className="NavBar-link">
+                new applicant
             </Link>
             &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
             <Link to="" className="NavBar-link" onClick={props.handleLogout}>

@@ -6,9 +6,9 @@ import LoginPage from '../src/pages/LoginPage/LoginPage';
 import userService from '../src/utils/userService';
 import NavBar from '../src/components/NavBar/NavBar';
 import HomePage from '../src/pages/HomePage/HomePage'
-// import CreateMAINMODELPage from '../CreateMAINMODELPage/CreateMAINMODELPage';
-// import ShowMAINMODELPage from '../ShowMAINMODELPage/ShowMAINMODELPage';
-// import EditMAINMODELPage from '../EditMAINMODELPage/EditMAINMODELPage';
+import CreateApplicantPage from '../src/pages/CreateApplicantPage/CreateApplicantPage';
+// import ShowApplicantPage from '../src/pages/ShowApplicantPage/ShowApplicantPage';
+// import EditApplicantPage from '../src/pages/EditApplicantPage/EditApplicantPage';
 
 
 class App extends Component {
@@ -49,10 +49,10 @@ class App extends Component {
                             user={this.state.user}
                         />
                     } />
-                    {/* <Route exact path='/newmainmodel'
+                    <Route exact path='/newapplicant'
                         render={props =>
                             userService.getUser() ? (
-                                <CreateMAINMODELPage
+                                <CreateApplicantPage
                                     {...props}
                                     user={this.state.user}
                                     handleLogOut={this.handleLogOut}
@@ -62,10 +62,10 @@ class App extends Component {
                             )
                         }
                     />
-                    <Route exact path='/mainmodels/:id'
+                    {/* <Route exact path='/applicants/:id'
                         render={props =>
                             userService.getUser() ? (
-                                <ShowMAINMODELPage
+                                <ShowApplicantPage
                                     {...props}
                                     user={this.state.user}
                                     handleLogOut={this.handleLogOut}
@@ -75,10 +75,10 @@ class App extends Component {
                             )
                         }
                     />
-                    <Route exact path='/mainmodels/:id/edit'
+                    <Route exact path='/applicants/:id/edit'
                         render={props =>
                             userService.getUser() ? (
-                                <EditMAINMODELPage
+                                <EditApplicantPage
                                     {...props}
                                     user={this.state.user}
                                     handleLogOut={this.handleLogOut}

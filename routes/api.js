@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const usersController = require('../controllers/users');
-// const mainmodelsController = require('../controllers/mainmodels');
+// const applicantsController = require('../controllers/applicants');
 
 /*---------- Public Routes ----------*/
 router.post('/signup', usersController.signup);
@@ -9,10 +9,10 @@ router.post('/login', usersController.login);
 
 /*--------- Protected Routes --------*/
 
-// router.put('/mainmodels/:id', mainmodelsController.updateMAINMODEL);
-// router.get('/mainmodels', mainmodelsController.getAllMAINMODELs);
-// router.get('/mainmodels/:id', mainmodelsController.getOneMAINMODEL);
-// router.post('/mainmodels', mainmodelsController.createMAINMODEL);
-// router.delete('/mainmodels/:id', mainmodelsController.deleteMAINMODEL);
+// router.put('/applicants/:id', applicantsController.updateApplicant);
+// router.get('/applicants', applicantsController.getAllApplicants);
+// router.get('/applicants/:id', applicantsController.getOneApplicant);
+// router.post('/applicants', applicantsController.createApplicant);
+// router.delete('/applicants/:id', applicantsController.deleteApplicant);
 
 module.exports = router;
