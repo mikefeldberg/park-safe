@@ -11,23 +11,23 @@ const NavTest = props => {
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className={["collapse navbar-collapse ${show}"].join(' ')} id="navbarNavAltMarkup">
                 <div className="navbar-nav">
-                <a className="nav-item nav-link" href="#">
+                <div className="nav-item nav-link" href="#">
                     <Link to="/applications" className="NavBar-link">
                         See All Applications
                     </Link>
-                </a>
-                <a className="nav-item nav-link" href="#">
+                </div>
+                <div className="nav-item nav-link" href="#">
                     <Link to="/download" className="NavBar-link">
                         Download Applications
                     </Link>
-                </a>
-                <a className="nav-item nav-link" href="#">
+                </div>
+                {/* <a className="nav-item nav-link" href="#"> */}
                     <Link to="" className="NavBar-link" onClick={props.handleLogout}>
                         Log Out
                     </Link>
-                </a>
+                {/* </a> */}
                 </div>
             </div>
             </nav>
@@ -41,16 +41,16 @@ const NavTest = props => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
-                <a className="nav-item nav-link" href="#">
+                <div className="nav-item nav-link">
                     <Link to="/application" className="NavBar-link">
                         Application Form
                     </Link>
-                </a>
-                <a className="nav-item nav-link" href="#">
+                </div>
+                <div className="nav-item nav-link">
                     <Link to="/login" className="NavBar-link">
                         Staff Log In
                     </Link>
-                </a>
+                </div>
                 </div>
             </div>
             </nav>

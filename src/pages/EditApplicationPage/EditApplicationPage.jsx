@@ -69,6 +69,7 @@ class CreateApplicationPage extends Component {
     };
 
     flagHighPriority = () => {
+        const self = this;
         if (
             this.state.ageRange === '17 or younger' ||
             this.state.ageRange === '18 to 24' ||
@@ -90,21 +91,20 @@ class CreateApplicationPage extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label for="firstName">First Name</label>
+                    <label for="name">Name</label>
                     <input
                         id="name"
                         type="text"
                         className="form-control"
+                        placeholder="First Name"
                         name="firstName"
                         onChange={this.handleInputChange}
                     />
-                </div>
-                <div className="form-group">
-                    <label for="lastName">Last Name</label>
                     <input
                         id="name"
                         type="text"
                         className="form-control"
+                        placeholder="Last Name"
                         name="lastName"
                         onChange={this.handleInputChange}
                     />
