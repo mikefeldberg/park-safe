@@ -16,7 +16,11 @@ const Applications = (props) => {
                                 <strong className="col-2">Age Group</strong>
                                 <strong className="col-1">High Priority</strong>
                                 <strong className="col-2">Submitted On</strong>
-                                <strong className="col-1">View/Edit</strong>
+                                <strong className="col-1">
+                                    <span>View</span>
+                                    <span> | </span>
+                                    <span>Download</span>
+                                </strong>
                             </div>
                         </div>
                     </div>

@@ -10,6 +10,7 @@ export function getOneApplication(applicationId) {
         return res.json();
     })
 }
+
 // create
 export function createApplication(application) {
     return fetch(`/api/applications`, {

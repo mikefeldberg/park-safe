@@ -10,6 +10,7 @@ import HomePage from '../src/pages/HomePage/HomePage'
 import CreateApplicationPage from '../src/pages/CreateApplicationPage/CreateApplicationPage';
 import DownloadPage from '../src/pages/DownloadPage/DownloadPage'
 import ListApplicationsPage from '../src/pages/ListApplicationsPage/ListApplicationsPage'
+import ShowApplicationPage from '../src/pages/ShowApplicationPage/ShowApplicationPage'
 import TestPage from '../src/pages/CreateApplicationPage/TestPage'
 // import ShowApplicationPage from '../src/pages/ShowApplicationPage/ShowApplicationPage';
 // import EditApplicationPage from '../src/pages/EditApplicationPage/EditApplicationPage';
@@ -59,6 +60,18 @@ class App extends Component {
                         render={props =>
                             userService.getUser() ? (
                                 <ListApplicationsPage
+                                    {...props}
+                                    user={this.state.user}
+                                />
+                            ) : (
+                                    <Redirect to="/login" />
+                                )
+                        }
+                    />
+                    <Route exact path='/applications/:id'
+                        render={props =>
+                            userService.getUser() ? (
+                                <ShowApplicationPage
                                     {...props}
                                     user={this.state.user}
                                 />

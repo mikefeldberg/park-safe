@@ -60,7 +60,10 @@ function getAllApplications(req, res) {
 };
 
 function getOneApplication(req, res) {
+    console.log('applications controller get one application')
+    console.log('req.body', req.body)
     Application.findOne({ _id: req.body.applicationId }).then(function (err, application) {
+        console.log(application)
         res.status(200).json(application);
     });
 }

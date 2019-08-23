@@ -32,6 +32,41 @@ class Application extends Component {
     render() {
         return (
             <div className="container">
+
+                
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+
                 <div className="row">
                     <div className="col-3">
                         <div>
@@ -69,27 +104,17 @@ class Application extends Component {
                             >
                                 <i className={['fas fa-file-alt', styles.document].join(' ')} />
                             </Link>
+                            <span className="sm10">|</span>
+                            <Link
+                                to={{
+                                    pathname: `/applications/${this.props.applicationId}`,
+                                    appication: this.props.application,
+                                }}
+                            >
+                                <i className={['fas fa-file-download', styles.download].join(' ')} />
+                            </Link>
                         </div>
                     </div>
-
-                    {/* <div className="col-1">
-                        {this.state.inputActive && (
-                            <React.Fragment>
-                                <i onClick={this.toggleEdit} className="fas fa-times-circle" />
-                                <i onClick={this.confirmEdit} className="fas fa-check-circle" />
-                            </React.Fragment>
-                        )}
-                        {!this.state.inputActive && <i onClick={this.toggleEdit} className="far fa-edit" />}
-                    </div> */}
-                    {/* <div className="col-1">
-                        {this.state.inputActive && (
-                            <React.Fragment>
-                                <i onClick={this.toggleEdit} className="fas fa-times-circle" />
-                                <i onClick={this.confirmEdit} className="fas fa-check-circle" />
-                            </React.Fragment>
-                        )}
-                        {!this.state.inputActive && <i onClick={this.toggleEdit} className="far fa-edit" />}
-                    </div> */}
                 </div>
             </div>
         );
