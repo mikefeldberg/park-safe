@@ -106,8 +106,45 @@ function getAllApplications(req, res) {
 
 function getOneApplication(req, res) {
     Application.findOne({ _id: req.params.id }).exec(function (err, application) {
-        console.log(application)
-        res.status(200).json(application);
+        response = {
+            'application': application,
+            'firstName': application.firstName,
+            'lastName': application.lastName,
+            'phone': application.phone,
+            'email': application.email,
+            'gender': application.gender,
+            'language': application.language,
+            'preferredLocation': application.preferredLocation,
+            'license': application.license,
+            'vehicle': application.vehicle,
+            'ageRange': application.ageRange,
+            'multipleOccupants': application.multipleOccupants,
+            'children': application.children,
+            'adults': application.adults,
+            'seniors': application.seniors,
+            'pets': application.pets,
+            'petsDogs': application.petsDogs,
+            'petsCats': application.petsCats,
+            'petsOther': application.petsOther,
+            'reasonUnemployment': application.reasonUnemployment,
+            'reasonLowIncome': application.reasonLowIncome,
+            'reasonRelationship': application.reasonRelationship,
+            'reasonDisability': application.reasonDisability,
+            'reasonEviction': application.reasonEviction,
+            'reasonOther': application.reasonOther,
+            'reasonOtherDescription': application.reasonOtherDescription,
+            'veteran': application.veteran,
+            'receivingSupport': application.receivingSupport,
+            'sourceOfSupport': application.sourceOfSupport,
+            'highPriority': application.highPriority,
+            'hasIncome': application.hasIncome,
+            'incomeDescription': application.incomeDescription,
+            'emergencyContactPhone': application.emergencyContactPhone,
+            'emergencyContactName': application.emergencyContactName,
+            'emergencyContactRelationship': application.emergencyContactRelationship,
+            'submitted': application.submitted,
+        }
+        res.status(200).json(response);
     });
 }
 
