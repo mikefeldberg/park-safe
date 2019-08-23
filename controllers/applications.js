@@ -27,9 +27,9 @@ function createApplication(req, res) {
         adults: req.body.adults,
         seniors: req.body.seniors,
         pets: req.body.pets,
-        dogs: req.body.dogs,
-        cats: req.body.cats,
-        other: req.body.other,
+        petsDogs: req.body.petsDogs,
+        petsCats: req.body.petsCats,
+        petsOther: req.body.petsOther,
         reasonUnemployment: req.body.reasonUnemployment,
         reasonLowIncome: req.body.reasonLowIncome,
         reasonRelationship: req.body.reasonRelationship,
@@ -46,6 +46,7 @@ function createApplication(req, res) {
         emergencyContactPhone: req.body.emergencyContactPhone,
         emergencyContactName: req.body.emergencyContactName,
         emergencyContactRelationship: req.body.emergencyContactRelationship,
+        submitted: req.body.submitted,
     });
 
     console.log(application)
@@ -70,9 +71,9 @@ function createPartialApplication(req, res) {
         adults: req.body.adults,
         seniors: req.body.seniors,
         pets: req.body.pets,
-        dogs: req.body.dogs,
-        cats: req.body.cats,
-        other: req.body.other,
+        petsDogs: req.body.petsDogs,
+        petsCats: req.body.petsCats,
+        petsOther: req.body.petsOther,
         reasonUnemployment: req.body.reasonUnemployment,
         reasonLowIncome: req.body.reasonLowIncome,
         reasonRelationship: req.body.reasonRelationship,

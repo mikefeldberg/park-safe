@@ -31,9 +31,9 @@ export function createApplication(application) {
             adults: application.adults,
             seniors: application.seniors,
             pets: application.pets,
-            dogs: application.dogs,
-            cats: application.cats,
-            other: application.other,
+            petsDogs: application.petsDogs,
+            petsCats: application.petsCats,
+            petsOther: application.petsOther,
             reasonUnemployment: application.reasonUnemployment,
             reasonLowIncome: application.reasonLowIncome,
             reasonRelationship: application.reasonRelationship,
@@ -50,6 +50,7 @@ export function createApplication(application) {
             emergencyContactPhone: application.emergencyContactPhone,
             emergencyContactName: application.emergencyContactName,
             emergencyContactRelationship: application.emergencyContactRelationship,
+            submitted: application.submitted,
         }),
         headers: {
             'content-type': 'application/json'
@@ -75,9 +76,9 @@ export function createPartialApplication(application) {
             adults: application.adults,
             seniors: application.seniors,
             pets: application.pets,
-            dogs: application.dogs,
-            cats: application.cats,
-            other: application.other,
+            petsDogs: application.petsDogs,
+            petsCats: application.petsCats,
+            petsOther: application.petsOther,
             reasonUnemployment: application.reasonUnemployment,
             reasonLowIncome: application.reasonLowIncome,
             reasonRelationship: application.reasonRelationship,
@@ -94,6 +95,7 @@ export function createPartialApplication(application) {
             emergencyContactPhone: application.emergencyContactPhone,
             emergencyContactName: application.emergencyContactName,
             emergencyContactRelationship: application.emergencyContactRelationship,
+            submitted: application.submitted,
         }),
         headers: {
             'content-type': 'application/json'

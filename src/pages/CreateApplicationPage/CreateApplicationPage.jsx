@@ -20,9 +20,9 @@ class CreateApplicationPage extends Component {
             adults: 0,
             seniors: 0,
             pets: false,
-            dogs: 0,
-            cats: 0,
-            other: 0,
+            petsDogs: 0,
+            petsCats: 0,
+            petsOther: 0,
             reasonUnemployment: false,
             reasonLowIncome: false,
             reasonRelationship: false,
@@ -41,6 +41,7 @@ class CreateApplicationPage extends Component {
             emergencyContactRelationship: '',
             preferredLocation: '',
             highPriority: false,
+            submitted: false,
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -370,46 +371,46 @@ class CreateApplicationPage extends Component {
                     {this.state.pets && (
                         <div className="form-group mb20">
                             <div className="row mb5">
-                                <label for="dogs" className="col col-form-label">
+                                <label for="petsDogs" className="col col-form-label">
                                     Dogs
                                 </label>
                                 <div className="col-3">
                                     <input
                                         type="number"
                                         className="form-control"
-                                        id="dogs"
+                                        id="petsDogs"
                                         placeholder="0"
-                                        name="dogs"
+                                        name="petsDogs"
                                         onChange={this.handleInputChange}
                                     />
                                 </div>
                             </div>
                             <div className="row mb5">
-                                <label for="cats" className="col col-form-label">
+                                <label for="petsCats" className="col col-form-label">
                                     Cats
                                 </label>
                                 <div className="col-3">
                                     <input
                                         type="number"
                                         className="form-control"
-                                        id="cats"
+                                        id="petsCats"
                                         placeholder="0"
-                                        name="cats"
+                                        name="petsCats"
                                         onChange={this.handleInputChange}
                                     />
                                 </div>
                             </div>
                             <div className="row mb5">
-                                <label for="other" className="col col-form-label">
+                                <label for="petsOther" className="col col-form-label">
                                     Other
                                 </label>
                                 <div className="col-3">
                                     <input
                                         type="number"
                                         className="form-control"
-                                        id="other"
+                                        id="petsOther"
                                         placeholder="0"
-                                        name="other"
+                                        name="petsOther"
                                         onChange={this.handleInputChange}
                                     />
                                     {/* <hr /> */}

@@ -19,6 +19,7 @@ class ShowApplicationPage extends Component {
     }
 
     render() {
+        console.log(this.state.application)
         return (
             <React.Fragment>
                 {this.state.application && (
@@ -26,20 +27,50 @@ class ShowApplicationPage extends Component {
                         <table class="table table-sm">
                             <tbody>
                                 <tr>
-                                    {/* <th scope="row">{this.state.application.firstName}</th> */}
-                                    <td>Mark</td>
-                                    <td>Otto</td>
+                                    <th scope="row">Name</th>
+                                    <td>{this.state.application.firstName} {this.state.application.lastName}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
+                                    <th scope="row">Phone</th>
+                                    <td>{this.state.application.phone}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
+                                    <th scope="row">Email</th>
+                                    <td>{this.state.application.email}</td>
                                 </tr>
+                                <tr>
+                                    <th scope="row">Age</th>
+                                    <td>{this.state.application.ageRange}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Additional Occupants</th>
+                                    {this.state.application.children > 0 && 
+                                        <td>{this.state.application.children}</td>
+                                    }
+                                    
+                                    {this.state.application.adults > 0 && 
+                                        <td>{this.state.application.adults}</td>
+                                    }
+                                    
+                                    {this.state.application.seniors > 0 && 
+                                        <td>{this.state.application.seniors}</td>
+                                    }
+                                </tr>
+                                <tr>
+                                    <th scope="row">Pets</th>
+                                    {this.state.application.petsDogs > 0 && 
+                                        <td>{this.state.application.petsDogs}</td>
+                                    }
+                                    
+                                    {this.state.application.petsCats > 0 && 
+                                        <td>{this.state.application.petsCats}</td>
+                                    }
+                                    
+                                    {this.state.application.petsOther > 0 && 
+                                        <td>{this.state.application.petsOther}</td>
+                                    }
+                                </tr>
+
                             </tbody>
                         </table>
                     </div>
