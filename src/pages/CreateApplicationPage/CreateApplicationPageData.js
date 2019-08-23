@@ -3,7 +3,7 @@ const CreateApplicationPageData = {
     ageRanges: {
         ageRange1: {
             value: '17 or younger',
-            label: 'Under 18',
+            label: '< 18',
         },
         ageRange2: {
             value: '18 to 24',
@@ -59,37 +59,42 @@ const CreateApplicationPageData = {
         },
         urgency2: {
             value: 'urgencyThisWeek',
-            label: 'Within the next week',
+            label: 'Within the week',
         },
         urgency3: {
             value: 'urgencyThisMonth',
-            label: 'Within next month',
+            label: 'Within the month',
         },
         urgency4: {
             value: 'urgencyNextMonth',
-            label: 'More than one month',
+            label: 'More than a month',
         }
     },
     locations: {
         location1: {
             value: 'East LA',
-            label: 'East LA (includes Eastside, San Gabriel Valley, Pomona Valley)'
+            label: 'East LA',
+            sublabel: '(includes Eastside, San Gabriel Valley, Pomona Valley)'
         },
         location2: {
             value: 'West LA',
-            label: 'West LA (includes Westside, Beverly Hills, Brentwood, Santa Monica)'
+            label: 'West LA',
+            sublabel: '(includes Westside, Beverly Hills, Brentwood, Santa Monica)'
         },
         location3: {
             value: 'North LA',
-            label: 'North LA (includes South Bay, Palos Verdes Peninsula, South Los Angeles, Gateway Cities, North Orange County, South Orange County)'
+            label: 'North LA',
+            sublabel: '(includes South Bay, Palos Verdes Peninsula, South Los Angeles, Gateway Cities, North Orange County, South Orange County)'
         },
         location4: {
             value: 'South LA',
-            label: 'South LA (includes San Fernando Valley, portions of the Antelope Valley and Santa Clarita Valley)'
+            label: 'South LA',
+            sublabel: '(includes San Fernando Valley, portions of the Antelope Valley and Santa Clarita Valley)'
         },
         location5: {
             value: 'Central LA',
-            label: 'Central LA (includes Downtown Los Angeles, Mid-Wilshire)'
+            label: 'Central LA',
+            sublabel: '(includes Downtown Los Angeles, Mid-Wilshire)'
         },
     }
 }

@@ -5,15 +5,12 @@ import SignupPage from '../src/pages/SignupPage/SignupPage';
 import LoginPage from '../src/pages/LoginPage/LoginPage';
 import userService from '../src/utils/userService';
 import NavBar from '../src/components/NavBar/NavBar';
-// import NavTest from '../src/components/NavBar/NavTest';
 import HomePage from '../src/pages/HomePage/HomePage'
 import CreateApplicationPage from '../src/pages/CreateApplicationPage/CreateApplicationPage';
 import DownloadPage from '../src/pages/DownloadPage/DownloadPage'
 import ListApplicationsPage from '../src/pages/ListApplicationsPage/ListApplicationsPage'
 import ShowApplicationPage from '../src/pages/ShowApplicationPage/ShowApplicationPage'
 import TestPage from '../src/pages/CreateApplicationPage/TestPage'
-// import ShowApplicationPage from '../src/pages/ShowApplicationPage/ShowApplicationPage';
-// import EditApplicationPage from '../src/pages/EditApplicationPage/EditApplicationPage';
 
 
 class App extends Component {

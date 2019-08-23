@@ -42,7 +42,8 @@ class CreateApplicationPage extends Component {
             submitted: false,
             urgency: '',
             vehicle: false,
-            veteran: false,        };
+            veteran: false,
+        };
 
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -101,7 +102,7 @@ class CreateApplicationPage extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
+                <div className="form-group questionSpacing">
                     <label for="nameFirst">First Name</label>
                     <input
                         id="name"
@@ -111,7 +112,7 @@ class CreateApplicationPage extends Component {
                         onChange={this.handleInputChange}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group questionSpacing">
                     <label for="nameLast">Last Name</label>
                     <input
                         id="name"
@@ -121,7 +122,7 @@ class CreateApplicationPage extends Component {
                         onChange={this.handleInputChange}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group questionSpacing">
                     <label for="phone">Phone Number</label>
                     <input
                         id="phone"
@@ -132,7 +133,7 @@ class CreateApplicationPage extends Component {
                         onChange={this.handleInputChange}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-group questionSpacing">
                     <label for="email">Email</label>
                     <input
                         id="email"
@@ -142,35 +143,35 @@ class CreateApplicationPage extends Component {
                         onChange={this.handleInputChange}
                     />
                 </div>
-                <div>
+                <div className="questionSpacing">
                     <label className="mr10">Gender</label>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="radio" name="gender" id="gender" value="M" />
                         <label className="form-check-label" for="inlineRadio1">
-                            M
+                            <span className="labelMarginLeft">M</span>
                         </label>
                     </div>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="radio" name="gender" id="gender" value="F" />
                         <label className="form-check-label" for="inlineRadio2">
-                            F
+                            <span className="labelMarginLeft">F</span>
                         </label>
                     </div>
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="radio" name="gender" id="gender" value="O" />
                         <label className="form-check-label" for="inlineRadio2">
-                            Other
+                            <span className="labelMarginLeft">Other</span>
                         </label>
                     </div>
                 </div>
 
-                <div className="mb20">
+                <div className="questionSpacing">
                     <label>Age</label>
                     <div className="btn-group-toggle btn-row row mb10" data-toggle="buttons">
                         <div className="col-1" />
                         <label
                             className={[
-                                'btn btn-secondary col mp5',
+                                'btn btn-safepark col mp5',
                                 this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange1.value}`
                                     ? 'active'
                                     : '',
@@ -189,7 +190,7 @@ class CreateApplicationPage extends Component {
                         </label>
                         <label
                             className={[
-                                'btn btn-secondary col mp5',
+                                'btn btn-safepark col mp5',
                                 this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange2.value}`
                                     ? 'active'
                                     : '',
@@ -208,7 +209,7 @@ class CreateApplicationPage extends Component {
                         </label>
                         <label
                             className={[
-                                'btn btn-secondary col mp5',
+                                'btn btn-safepark col mp5',
                                 this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange3.value}`
                                     ? 'active'
                                     : '',
@@ -231,7 +232,7 @@ class CreateApplicationPage extends Component {
                         <div className="col-1" />
                         <label
                             className={[
-                                'btn btn-secondary col mp5',
+                                'btn btn-safepark col mp5',
                                 this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange4.value}`
                                     ? 'active'
                                     : '',
@@ -250,7 +251,7 @@ class CreateApplicationPage extends Component {
                         </label>
                         <label
                             className={[
-                                'btn btn-secondary col mp5',
+                                'btn btn-safepark col mp5',
                                 this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange5.value}`
                                     ? 'active'
                                     : '',
@@ -269,7 +270,7 @@ class CreateApplicationPage extends Component {
                         </label>
                         <label
                             className={[
-                                'btn btn-secondary col mp5',
+                                'btn btn-safepark col mp5',
                                 this.state.ageRange === `${CreateApplicationPageData.ageRanges.ageRange6.value}`
                                     ? 'active'
                                     : '',
@@ -289,7 +290,7 @@ class CreateApplicationPage extends Component {
                         <div className="col-1" />
                     </div>
                 </div>
-                <div className="mb30">
+                <div className="questionSpacing">
                     <label>Additional occupants in vehicle:</label>
                     <div className="form-check">
                         <input
@@ -300,11 +301,11 @@ class CreateApplicationPage extends Component {
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="multipleOccupants">
-                            Yes
+                            <span className="labelMarginLeft">Yes</span>
                         </label>
                     </div>
                     {this.state.multipleOccupants && (
-                        <div className="form-group mb20">
+                        <div className="form-group questionSpacing mb20">
                             <div className="row mb5">
                                 <label for="occupantsChildren" className="col col-form-label">
                                     Children (Under 18)
@@ -354,7 +355,7 @@ class CreateApplicationPage extends Component {
                         </div>
                     )}
                 </div>
-                <div className="mb30">
+                <div className="questionSpacing">
                     <label>Pets in vehicle:</label>
                     <div className="form-check">
                         <input
@@ -365,11 +366,11 @@ class CreateApplicationPage extends Component {
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="pets">
-                            Yes
+                            <span className="labelMarginLeft">Yes</span>
                         </label>
                     </div>
                     {this.state.pets && (
-                        <div className="form-group mb20">
+                        <div className="form-group questionSpacing mb20">
                             <div className="row mb5">
                                 <label for="petsDogs" className="col col-form-label">
                                     Dogs
@@ -420,7 +421,7 @@ class CreateApplicationPage extends Component {
                     )}
                 </div>
                 <label>Do you have a valid driver's license?</label>
-                <div className="form-check mb20">
+                <div className="form-check questionSpacing">
                     <input
                         type="checkbox"
                         className="form-check-input"
@@ -429,11 +430,11 @@ class CreateApplicationPage extends Component {
                         onChange={this.handleInputChange}
                     />
                     <label className="form-check-label" for="license">
-                        Yes
+                        <span className="labelMarginLeft">Yes</span>
                     </label>
                 </div>
                 <label>Is your car in working condition?</label>
-                <div className="form-check mb20">
+                <div className="form-check questionSpacing">
                     <input
                         type="checkbox"
                         className="form-check-input"
@@ -442,11 +443,11 @@ class CreateApplicationPage extends Component {
                         onChange={this.handleInputChange}
                     />
                     <label className="form-check-label" for="vehicle">
-                        Yes
+                        <span className="labelMarginLeft">Yes</span>
                     </label>
                 </div>
 
-                <div className="mb30">
+                <div className="questionSpacing">
                     <label>Add emergency contact?</label>
                     <div className="form-check">
                         <input
@@ -457,11 +458,11 @@ class CreateApplicationPage extends Component {
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="hasEmergencyContact">
-                            Yes
+                            <span className="labelMarginLeft">Yes</span>
                         </label>
                     </div>
                     {this.state.hasEmergencyContact && (
-                        <div className="form-group mb20">
+                        <div className="form-group questionSpacing mb20">
                             <div className="row mb5">
                                 <label for="emergencyContactPhone" className="col col-form-label">
                                     Phone
@@ -509,14 +510,14 @@ class CreateApplicationPage extends Component {
                     )}
                 </div>
                 <label>Are you a veteran?</label>
-                <div className="form-check mb20">
+                <div className="form-check questionSpacing">
                     <input type="checkbox" className="form-check-input" id="veteran" name="veteran" />
                     <label className="form-check-label" for="veteran">
-                        Yes
+                        <span className="labelMarginLeft">Yes</span>
                     </label>
                 </div>
                 <label>Do you currently have a source of income (not including outside support)?</label>
-                <div className="form-check mb20">
+                <div className="form-check questionSpacing">
                     <input
                         type="checkbox"
                         className="form-check-input"
@@ -526,11 +527,11 @@ class CreateApplicationPage extends Component {
                         checked={this.state.hasIncome}
                     />
                     <label className="form-check-label" for="hasIncome">
-                        Yes
+                        <span className="labelMarginLeft">Yes</span>
                     </label>
                 </div>
                 {this.state.hasIncome && (
-                    <div className="form-group">
+                    <div className="form-group questionSpacing">
                         <label for="incomeDescription">What is your current source of income?</label>
                         <textarea
                             id="incomeDescription"
@@ -542,7 +543,7 @@ class CreateApplicationPage extends Component {
                     </div>
                 )}
 
-                <div className="mb30">
+                <div className="questionSpacing">
                     <label>
                         What circumstances contributed to your current housing situation? (Please select all that
                         apply):
@@ -551,7 +552,7 @@ class CreateApplicationPage extends Component {
                         <div className="col-1" />
                         <label
                             className={[
-                                'btn btn-secondary col mp5',
+                                'btn btn-safepark col mp5',
                                 this.state.reasonUnemployment === true ? 'active' : '',
                             ].join(' ')}
                         >
@@ -566,7 +567,7 @@ class CreateApplicationPage extends Component {
                         </label>
                         <label
                             className={[
-                                'btn btn-secondary col mp5',
+                                'btn btn-safepark col mp5',
                                 this.state.reasonLowIncome === true ? 'active' : '',
                             ].join(' ')}
                         >
@@ -585,7 +586,7 @@ class CreateApplicationPage extends Component {
                         <div className="col-1" />
                         <label
                             className={[
-                                'btn btn-secondary col mp5',
+                                'btn btn-safepark col mp5',
                                 this.state.reasonRelationship === true ? 'active' : '',
                             ].join(' ')}
                         >
@@ -600,7 +601,7 @@ class CreateApplicationPage extends Component {
                         </label>
                         <label
                             className={[
-                                'btn btn-secondary col mp5',
+                                'btn btn-safepark col mp5',
                                 this.state.reasonDisability === true ? 'active' : '',
                             ].join(' ')}
                         >
@@ -619,7 +620,7 @@ class CreateApplicationPage extends Component {
                         <div className="col-1" />
                         <label
                             className={[
-                                'btn btn-secondary col mp5',
+                                'btn btn-safepark col mp5',
                                 this.state.reasonEviction === true ? 'active' : '',
                             ].join(' ')}
                         >
@@ -634,7 +635,7 @@ class CreateApplicationPage extends Component {
                         </label>
                         <label
                             className={[
-                                'btn btn-secondary col mp5',
+                                'btn btn-safepark col mp5',
                                 this.state.reasonOther === true ? 'active' : '',
                             ].join(' ')}
                         >
@@ -668,108 +669,110 @@ class CreateApplicationPage extends Component {
                         </React.Fragment>
                     )}
                 </div>
-
-                <label>How soon will you need safe parking?</label>
-                <div className="btn-group-toggle btn-row row mb10" data-toggle="buttons">
-                    <div className="col-1" />
-                    <label
-                        className={[
-                            'btn btn-secondary col mp5',
-                            this.state.urgency === `${CreateApplicationPageData.urgency.urgency1.value}`
-                                ? 'active'
-                                : '',
-                        ].join(' ')}
-                    >
-                        <input
-                            id="option1"
-                            type="radio"
-                            autocomplete="off"
-                            checked={this.state.urgency}
-                            name="urgency"
-                            value={CreateApplicationPageData.urgency.urgency1.value}
-                            onChange={this.handleInputChange}
-                        />
-                        {CreateApplicationPageData.urgency.urgency1.label}
-                    </label>
-                    <label
-                        className={[
-                            'btn btn-secondary col mp5',
-                            this.state.urgency === `${CreateApplicationPageData.urgency.urgency2.value}`
-                                ? 'active'
-                                : '',
-                        ].join(' ')}
-                    >
-                        <input
-                            id="option1"
-                            type="radio"
-                            autocomplete="off"
-                            checked={this.state.urgency}
-                            name="urgency"
-                            value={CreateApplicationPageData.urgency.urgency2.value}
-                            onChange={this.handleInputChange}
-                        />
-                        {CreateApplicationPageData.urgency.urgency2.label}
-                    </label>
-                    <div className="col-1" />
+                <div className="questionSpacing">
+                    <label>How soon will you need safe parking?</label>
+                    <div className="btn-group-toggle btn-row row mb10" data-toggle="buttons">
+                        <div className="col-1" />
+                        <label
+                            className={[
+                                'btn btn-safepark col mp5',
+                                this.state.urgency === `${CreateApplicationPageData.urgency.urgency1.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.urgency}
+                                name="urgency"
+                                value={CreateApplicationPageData.urgency.urgency1.value}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicationPageData.urgency.urgency1.label}
+                        </label>
+                        <label
+                            className={[
+                                'btn btn-safepark col mp5',
+                                this.state.urgency === `${CreateApplicationPageData.urgency.urgency2.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.urgency}
+                                name="urgency"
+                                value={CreateApplicationPageData.urgency.urgency2.value}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicationPageData.urgency.urgency2.label}
+                        </label>
+                        <div className="col-1" />
+                    </div>
+                    <div className="btn-group-toggle btn-row row mb10" data-toggle="buttons">
+                        <div className="col-1" />
+                        <label
+                            className={[
+                                'btn btn-safepark col mp5',
+                                this.state.urgency === `${CreateApplicationPageData.urgency.urgency3.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.urgency}
+                                name="urgency"
+                                value={CreateApplicationPageData.urgency.urgency3.value}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicationPageData.urgency.urgency3.label}
+                        </label>
+                        <label
+                            className={[
+                                'btn btn-safepark col mp5',
+                                this.state.urgency === `${CreateApplicationPageData.urgency.urgency4.value}`
+                                    ? 'active'
+                                    : '',
+                            ].join(' ')}
+                        >
+                            <input
+                                id="option1"
+                                type="radio"
+                                autocomplete="off"
+                                checked={this.state.urgency}
+                                name="urgency"
+                                value={CreateApplicationPageData.urgency.urgency4.value}
+                                onChange={this.handleInputChange}
+                            />
+                            {CreateApplicationPageData.urgency.urgency4.label}
+                        </label>
+                        <div className="col-1" />
+                    </div>
                 </div>
-                <div className="btn-group-toggle btn-row row mb10" data-toggle="buttons">
-                    <div className="col-1" />
-                    <label
-                        className={[
-                            'btn btn-secondary col mp5',
-                            this.state.urgency === `${CreateApplicationPageData.urgency.urgency3.value}`
-                                ? 'active'
-                                : '',
-                        ].join(' ')}
-                    >
+                <div className="questionSpacing">
+                    <label>Are you receiving financial or housing support from any other organizations?</label>
+                    <div className="form-check mb20">
                         <input
-                            id="option1"
-                            type="radio"
-                            autocomplete="off"
-                            checked={this.state.urgency}
-                            name="urgency"
-                            value={CreateApplicationPageData.urgency.urgency3.value}
+                            type="checkbox"
+                            className="form-check-input"
+                            id="receivingSupport"
+                            name="receivingSupport"
                             onChange={this.handleInputChange}
                         />
-                        {CreateApplicationPageData.urgency.urgency3.label}
-                    </label>
-
-                    <label
-                        className={[
-                            'btn btn-secondary col mp5',
-                            this.state.urgency === `${CreateApplicationPageData.urgency.urgency4.value}`
-                                ? 'active'
-                                : '',
-                        ].join(' ')}
-                    >
-                        <input
-                            id="option1"
-                            type="radio"
-                            autocomplete="off"
-                            checked={this.state.urgency}
-                            name="urgency"
-                            value={CreateApplicationPageData.urgency.urgency4.value}
-                            onChange={this.handleInputChange}
-                        />
-                        {CreateApplicationPageData.urgency.urgency4.label}
-                    </label>
-                    <div className="col-1" />
-                </div>
-                <label>Are you receiving financial or housing support from any other organizations?</label>
-                <div className="form-check mb20">
-                    <input
-                        type="checkbox"
-                        className="form-check-input"
-                        id="receivingSupport"
-                        name="receivingSupport"
-                        onChange={this.handleInputChange}
-                    />
-                    <label className="form-check-label" for="receivingSupport">
-                        Yes
-                    </label>
+                        <label className="form-check-label" for="receivingSupport">
+                            <span className="labelMarginLeft">Yes</span>
+                        </label>
+                    </div>
                 </div>
                 {this.state.receivingSupport && (
-                    <div className="form-group">
+                    <div className="form-group questionSpacing">
                         <label for="sourceOfSupport">
                             Which organizations are you currently receiving assistance from?
                         </label>
@@ -782,7 +785,7 @@ class CreateApplicationPage extends Component {
                         />
                     </div>
                 )}
-                <div className="mb20">
+                <div className="questionSpacing">
                     <label>Where would you prefer to park overnight?</label>
                     <div className="form-check">
                         <input
@@ -794,7 +797,13 @@ class CreateApplicationPage extends Component {
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location1">
-                            {CreateApplicationPageData.locations.location1.label}
+                            <span className="labelMarginLeft">
+                                {CreateApplicationPageData.locations.location1.label}
+                            </span>
+                            <span className="secondaryText">
+                                {' '}
+                                {CreateApplicationPageData.locations.location1.sublabel}
+                            </span>
                         </label>
                     </div>
                     <div className="form-check">
@@ -807,7 +816,13 @@ class CreateApplicationPage extends Component {
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location2">
-                            {CreateApplicationPageData.locations.location2.label}
+                            <span className="labelMarginLeft">
+                                {CreateApplicationPageData.locations.location2.label}
+                            </span>
+                            <span className="secondaryText">
+                                {' '}
+                                {CreateApplicationPageData.locations.location2.sublabel}
+                            </span>
                         </label>
                     </div>
                     <div className="form-check">
@@ -820,7 +835,13 @@ class CreateApplicationPage extends Component {
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location3">
-                            {CreateApplicationPageData.locations.location3.label}
+                            <span className="labelMarginLeft">
+                                {CreateApplicationPageData.locations.location3.label}
+                            </span>
+                            <span className="secondaryText">
+                                {' '}
+                                {CreateApplicationPageData.locations.location3.sublabel}
+                            </span>
                         </label>
                     </div>
                     <div className="form-check">
@@ -833,7 +854,13 @@ class CreateApplicationPage extends Component {
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location4">
-                            {CreateApplicationPageData.locations.location4.label}
+                            <span className="labelMarginLeft">
+                                {CreateApplicationPageData.locations.location4.label}
+                            </span>
+                            <span className="secondaryText">
+                                {' '}
+                                {CreateApplicationPageData.locations.location4.sublabel}
+                            </span>
                         </label>
                     </div>
                     <div className="form-check">
@@ -846,12 +873,18 @@ class CreateApplicationPage extends Component {
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location5">
-                            {CreateApplicationPageData.locations.location5.label}
+                            <span className="labelMarginLeft">
+                                {CreateApplicationPageData.locations.location5.label}
+                            </span>
+                            <span className="secondaryText">
+                                {' '}
+                                {CreateApplicationPageData.locations.location5.sublabel}
+                            </span>
                         </label>
                     </div>
                 </div>
                 <div className="text-center mb10">
-                    <button className="btn btn-success">Submit Application</button>
+                    <button className="btn btn-safepark-alt">SUBMIT</button>
                 </div>
             </form>
         );
