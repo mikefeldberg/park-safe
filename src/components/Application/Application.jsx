@@ -35,7 +35,7 @@ class Application extends Component {
                 <div className="row">
                     <div className="col-3">
                         <div>
-                            {this.props.firstName} {this.props.lastName}
+                            {this.props.nameFirst} {this.props.nameLast}
                         </div>
                     </div>
                     <div className="col-2">

@@ -5,42 +5,42 @@ class ShowApplicationPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstName: '',
-            lastName: '',
-            phone: '',
-            email: '',
-            gender: '',
-            license: false,
-            vehicle: false,
             ageRange: '',
+            email: '',
+            emergencyContactName: '',
+            emergencyContactPhone: '',
+            emergencyContactRelationship: '',
+            gender: '',
+            hasEmergencyContact: false,
+            hasIncome: false,
+            highPriority: false,
+            incomeDescription: '',
+            license: false,
             multipleOccupants: false,
-            children: 0,
-            adults: 0,
-            seniors: 0,
+            nameFirst: '',
+            nameLast: '',
+            occupantsAdults: 0,
+            occupantsChildren: 0,
+            occupantsSeniors: 0,
             pets: false,
-            petsDogs: 0,
             petsCats: 0,
+            petsDogs: 0,
             petsOther: 0,
-            reasonUnemployment: false,
-            reasonLowIncome: false,
-            reasonRelationship: false,
+            phone: '',
+            preferredLocation: '',
             reasonDisability: false,
             reasonEviction: false,
+            reasonLowIncome: false,
             reasonOther: false,
             reasonOtherDescription: '',
-            veteran: false,
+            reasonRelationship: false,
+            reasonUnemployment: false,
             receivingSupport: false,
             sourceOfSupport: '',
-            hasIncome: false,
-            incomeDescription: '',
-            hasEmergencyContact: false,
-            emergencyContactPhone: '',
-            emergencyContactName: '',
-            emergencyContactRelationship: '',
-            preferredLocation: '',
-            highPriority: false,
-            urgency: '',
             submitted: false,
+            urgency: '',
+            vehicle: false,
+            veteran: false,
         };
     }
 
@@ -51,42 +51,42 @@ class ShowApplicationPage extends Component {
         getOneApplication(applicationId).then(json => {
             self.setState({
                 application: json.application,
-                firstName: json.firstName,
-                lastName: json.lastName,
-                phone: json.phone,
-                email: json.email,
-                gender: json.gender,
-                language: json.language,
-                preferredLocation: json.preferredLocation,
-                license: json.license,
-                vehicle: json.vehicle,
                 ageRange: json.ageRange,
+                email: json.email,
+                emergencyContactName: json.emergencyContactName,
+                emergencyContactPhone: json.emergencyContactPhone,
+                emergencyContactRelationship: json.emergencyContactRelationship,
+                gender: json.gender,
+                hasIncome: json.hasIncome,
+                highPriority: json.highPriority,
+                incomeDescription: json.incomeDescription,
+                language: json.language,
+                license: json.license,
                 multipleOccupants: json.multipleOccupants,
-                children: json.children,
-                adults: json.adults,
-                seniors: json.seniors,
+                nameFirst: json.nameFirst,
+                nameLast: json.nameLast,
+                occupantsAdults: json.occupantsAdults,
+                occupantsChildren: json.occupantsChildren,
+                occupantsSeniors: json.occupantsSeniors,
                 pets: json.pets,
-                petsDogs: json.petsDogs,
                 petsCats: json.petsCats,
+                petsDogs: json.petsDogs,
                 petsOther: json.petsOther,
-                reasonUnemployment: json.reasonUnemployment,
-                reasonLowIncome: json.reasonLowIncome,
-                reasonRelationship: json.reasonRelationship,
+                phone: json.phone,
+                preferredLocation: json.preferredLocation,
                 reasonDisability: json.reasonDisability,
                 reasonEviction: json.reasonEviction,
+                reasonLowIncome: json.reasonLowIncome,
                 reasonOther: json.reasonOther,
                 reasonOtherDescription: json.reasonOtherDescription,
-                veteran: json.veteran,
+                reasonRelationship: json.reasonRelationship,
+                reasonUnemployment: json.reasonUnemployment,
                 receivingSupport: json.receivingSupport,
                 sourceOfSupport: json.sourceOfSupport,
+                submitted: json.submitted,
                 urgency: json.urgency,
-                highPriority: json.highPriority,
-                hasIncome: json.hasIncome,
-                incomeDescription: json.incomeDescription,
-                emergencyContactPhone: json.emergencyContactPhone,
-                emergencyContactName: json.emergencyContactName,
-                emergencyContactRelationship: json.emergencyContactRelationship,
-                submitted: json.submitted
+                vehicle: json.vehicle,
+                veteran: json.veteran,
             });
         });
     }
@@ -112,8 +112,8 @@ class ShowApplicationPage extends Component {
                                 <tr>
                                     <th scope="row">Name</th>
                                     <td>
-                                        <input name="firstName" onChange={this.handleInputChange} value={this.state.firstName}></input>
-                                        <input name="lastName" onChange={this.handleInputChange} value={this.state.lastName}></input>
+                                        <input name="nameFirst" onChange={this.handleInputChange} value={this.state.nameFirst}></input>
+                                        <input name="nameLast" onChange={this.handleInputChange} value={this.state.nameLast}></input>
                                     </td>
                                 </tr>
                                 <tr>
@@ -211,7 +211,7 @@ class ShowApplicationPage extends Component {
                     //             <tr>
                     //                 <th scope="row">Name</th>
                     //                 <td>
-                    //                     {this.state.firstName} {this.state.lastName}
+                    //                     {this.state.nameFirst} {this.state.nameLast}
                     //                 </td>
                     //             </tr>
                     //             <tr>
@@ -229,11 +229,11 @@ class ShowApplicationPage extends Component {
                     //             <tr>
                     //                 <th scope="row">Additional Occupants</th>
                     //                 <td>
-                    //                     {this.state.children > 0 && (
-                    //                         <span>Children (Under 18): {this.state.children}; </span>
+                    //                     {this.state.occupantsChildren > 0 && (
+                    //                         <span>Children (Under 18): {this.state.occupantsChildren}; </span>
                     //                     )}
-                    //                     {this.state.adults > 0 && (
-                    //                         <span>Adults (18-61): {this.state.adults}; </span>
+                    //                     {this.state.occupantsAdults > 0 && (
+                    //                         <span>Adults (18-61): {this.state.occupantsAdults}; </span>
                     //                     )}
                     //                     {this.state.seniors > 0 && (
                     //                         <span>Seniors (62+): {this.state.seniors}</span>

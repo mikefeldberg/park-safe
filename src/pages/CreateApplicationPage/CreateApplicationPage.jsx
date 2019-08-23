@@ -7,43 +7,42 @@ class CreateApplicationPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstName: '',
-            lastName: '',
-            phone: '',
-            email: '',
-            gender: '',
-            license: false,
-            vehicle: false,
             ageRange: '',
+            email: '',
+            emergencyContactName: '',
+            emergencyContactPhone: '',
+            emergencyContactRelationship: '',
+            gender: '',
+            hasEmergencyContact: false,
+            hasIncome: false,
+            highPriority: false,
+            incomeDescription: '',
+            license: false,
             multipleOccupants: false,
-            children: 0,
-            adults: 0,
-            seniors: 0,
+            nameFirst: '',
+            nameLast: '',
+            occupantsAdults: 0,
+            occupantsChildren: 0,
+            occupantsSeniors: 0,
             pets: false,
-            petsDogs: 0,
             petsCats: 0,
+            petsDogs: 0,
             petsOther: 0,
-            reasonUnemployment: false,
-            reasonLowIncome: false,
-            reasonRelationship: false,
+            phone: '',
+            preferredLocation: '',
             reasonDisability: false,
             reasonEviction: false,
+            reasonLowIncome: false,
             reasonOther: false,
             reasonOtherDescription: '',
-            veteran: false,
+            reasonRelationship: false,
+            reasonUnemployment: false,
             receivingSupport: false,
             sourceOfSupport: '',
-            hasIncome: false,
-            incomeDescription: '',
-            urgency: '',
-            hasEmergencyContact: false,
-            emergencyContactPhone: '',
-            emergencyContactName: '',
-            emergencyContactRelationship: '',
-            preferredLocation: '',
-            highPriority: false,
             submitted: false,
-        };
+            urgency: '',
+            vehicle: false,
+            veteran: false,        };
 
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -74,8 +73,8 @@ class CreateApplicationPage extends Component {
             this.state.ageRange === '17 or younger' ||
             this.state.ageRange === '18 to 24' ||
             this.state.ageRange === '62 or older' ||
-            this.state.children > 0 ||
-            this.state.seniors > 0
+            this.state.occupantsChildren > 0 ||
+            this.state.occupantsSeniors > 0
         ) {
             this.setState({
                 highPriority: true,
@@ -103,22 +102,22 @@ class CreateApplicationPage extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label for="firstName">First Name</label>
+                    <label for="nameFirst">First Name</label>
                     <input
                         id="name"
                         type="text"
                         className="form-control"
-                        name="firstName"
+                        name="nameFirst"
                         onChange={this.handleInputChange}
                     />
                 </div>
                 <div className="form-group">
-                    <label for="lastName">Last Name</label>
+                    <label for="nameLast">Last Name</label>
                     <input
                         id="name"
                         type="text"
                         className="form-control"
-                        name="lastName"
+                        name="nameLast"
                         onChange={this.handleInputChange}
                     />
                 </div>
@@ -307,46 +306,46 @@ class CreateApplicationPage extends Component {
                     {this.state.multipleOccupants && (
                         <div className="form-group mb20">
                             <div className="row mb5">
-                                <label for="children" className="col col-form-label">
+                                <label for="occupantsChildren" className="col col-form-label">
                                     Children (Under 18)
                                 </label>
                                 <div className="col-3">
                                     <input
                                         type="number"
                                         className="form-control"
-                                        id="children"
+                                        id="occupantsChildren"
                                         placeholder="0"
-                                        name="children"
+                                        name="occupantsChildren"
                                         onChange={this.handleInputChange}
                                     />
                                 </div>
                             </div>
                             <div className="row mb5">
-                                <label for="adults" className="col col-form-label">
+                                <label for="occupantsAdults" className="col col-form-label">
                                     Adults (Age 18 - 61)
                                 </label>
                                 <div className="col-3">
                                     <input
                                         type="number"
                                         className="form-control"
-                                        id="adults"
+                                        id="occupantsAdults"
                                         placeholder="0"
-                                        name="adults"
+                                        name="occupantsAdults"
                                         onChange={this.handleInputChange}
                                     />
                                 </div>
                             </div>
                             <div className="row mb5">
-                                <label for="seniors" className="col col-form-label">
+                                <label for="occupantsSeniors" className="col col-form-label">
                                     Seniors (62 or older)
                                 </label>
                                 <div className="col-3">
                                     <input
                                         type="number"
                                         className="form-control"
-                                        id="seniors"
+                                        id="occupantsSeniors"
                                         placeholder="0"
-                                        name="seniors"
+                                        name="occupantsSeniors"
                                         onChange={this.handleInputChange}
                                     />
                                     {/* <hr /> */}
