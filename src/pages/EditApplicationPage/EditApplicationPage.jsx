@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import DateSelector from '../../components/DateSelector/DateSelector';
+// import NewApplicationForm from '../../components/NewApplicationForm/NewApplicationForm';
 import { createApplication } from '../../services/api';
 import CreateApplicationPageData from './CreateApplicationPageData';
 
@@ -68,6 +69,7 @@ class CreateApplicationPage extends Component {
     };
 
     flagHighPriority = () => {
+        const self = this;
         if (
             this.state.ageRange === '17 or younger' ||
             this.state.ageRange === '18 to 24' ||
@@ -85,37 +87,24 @@ class CreateApplicationPage extends Component {
         }
     };
 
-    componentDidMount = () => {
-        const self = this;
-
-        document.addEventListener('mousedown', this.flagHighPriority);
-        window.addEventListener('beforeunload', e => {
-            e.preventDefault();
-            if (this.state.phone) {
-                createApplication(self.state).then(function() {});
-            }
-        });
-    };
-
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label for="firstName">First Name</label>
+                    <label for="name">Name</label>
                     <input
                         id="name"
                         type="text"
                         className="form-control"
+                        placeholder="First Name"
                         name="firstName"
                         onChange={this.handleInputChange}
                     />
-                </div>
-                <div className="form-group">
-                    <label for="lastName">Last Name</label>
                     <input
                         id="name"
                         type="text"
                         className="form-control"
+                        placeholder="Last Name"
                         name="lastName"
                         onChange={this.handleInputChange}
                     />
@@ -754,6 +743,7 @@ class CreateApplicationPage extends Component {
                     </label>
                     <div className="col-1" />
                 </div>
+
                 <label>Are you receiving financial or housing support from any other organizations?</label>
                 <div className="form-check mb20">
                     <input
@@ -781,75 +771,8 @@ class CreateApplicationPage extends Component {
                         />
                     </div>
                 )}
-                <div className="mb20">
-                    <label>Where would you prefer to park overnight?</label>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="location1"
-                            value={CreateApplicationPageData.locations.location1.value}
-                            name="location"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="location1">
-                            {CreateApplicationPageData.locations.location1.label}
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="location2"
-                            value={CreateApplicationPageData.locations.location2.value}
-                            name="location"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="location2">
-                            {CreateApplicationPageData.locations.location2.label}
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="location3"
-                            value={CreateApplicationPageData.locations.location3.value}
-                            name="location"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="location3">
-                            {CreateApplicationPageData.locations.location3.label}
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="location4"
-                            value={CreateApplicationPageData.locations.location4.value}
-                            name="location"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="location4">
-                            {CreateApplicationPageData.locations.location4.label}
-                        </label>
-                    </div>
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="location5"
-                            value={CreateApplicationPageData.locations.location5.value}
-                            name="location"
-                            onChange={this.handleInputChange}
-                        />
-                        <label className="form-check-label" for="location5">
-                            {CreateApplicationPageData.locations.location5.label}
-                        </label>
-                    </div>
-                </div>
-                <div className="text-center mb10">
+
+                <div className="text-center">
                     <button className="btn btn-success">Submit Application</button>
                 </div>
             </form>

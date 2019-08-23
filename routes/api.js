@@ -5,18 +5,15 @@ const applicationsController = require('../controllers/applications')
 // const applicationsController = require('../controllers/applications');
 
 /*---------- Public Routes ----------*/
-router.post('/signup', usersController.signup);
 router.post('/login', usersController.login);
 
-
-router.get('/applications', applicationsController.getAllApplications);
 router.post('/applications', applicationsController.createApplication);
+router.post('/applicationp', applicationsController.createPartialApplication);
 /*--------- Protected Routes --------*/
 
-// router.put('/applications/:id', applicationsController.updateApplication);
-// router.get('/applications', applicationsController.getAllApplications);
-// router.get('/applications/:id', applicationsController.getOneApplication);
-// router.post('/applications', applicationsController.createApplication);
-// router.delete('/applications/:id', applicationsController.deleteApplication);
+router.post('/signup', usersController.signup);
+
+router.get('/applications/:id', applicationsController.getOneApplication);
+router.get('/applications', applicationsController.getAllApplications);
 
 module.exports = router;

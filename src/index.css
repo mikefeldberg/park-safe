@@ -12,6 +12,22 @@ code {
     monospace;
 }
 
+.bottomBorder {
+  border-top: 1px rgb(199, 199, 199) solid;
+}
+
+.topBorder {
+  border-top: 1px rgb(199, 199, 199) solid;
+}
+
+.sm5 {
+  margin: 0 5px;
+}
+
+.sm10 {
+  margin: 0 10px;
+}
+
 .mb5 {
   margin-bottom: 5px;
 }
