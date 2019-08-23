@@ -4,7 +4,9 @@ import Applications from '../../components/Applications/Applications'
 class ListApplicationsPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {
+            applications: []
+        }
     }
     render() { 
         return (

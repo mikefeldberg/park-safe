@@ -5,42 +5,56 @@ import './NavBar.css';
 
 const NavBar = props => {
     let nav = props.user ? (
-        <div>
-            <span className="NavBar-welcome">Welcome, {props.user.name}</span>
-            {/* &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-            <span className="NavBar-welcome">
-                <Moment format="YYYY/MM/DD">{new Date()}</Moment>
-            </span> */}
-            &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-            <Link to="/download" className="NavBar-link">
-                Download Applications
-            </Link>
-            &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-            <Link to="/applications" className="NavBar-link">
-                See All Applications
-            </Link>
-            &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-            <Link to="" className="NavBar-link" onClick={props.handleLogout}>
-                Log Out
-            </Link>
+        <div className="col-12">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <a className="navbar-brand" href="https://www.safeparkingla.org/"><img height="30" alt="" src="https://i.imgur.com/UX1Lx3Z.png"></img></a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className={["collapse navbar-collapse ${show}"].join(' ')} id="navbarNavAltMarkup">
+                <div className="navbar-nav">
+                    <div className="nav-item nav-link">
+                        <Link to="/applications" className="NavBar-link">
+                            See All Applications
+                        </Link>
+                    </div>
+                    <div className="nav-item nav-link">
+                        <Link to="/download" className="NavBar-link">
+                            Download Applications
+                        </Link>
+                    </div>
+                    <div className="nav-item nav-link">
+                        <Link to="" className="NavBar-link" onClick={props.handleLogout}>
+                            Log Out
+                        </Link>
+                    </div>
+                </div>
+            </div>
+            </nav>
         </div>
     ) : (
         <div>
-            <Link to="/application" className="NavBar-link">
-                Application Form
-            </Link>
-            {/* &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-            <span className="NavBar-welcome">
-                <Moment format="YYYY/MM/DD">{new Date()}</Moment>
-            </span> */}
-            &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-            <Link to="/login" className="NavBar-link">
-                Staff Log In
-            </Link>
-            {/* &nbsp;&nbsp;|&nbsp;&nbsp;
-            <Link to="/signup" className="NavBar-link">
-                sign up
-            </Link> */}
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <a className="navbar-brand" href="https://www.safeparkingla.org/"><img height="30" alt="" src="https://i.imgur.com/UX1Lx3Z.png"></img></a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav">
+                <div className="nav-item nav-link">
+                    <Link to="/application" className="NavBar-link">
+                        Application Form
+                    </Link>
+                </div>
+                <div className="nav-item nav-link">
+                    <Link to="/login" className="NavBar-link">
+                        Staff Log In
+                    </Link>
+                </div>
+                </div>
+            </div>
+            </nav>
+
         </div>
     );
 

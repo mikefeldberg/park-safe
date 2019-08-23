@@ -5,7 +5,7 @@ import SignupPage from '../src/pages/SignupPage/SignupPage';
 import LoginPage from '../src/pages/LoginPage/LoginPage';
 import userService from '../src/utils/userService';
 import NavBar from '../src/components/NavBar/NavBar';
-import NavTest from '../src/components/NavBar/NavTest';
+// import NavTest from '../src/components/NavBar/NavTest';
 import HomePage from '../src/pages/HomePage/HomePage'
 import CreateApplicationPage from '../src/pages/CreateApplicationPage/CreateApplicationPage';
 import DownloadPage from '../src/pages/DownloadPage/DownloadPage'
@@ -36,7 +36,7 @@ class App extends Component {
         return (
             <div className="container">
                 {/* <header className='header-footer center'><h1>Home Hack</h1></header> */}
-                <NavTest
+                <NavBar
                     user={this.state.user}
                     handleLogout={this.handleLogout}
                     className="mb30"
