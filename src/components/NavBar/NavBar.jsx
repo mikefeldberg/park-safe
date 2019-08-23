@@ -91,17 +91,18 @@ class NavBar extends Component {
                         <img height="30" alt="" src="https://i.imgur.com/UX1Lx3Z.png" />
                     </a>
                     <button
-                        className="navbar-toggler"
+                        className={['navbar-toggler', this.state.navCollapsed].join(' ')}
+                        aria-expanded={this.state.ariaExpanded}
                         type="button"
                         data-toggle="collapse"
                         data-target="#navbarNavAltMarkup"
                         aria-controls="navbarNavAltMarkup"
-                        aria-expanded="false"
                         aria-label="Toggle navigation"
+                        onClick={this.toggleBurger}
                     >
                         <span className="navbar-toggler-icon" />
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div className={['collapse navbar-collapse', this.state.navShow].join(' ')} id="navbarNavAltMarkup">
                         <div className="navbar-nav">
                             <div className="nav-item nav-link">
                                 <Link to="/application" className="NavBar-link">

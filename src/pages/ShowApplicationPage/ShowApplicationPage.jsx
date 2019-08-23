@@ -19,7 +19,7 @@ class ShowApplicationPage extends Component {
     }
 
     render() {
-        console.log(this.state.application)
+        console.log(this.state.application);
         return (
             <React.Fragment>
                 {this.state.application && (
@@ -28,7 +28,9 @@ class ShowApplicationPage extends Component {
                             <tbody>
                                 <tr>
                                     <th scope="row">Name</th>
-                                    <td>{this.state.application.firstName} {this.state.application.lastName}</td>
+                                    <td>
+                                        {this.state.application.firstName} {this.state.application.lastName}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Phone</th>
@@ -44,33 +46,70 @@ class ShowApplicationPage extends Component {
                                 </tr>
                                 <tr>
                                     <th scope="row">Additional Occupants</th>
-                                    {this.state.application.children > 0 && 
-                                        <td>{this.state.application.children}</td>
-                                    }
-                                    
-                                    {this.state.application.adults > 0 && 
-                                        <td>{this.state.application.adults}</td>
-                                    }
-                                    
-                                    {this.state.application.seniors > 0 && 
-                                        <td>{this.state.application.seniors}</td>
-                                    }
+                                    <td>
+                                    {this.state.application.children > 0 && <span>Children (Under 18): {this.state.application.children}; </span>}
+                                    {this.state.application.adults > 0 && <span>Adults (18-61): {this.state.application.adults}; </span>}
+                                    {this.state.application.seniors > 0 && <span>Seniors (62+): {this.state.application.seniors}</span>}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Pets</th>
-                                    {this.state.application.petsDogs > 0 && 
-                                        <td>{this.state.application.petsDogs}</td>
-                                    }
-                                    
-                                    {this.state.application.petsCats > 0 && 
-                                        <td>{this.state.application.petsCats}</td>
-                                    }
-                                    
-                                    {this.state.application.petsOther > 0 && 
-                                        <td>{this.state.application.petsOther}</td>
-                                    }
+                                    <td>
+                                    {this.state.application.pets || <span>None</span>}
+                                    {this.state.application.petsDogs > 0 && <span>Dogs: {this.state.application.petsDogs}; </span>}
+                                    {this.state.application.petsCats > 0 && <span>Cats: {this.state.application.petsCats}; </span>}
+                                    {this.state.application.petsOther > 0 && <span>Other: {this.state.application.petsOther}</span>}
+                                    </td>
                                 </tr>
-
+                                <tr>
+                                    <th scope="row">Valid License</th>
+                                    <td>{this.state.application.license === true || <span>No</span>}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Veteran</th>
+                                    <td>{this.state.application.veteran}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Circumstances</th>
+                                    <td>
+                                        {this.state.application.reasonUnemployment && <span>Unemployment; {this.state.application.reasonUnemployment}</span>}
+                                        {this.state.application.reasonLowIncome && <span>Low Income; {this.state.application.reasonLowIncome}</span>}
+                                        {this.state.application.reasonRelationship && <span>Relationship; {this.state.application.reasonRelationship}</span>}
+                                        {this.state.application.reasonDisability && <span>Disability; {this.state.application.reasonDisability}</span>}
+                                        {this.state.application.reasonEviction && <span>Eviction; {this.state.application.reasonEviction}</span>}
+                                        {this.state.application.reasonOther && <span>Other: {this.state.application.reasonOtherDescription}</span>}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Receiving Support</th>
+                                    <td>
+                                        {this.state.application.receivingSupport && <span>{this.state.application.sourceOfSupport}</span>}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Has Income</th>
+                                    <td>
+                                        {this.state.application.hasIncome && <span>{this.state.application.incomeDescription}</span>}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Emergency Contact</th>
+                                    <td>
+                                        {this.state.application.hasEmergencyContact && 
+                                            <span>
+                                                {this.state.application.emergencyContactName};
+                                                {this.state.application.emergencyContactPhone};
+                                                {this.state.application.emergencyContactRelationship}
+                                            </span>
+                                        }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Submitted</th>
+                                    <td>
+                                        {this.state.application.submitted && <span>Yes</span>}
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
