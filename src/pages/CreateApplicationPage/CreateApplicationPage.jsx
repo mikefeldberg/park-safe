@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import DateSelector from '../../components/DateSelector/DateSelector';
-// import NewApplicationForm from '../../components/NewApplicationForm/NewApplicationForm';
-import { createApplication, createPartialApplication } from '../../services/api';
+import { createApplication } from '../../services/api';
 import CreateApplicationPageData from './CreateApplicationPageData';
 
 class CreateApplicationPage extends Component {
@@ -89,17 +88,13 @@ class CreateApplicationPage extends Component {
     componentDidMount = () => {
         const self = this;
 
+        document.addEventListener('mousedown', this.flagHighPriority);
         window.addEventListener('beforeunload', e => {
             e.preventDefault();
-            createApplication(this.state).then(function() {
-                self.props.history.push(`/index`);
-            });
+            if (this.state.phone) {
+                createApplication(self.state).then(function() {});
+            }
         });
-
-        // window.addEventListener('beforeunload', ev => {
-        //     ev.preventDefault();
-        //     return (ev.returnValue = 'Are you sure you want to close?');
-        // });
     };
 
     render() {

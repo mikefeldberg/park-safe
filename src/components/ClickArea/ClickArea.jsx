@@ -20,8 +20,8 @@ class ClickArea extends Component {
         this.wrapperRef = node;
     }
 
-    handleClickOutside(event) {
-        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+    handleClickOutside(e) {
+        if (this.wrapperRef && !this.wrapperRef.contains(e.target)) {
             this.props.handleClose()
         }
     }

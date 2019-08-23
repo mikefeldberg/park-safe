@@ -1,13 +1,12 @@
 import React from 'react';
 import Application from '../Application/Application'
-import styles from './Applications.module.css';
 
 const Applications = (props) => {
     return (
         <React.Fragment>
             {props.applications && 
                 <React.Fragment>
-                    <div className={styles.applicationContainer}>
+                    <div>
                         <div className="container">
                             <div className="row text-center mb10">
                                 <strong className="col-3 text-left">Name</strong>
@@ -24,7 +23,7 @@ const Applications = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.applicationContainer}>
+                    <div>
                         {props.applications.map((application, idx) =>
                             <Application
                                 application={application}
