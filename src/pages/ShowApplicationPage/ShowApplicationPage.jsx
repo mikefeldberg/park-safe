@@ -200,7 +200,7 @@ class ShowApplicationPage extends Component {
                                                 <span>
                                                     Children (Under 18):{' '}
                                                     <input
-                                                        name="petsDogs"
+                                                        name="occupantsChildren"
                                                         onChange={this.handleInputChange}
                                                         value={this.state.petsDogs}
                                                     />{' '}
@@ -208,7 +208,7 @@ class ShowApplicationPage extends Component {
                                                 <span>
                                                     Adults (18-61):{' '}
                                                     <input
-                                                        name="petsCats"
+                                                        name="occupantsAdults"
                                                         onChange={this.handleInputChange}
                                                         value={this.state.petsCats}
                                                     />{' '}
@@ -216,7 +216,7 @@ class ShowApplicationPage extends Component {
                                                 <span>
                                                     Seniors (62+):{' '}
                                                     <input
-                                                        name="petsOther"
+                                                        name="occupantsSeniors"
                                                         onChange={this.handleInputChange}
                                                         value={this.state.petsOther}
                                                     />
