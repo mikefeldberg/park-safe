@@ -27,12 +27,12 @@ class ClickArea extends Component {
     }
 
     render() {
-        return <div ref={this.setWrapperRef}>{this.props.children}</div>;
+        return <div ref={this.setWrapperRef}>{this.props.occupantsChildren}</div>;
     }
 }
 
 ClickArea.propTypes = {
-    children: PropTypes.element.isRequired,
+    occupantsChildren: PropTypes.element.isRequired,
 };
 
 export default ClickArea;

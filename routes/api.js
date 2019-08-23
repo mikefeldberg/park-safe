@@ -14,6 +14,7 @@ router.post('/applicationp', applicationsController.createPartialApplication);
 router.post('/signup', usersController.signup);
 
 router.get('/applications/:id', applicationsController.getOneApplication);
+router.put('/applications/:id', applicationsController.updateApplication);
 router.get('/applications', applicationsController.getAllApplications);
 
 module.exports = router;

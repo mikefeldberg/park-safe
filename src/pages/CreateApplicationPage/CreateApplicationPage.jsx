@@ -1,47 +1,48 @@
 import React, { Component } from 'react';
 // import DateSelector from '../../components/DateSelector/DateSelector';
-import { createApplication } from '../../services/api';
+import { createApplication, createPartialApplication } from '../../services/api';
 import CreateApplicationPageData from './CreateApplicationPageData';
 
 class CreateApplicationPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstName: '',
-            lastName: '',
-            phone: '',
-            email: '',
-            gender: '',
-            license: false,
-            vehicle: false,
             ageRange: '',
+            email: '',
+            emergencyContactName: '',
+            emergencyContactPhone: '',
+            emergencyContactRelationship: '',
+            gender: '',
+            hasEmergencyContact: false,
+            hasIncome: false,
+            highPriority: false,
+            incomeDescription: '',
+            license: false,
             multipleOccupants: false,
-            children: 0,
-            adults: 0,
-            seniors: 0,
+            nameFirst: '',
+            nameLast: '',
+            occupantsAdults: 0,
+            occupantsChildren: 0,
+            occupantsSeniors: 0,
             pets: false,
-            dogs: 0,
-            cats: 0,
-            other: 0,
-            reasonUnemployment: false,
-            reasonLowIncome: false,
-            reasonRelationship: false,
+            petsCats: 0,
+            petsDogs: 0,
+            petsOther: 0,
+            phone: '',
+            preferredLocation: '',
             reasonDisability: false,
             reasonEviction: false,
+            reasonLowIncome: false,
             reasonOther: false,
             reasonOtherDescription: '',
-            veteran: false,
+            reasonRelationship: false,
+            reasonUnemployment: false,
             receivingSupport: false,
             sourceOfSupport: '',
-            hasIncome: false,
-            incomeDescription: '',
-            hasEmergencyContact: false,
-            emergencyContactPhone: '',
-            emergencyContactName: '',
-            emergencyContactRelationship: '',
-            preferredLocation: '',
-            highPriority: false,
-        };
+            submitted: false,
+            urgency: '',
+            vehicle: false,
+            veteran: false,        };
 
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -72,8 +73,8 @@ class CreateApplicationPage extends Component {
             this.state.ageRange === '17 or younger' ||
             this.state.ageRange === '18 to 24' ||
             this.state.ageRange === '62 or older' ||
-            this.state.children > 0 ||
-            this.state.seniors > 0
+            this.state.occupantsChildren > 0 ||
+            this.state.occupantsSeniors > 0
         ) {
             this.setState({
                 highPriority: true,
@@ -92,7 +93,7 @@ class CreateApplicationPage extends Component {
         window.addEventListener('beforeunload', e => {
             e.preventDefault();
             if (this.state.phone) {
-                createApplication(self.state).then(function() {});
+                createPartialApplication(self.state).then(function() {});
             }
         });
     };
@@ -101,22 +102,22 @@ class CreateApplicationPage extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label for="firstName">First Name</label>
+                    <label for="nameFirst">First Name</label>
                     <input
                         id="name"
                         type="text"
                         className="form-control"
-                        name="firstName"
+                        name="nameFirst"
                         onChange={this.handleInputChange}
                     />
                 </div>
                 <div className="form-group">
-                    <label for="lastName">Last Name</label>
+                    <label for="nameLast">Last Name</label>
                     <input
                         id="name"
                         type="text"
                         className="form-control"
-                        name="lastName"
+                        name="nameLast"
                         onChange={this.handleInputChange}
                     />
                 </div>
@@ -305,46 +306,46 @@ class CreateApplicationPage extends Component {
                     {this.state.multipleOccupants && (
                         <div className="form-group mb20">
                             <div className="row mb5">
-                                <label for="children" className="col col-form-label">
+                                <label for="occupantsChildren" className="col col-form-label">
                                     Children (Under 18)
                                 </label>
                                 <div className="col-3">
                                     <input
                                         type="number"
                                         className="form-control"
-                                        id="children"
+                                        id="occupantsChildren"
                                         placeholder="0"
-                                        name="children"
+                                        name="occupantsChildren"
                                         onChange={this.handleInputChange}
                                     />
                                 </div>
                             </div>
                             <div className="row mb5">
-                                <label for="adults" className="col col-form-label">
+                                <label for="occupantsAdults" className="col col-form-label">
                                     Adults (Age 18 - 61)
                                 </label>
                                 <div className="col-3">
                                     <input
                                         type="number"
                                         className="form-control"
-                                        id="adults"
+                                        id="occupantsAdults"
                                         placeholder="0"
-                                        name="adults"
+                                        name="occupantsAdults"
                                         onChange={this.handleInputChange}
                                     />
                                 </div>
                             </div>
                             <div className="row mb5">
-                                <label for="seniors" className="col col-form-label">
+                                <label for="occupantsSeniors" className="col col-form-label">
                                     Seniors (62 or older)
                                 </label>
                                 <div className="col-3">
                                     <input
                                         type="number"
                                         className="form-control"
-                                        id="seniors"
+                                        id="occupantsSeniors"
                                         placeholder="0"
-                                        name="seniors"
+                                        name="occupantsSeniors"
                                         onChange={this.handleInputChange}
                                     />
                                     {/* <hr /> */}
@@ -370,46 +371,46 @@ class CreateApplicationPage extends Component {
                     {this.state.pets && (
                         <div className="form-group mb20">
                             <div className="row mb5">
-                                <label for="dogs" className="col col-form-label">
+                                <label for="petsDogs" className="col col-form-label">
                                     Dogs
                                 </label>
                                 <div className="col-3">
                                     <input
                                         type="number"
                                         className="form-control"
-                                        id="dogs"
+                                        id="petsDogs"
                                         placeholder="0"
-                                        name="dogs"
+                                        name="petsDogs"
                                         onChange={this.handleInputChange}
                                     />
                                 </div>
                             </div>
                             <div className="row mb5">
-                                <label for="cats" className="col col-form-label">
+                                <label for="petsCats" className="col col-form-label">
                                     Cats
                                 </label>
                                 <div className="col-3">
                                     <input
                                         type="number"
                                         className="form-control"
-                                        id="cats"
+                                        id="petsCats"
                                         placeholder="0"
-                                        name="cats"
+                                        name="petsCats"
                                         onChange={this.handleInputChange}
                                     />
                                 </div>
                             </div>
                             <div className="row mb5">
-                                <label for="other" className="col col-form-label">
+                                <label for="petsOther" className="col col-form-label">
                                     Other
                                 </label>
                                 <div className="col-3">
                                     <input
                                         type="number"
                                         className="form-control"
-                                        id="other"
+                                        id="petsOther"
                                         placeholder="0"
-                                        name="other"
+                                        name="petsOther"
                                         onChange={this.handleInputChange}
                                     />
                                     {/* <hr /> */}
@@ -789,7 +790,7 @@ class CreateApplicationPage extends Component {
                             type="radio"
                             id="location1"
                             value={CreateApplicationPageData.locations.location1.value}
-                            name="location"
+                            name="preferredLocation"
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location1">
@@ -802,7 +803,7 @@ class CreateApplicationPage extends Component {
                             type="radio"
                             id="location2"
                             value={CreateApplicationPageData.locations.location2.value}
-                            name="location"
+                            name="preferredLocation"
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location2">
@@ -815,7 +816,7 @@ class CreateApplicationPage extends Component {
                             type="radio"
                             id="location3"
                             value={CreateApplicationPageData.locations.location3.value}
-                            name="location"
+                            name="preferredLocation"
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location3">
@@ -828,7 +829,7 @@ class CreateApplicationPage extends Component {
                             type="radio"
                             id="location4"
                             value={CreateApplicationPageData.locations.location4.value}
-                            name="location"
+                            name="preferredLocation"
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location4">
@@ -841,7 +842,7 @@ class CreateApplicationPage extends Component {
                             type="radio"
                             id="location5"
                             value={CreateApplicationPageData.locations.location5.value}
-                            name="location"
+                            name="preferredLocation"
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location5">

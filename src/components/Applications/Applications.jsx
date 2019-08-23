@@ -27,8 +27,8 @@ const Applications = (props) => {
                         {props.applications.map((application, idx) =>
                             <Application
                                 application={application}
-                                firstName={application.firstName}
-                                lastName={application.lastName}
+                                nameFirst={application.nameFirst}
+                                nameLast={application.nameLast}
                                 phone={application.phone}
                                 ageRange={application.ageRange}
                                 gender={application.gender}

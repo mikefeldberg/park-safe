@@ -1,0 +1,33 @@
+.eventRow {
+    display: flex;
+}
+
+span {
+    font-size: calc(14px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
+    line-height: 1em;
+    /* line-height: calc(1.2em + (1.5 - 1.2) * ((100vw - 300px)/(1600 - 300)));   */
+}
+
+.input {
+    background-color:rgba(0, 0, 0, 0.05);
+    color:rgb(0, 0, 0);
+    border: none;
+    outline:none;
+    font-size: calc(14px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
+    line-height: 1em;
+    width: 40vw;
+    /* transition:height 1s; */
+    /* -webkit-transition:height 1s; */
+}
+
+.exclaim {
+    color: #d50000;
+}
+
+.document {
+    color: #12669B;
+}
+
+.download {
+    color: #777777;
+}
