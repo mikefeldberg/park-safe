@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
 import styles from './Application.module.css';
+import { Link } from 'react-router-dom';
 
 class Application extends Component {
     state = {
@@ -32,26 +33,45 @@ class Application extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-4">
-                        <div>{this.props.firstName} {this.props.lastName}</div>
+                    <div className="col-3">
+                        <div>
+                            {this.props.firstName} {this.props.lastName}
+                        </div>
                     </div>
                     <div className="col-2">
                         <div>{this.props.phone}</div>
                     </div>
                     <div className="col-1">
-                        <div>{this.props.gender}</div>
+                        <div className="text-center">{this.props.gender}</div>
                     </div>
                     <div className="col-2">
                         <div>{this.props.ageRange}</div>
                     </div>
                     <div className="col-1">
-                        <div className="text-center">{this.props.highPriority}</div>
+                        <div className="text-center">
+                            {this.props.highPriority && (
+                                <i className={['fas fa-exclamation-circle', styles.exclaim].join(' ')} />
+                            )}
+                        </div>
                     </div>
                     <div className="col-2">
                         <div className="text-center">
                             <Moment format="MMM DD, YYYY">{this.props.createdAt}</Moment>
                         </div>
                     </div>
+                    <div className="col-1">
+                        <div className="text-center">
+                            <Link
+                                to={{
+                                    pathname: `/applications/${this.props.applicationId}`,
+                                    appication: this.props.application,
+                                }}
+                            >
+                                <i className={['fas fa-file-alt', styles.document].join(' ')} />
+                            </Link>
+                        </div>
+                    </div>
+
                     {/* <div className="col-1">
                         {this.state.inputActive && (
                             <React.Fragment>
@@ -60,8 +80,8 @@ class Application extends Component {
                             </React.Fragment>
                         )}
                         {!this.state.inputActive && <i onClick={this.toggleEdit} className="far fa-edit" />}
-                    </div>
-                    <div className="col-1">
+                    </div> */}
+                    {/* <div className="col-1">
                         {this.state.inputActive && (
                             <React.Fragment>
                                 <i onClick={this.toggleEdit} className="fas fa-times-circle" />
