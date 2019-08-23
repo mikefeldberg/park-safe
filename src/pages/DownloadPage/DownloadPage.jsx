@@ -18,14 +18,17 @@ class DownloadPage extends Component {
                 applications: json
             })
         })
+
     }
+
+
 
     render(){
         return(
             <React.Fragment>
                 {this.state.applications &&
                 <div>
-                    <CSVLink data={this.state.applications} >Download Applications</CSVLink>
+                    <CSVLink data={this.state.applications.reverse()} >Download Applications</CSVLink>
                 </div>
                 }
             </React.Fragment>
