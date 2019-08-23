@@ -160,7 +160,7 @@ class CreateApplicationPage extends Component {
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="radio" name="gender" id="gender" value="O" />
                         <label className="form-check-label" for="inlineRadio2">
-                            <span className="labelMarginLeft">Other</span>
+                            <span className="labelMarginLeft">Not listed/prefer not to disclose</span>
                         </label>
                     </div>
                 </div>
