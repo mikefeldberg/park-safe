@@ -9,23 +9,29 @@ const Applications = (props) => {
                 <React.Fragment>
                     <div className={styles.applicationContainer}>
                         <div className="container">
-                            <div className="row">
-                                <div className="col-sm">Date</div>
-                                <div className="col-sm">Application</div>
-                                <div className="col-8">Note</div>
-                                <div className="col-1">Edit</div>
+                            <div className="row text-center">
+                                <strong className="col-4 text-left">Name</strong>
+                                <strong className="col-2">Phone</strong>
+                                <strong className="col-1">Gender</strong>
+                                <strong className="col-2">Age Group</strong>
+                                <strong className="col-1">High Priority</strong>
+                                <strong className="col-2">Submitted On</strong>
+                                {/* <div className="col-1">View</div>
+                                <div className="col-1">Edit</div> */}
                             </div>
                         </div>
                     </div>
                     <div className={styles.applicationContainer}>
                         {props.applications.map((application, idx) =>
                             <Application
-                                name={application.name}
+                                firstName={application.firstName}
+                                lastName={application.lastName}
                                 phone={application.phone}
-                                email={application.email}
                                 ageRange={application.ageRange}
                                 gender={application.gender}
+                                highPriority={application.highPriority}
                                 applicationId={application._id}
+                                createdAt={application.createdAt}
                                 key={idx}
                                 handleApplicationUpdate={props.handleApplicationUpdate}
                             />
