@@ -41,7 +41,6 @@ class NavBar extends Component {
                 ariaExpanded: true,
             });
         }
-
     };
 
     render() {

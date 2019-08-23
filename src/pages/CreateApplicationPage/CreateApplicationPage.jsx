@@ -790,7 +790,7 @@ class CreateApplicationPage extends Component {
                             type="radio"
                             id="location1"
                             value={CreateApplicationPageData.locations.location1.value}
-                            name="location"
+                            name="preferredLocation"
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location1">
@@ -803,7 +803,7 @@ class CreateApplicationPage extends Component {
                             type="radio"
                             id="location2"
                             value={CreateApplicationPageData.locations.location2.value}
-                            name="location"
+                            name="preferredLocation"
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location2">
@@ -816,7 +816,7 @@ class CreateApplicationPage extends Component {
                             type="radio"
                             id="location3"
                             value={CreateApplicationPageData.locations.location3.value}
-                            name="location"
+                            name="preferredLocation"
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location3">
@@ -829,7 +829,7 @@ class CreateApplicationPage extends Component {
                             type="radio"
                             id="location4"
                             value={CreateApplicationPageData.locations.location4.value}
-                            name="location"
+                            name="preferredLocation"
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location4">
@@ -842,7 +842,7 @@ class CreateApplicationPage extends Component {
                             type="radio"
                             id="location5"
                             value={CreateApplicationPageData.locations.location5.value}
-                            name="location"
+                            name="preferredLocation"
                             onChange={this.handleInputChange}
                         />
                         <label className="form-check-label" for="location5">

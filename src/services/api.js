@@ -51,7 +51,8 @@ export function createApplication(application) {
             submitted: true,
             urgency: application.urgency,
             vehicle: application.vehicle,
-            veteran: application.veteran,        }),
+            veteran: application.veteran,
+        }),
         headers: {
             'content-type': 'application/json'
         }
