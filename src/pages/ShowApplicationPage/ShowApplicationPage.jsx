@@ -202,7 +202,7 @@ class ShowApplicationPage extends Component {
                                                     <input
                                                         name="occupantsChildren"
                                                         onChange={this.handleInputChange}
-                                                        value={this.state.petsDogs}
+                                                        value={this.state.occupantsChildren}
                                                     />{' '}
                                                 </span>
                                                 <span>
@@ -210,7 +210,7 @@ class ShowApplicationPage extends Component {
                                                     <input
                                                         name="occupantsAdults"
                                                         onChange={this.handleInputChange}
-                                                        value={this.state.petsCats}
+                                                        value={this.state.occupantsAdults}
                                                     />{' '}
                                                 </span>
                                                 <span>
@@ -218,7 +218,7 @@ class ShowApplicationPage extends Component {
                                                     <input
                                                         name="occupantsSeniors"
                                                         onChange={this.handleInputChange}
-                                                        value={this.state.petsOther}
+                                                        value={this.state.occupantsSeniors}
                                                     />
                                                 </span>
                                             </span>
