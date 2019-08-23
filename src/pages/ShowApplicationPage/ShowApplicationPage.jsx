@@ -89,54 +89,6 @@ class ShowApplicationPage extends Component {
                 submitted: json.submitted
             });
         });
-
-        // self.setState({ 
-        //     plant: json.plant,
-        //     nextWaterReminder: json.nextWaterReminder,
-        //     nextFertilizeReminder: json.nextFertilizeReminder,
-        //     nextRotateReminder: json.nextRotateReminder,
-        // });
-
-
-        // if (this.state.application) {
-        //     self.setState({
-        //         firstName: this.state.application.firstName,
-        //         lastName: this.state.application.lastName,
-        //         phone: this.state.application.phone,
-        //         email: this.state.application.email,
-        //         gender: this.state.application.gender,
-        //         language: this.state.application.language,
-        //         preferredLocation: this.state.application.preferredLocation,
-        //         license: this.state.application.license,
-        //         vehicle: this.state.application.vehicle,
-        //         ageRange: this.state.application.ageRange,
-        //         multipleOccupants: this.state.application.multipleOccupants,
-        //         children: this.state.application.children,
-        //         adults: this.state.application.adults,
-        //         seniors: this.state.application.seniors,
-        //         pets: this.state.application.pets,
-        //         petsDogs: this.state.application.petsDogs,
-        //         petsCats: this.state.application.petsCats,
-        //         petsOther: this.state.application.petsOther,
-        //         reasonUnemployment: this.state.application.reasonUnemployment,
-        //         reasonLowIncome: this.state.application.reasonLowIncome,
-        //         reasonRelationship: this.state.application.reasonRelationship,
-        //         reasonDisability: this.state.application.reasonDisability,
-        //         reasonEviction: this.state.application.reasonEviction,
-        //         reasonOther: this.state.application.reasonOther,
-        //         reasonOtherDescription: this.state.application.reasonOtherDescription,
-        //         veteran: this.state.application.veteran,
-        //         receivingSupport: this.state.application.receivingSupport,
-        //         sourceOfSupport: this.state.application.sourceOfSupport,
-        //         highPriority: this.state.application.highPriority,
-        //         hasIncome: this.state.application.hasIncome,
-        //         incomeDescription: this.state.application.incomeDescription,
-        //         emergencyContactPhone: this.state.application.emergencyContactPhone,
-        //         emergencyContactName: this.state.application.emergencyContactName,
-        //         emergencyContactRelationship: this.state.application.emergencyContactRelationship,
-        //         submitted: this.state.application.submitted,    
-        //     });
-        // }
     }
 
     handleInputChange = e => {
