@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import DateSelector from '../../components/DateSelector/DateSelector';
 // import NewApplicationForm from '../../components/NewApplicationForm/NewApplicationForm';
-import { createApplication } from '../../services/api';
+import { createApplication, createPartialApplication } from '../../services/api';
 import CreateApplicationPageData from './CreateApplicationPageData';
 
 class CreateApplicationPage extends Component {
@@ -84,6 +84,22 @@ class CreateApplicationPage extends Component {
                 highPriority: false,
             });
         }
+    };
+
+    componentDidMount = () => {
+        const self = this;
+
+        window.addEventListener('beforeunload', e => {
+            e.preventDefault();
+            createApplication(this.state).then(function() {
+                self.props.history.push(`/index`);
+            });
+        });
+
+        // window.addEventListener('beforeunload', ev => {
+        //     ev.preventDefault();
+        //     return (ev.returnValue = 'Are you sure you want to close?');
+        // });
     };
 
     render() {

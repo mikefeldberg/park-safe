@@ -8,6 +8,7 @@ const applicationsController = require('../controllers/applications')
 router.post('/login', usersController.login);
 
 router.post('/applications', applicationsController.createApplication);
+router.post('/applicationp', applicationsController.createPartialApplication);
 /*--------- Protected Routes --------*/
 
 router.post('/signup', usersController.signup);

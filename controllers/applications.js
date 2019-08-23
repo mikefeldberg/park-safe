@@ -7,9 +7,53 @@ module.exports = {
     getOneApplication,
     updateApplication,
     deleteApplication,
+    createPartialApplication
 }
 
 function createApplication(req, res) {
+    let application = new Application({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        phone: req.body.phone,
+        email: req.body.email,
+        gender: req.body.gender,
+        language: req.body.language,
+        preferredLocation: req.body.preferredLocation,
+        license: req.body.license,
+        vehicle: req.body.vehicle,
+        ageRange: req.body.ageRange,
+        multipleOccupants: req.body.multipleOccupants,
+        children: req.body.children,
+        adults: req.body.adults,
+        seniors: req.body.seniors,
+        pets: req.body.pets,
+        dogs: req.body.dogs,
+        cats: req.body.cats,
+        other: req.body.other,
+        reasonUnemployment: req.body.reasonUnemployment,
+        reasonLowIncome: req.body.reasonLowIncome,
+        reasonRelationship: req.body.reasonRelationship,
+        reasonDisability: req.body.reasonDisability,
+        reasonEviction: req.body.reasonEviction,
+        reasonOther: req.body.reasonOther,
+        reasonOtherDescription: req.body.reasonOtherDescription,
+        veteran: req.body.veteran,
+        receivingSupport: req.body.receivingSupport,
+        sourceOfSupport: req.body.sourceOfSupport,
+        highPriority: req.body.highPriority,
+        hasIncome: req.body.hasIncome,
+        incomeDescription: req.body.incomeDescription,
+        emergencyContactPhone: req.body.emergencyContactPhone,
+        emergencyContactName: req.body.emergencyContactName,
+        emergencyContactRelationship: req.body.emergencyContactRelationship,
+    });
+
+    console.log(application)
+
+    application.save()
+    res.status(200).json(application);
+}
+function createPartialApplication(req, res) {
     let application = new Application({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
