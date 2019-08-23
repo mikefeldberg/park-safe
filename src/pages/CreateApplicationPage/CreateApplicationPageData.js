@@ -69,6 +69,28 @@ const CreateApplicationPageData = {
             value: 'urgencyNextMonth',
             label: 'More than one month',
         }
+    },
+    locations: {
+        location1: {
+            value: 'East LA',
+            label: 'East LA (includes Eastside, San Gabriel Valley, Pomona Valley)'
+        },
+        location2: {
+            value: 'West LA',
+            label: 'West LA (includes Westside, Beverly Hills, Brentwood, Santa Monica)'
+        },
+        location3: {
+            value: 'North LA',
+            label: 'North LA (includes South Bay, Palos Verdes Peninsula, South Los Angeles, Gateway Cities, North Orange County, South Orange County)'
+        },
+        location4: {
+            value: 'South LA',
+            label: 'South LA (includes San Fernando Valley, portions of the Antelope Valley and Santa Clarita Valley)'
+        },
+        location5: {
+            value: 'Central LA',
+            label: 'Central LA (includes Downtown Los Angeles, Mid-Wilshire)'
+        },
     }
 }
 
