@@ -153,8 +153,45 @@ function getOneApplication(req, res) {
 }
 
 function updateApplication(req, res) {
-    Application.findOne({ _id: req.body.id, deletedAt: null }).exec(function (err, application) {
-        application.note = req.body.note
+    Application.findOne({ _id: req.params.id, deletedAt: null }).exec(function (err, application) {
+        console.log('controller update application')
+        console.log(application)
+        application.ageRange = req.body.ageRange,
+        application.email = req.body.email,
+        application.emergencyContactName = req.body.emergencyContactName,
+        application.emergencyContactPhone = req.body.emergencyContactPhone,
+        application.emergencyContactRelationship = req.body.emergencyContactRelationship,
+        application.gender = req.body.gender,
+        application.hasIncome = req.body.hasIncome,
+        application.highPriority = req.body.highPriority,
+        application.incomeDescription = req.body.incomeDescription,
+        application.language = req.body.language,
+        application.license = req.body.license,
+        application.multipleOccupants = req.body.multipleOccupants,
+        application.nameFirst = req.body.nameFirst,
+        application.nameLast = req.body.nameLast,
+        application.occupantsAdults = req.body.occupantsAdults,
+        application.occupantsChildren = req.body.occupantsChildren,
+        application.occupantsSeniors = req.body.occupantsSeniors,
+        application.pets = req.body.pets,
+        application.petsCats = req.body.petsCats,
+        application.petsDogs = req.body.petsDogs,
+        application.petsOther = req.body.petsOther,
+        application.phone = req.body.phone,
+        application.preferredLocation = req.body.preferredLocation,
+        application.reasonDisability = req.body.reasonDisability,
+        application.reasonEviction = req.body.reasonEviction,
+        application.reasonLowIncome = req.body.reasonLowIncome,
+        application.reasonOther = req.body.reasonOther,
+        application.reasonOtherDescription = req.body.reasonOtherDescription,
+        application.reasonRelationship = req.body.reasonRelationship,
+        application.reasonUnemployment = req.body.reasonUnemployment,
+        application.receivingSupport = req.body.receivingSupport,
+        application.sourceOfSupport = req.body.sourceOfSupport,
+        application.submitted = true,
+        application.urgency = req.body.urgency,
+        application.vehicle = req.body.vehicle,
+        application.veteran = req.body.veteran,
         application.save();
         res.status(200).json(application);
     });

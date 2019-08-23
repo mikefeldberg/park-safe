@@ -116,7 +116,16 @@ class ShowApplicationPage extends Component {
         });
     };
 
-    
+    handleSubmit = e => {
+        const self = this;
+        const applicationId = self.props.match.params.id;
+
+        e.preventDefault();
+        updateApplication(this.state, applicationId).then(function() {
+            self.props.history.push(`/applications/${applicationId}`)
+        });
+        this.toggleEdit()
+    };
 
     render() {
         return (
@@ -127,7 +136,7 @@ class ShowApplicationPage extends Component {
                         {this.state.rw === 'w' && 
                             <span>
                                 <span> | </span>
-                                <i class="far fa-save"></i>
+                                <i onClick={this.handleSubmit} className="far fa-save"></i>
                             </span>
                         }
                         <span> | </span>
