@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import DateSelector from '../../components/DateSelector/DateSelector';
-import { createApplication } from '../../services/api';
+import { createApplication, createPartialApplication } from '../../services/api';
 import CreateApplicationPageData from './CreateApplicationPageData';
 
 class CreateApplicationPage extends Component {
@@ -35,6 +35,7 @@ class CreateApplicationPage extends Component {
             sourceOfSupport: '',
             hasIncome: false,
             incomeDescription: '',
+            urgency: '',
             hasEmergencyContact: false,
             emergencyContactPhone: '',
             emergencyContactName: '',
@@ -93,7 +94,7 @@ class CreateApplicationPage extends Component {
         window.addEventListener('beforeunload', e => {
             e.preventDefault();
             if (this.state.phone) {
-                createApplication(self.state).then(function() {});
+                createPartialApplication(self.state).then(function() {});
             }
         });
     };

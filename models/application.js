@@ -10,6 +10,7 @@ var applicationSchema = new mongoose.Schema({
     license: Boolean,
     vehicle: Boolean,
     ageRange: String,
+    urgency: String,
     multipleOccupants: Boolean,
     children: Number,
     adults: Number,

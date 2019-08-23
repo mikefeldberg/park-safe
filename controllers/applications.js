@@ -46,6 +46,7 @@ function createApplication(req, res) {
         emergencyContactPhone: req.body.emergencyContactPhone,
         emergencyContactName: req.body.emergencyContactName,
         emergencyContactRelationship: req.body.emergencyContactRelationship,
+        urgency: req.body.urgency,
         submitted: req.body.submitted,
     });
 
@@ -87,6 +88,7 @@ function createPartialApplication(req, res) {
         highPriority: req.body.highPriority,
         hasIncome: req.body.hasIncome,
         incomeDescription: req.body.incomeDescription,
+        urgency: req.body.urgency,
         emergencyContactPhone: req.body.emergencyContactPhone,
         emergencyContactName: req.body.emergencyContactName,
         emergencyContactRelationship: req.body.emergencyContactRelationship,
@@ -142,6 +144,7 @@ function getOneApplication(req, res) {
             'emergencyContactPhone': application.emergencyContactPhone,
             'emergencyContactName': application.emergencyContactName,
             'emergencyContactRelationship': application.emergencyContactRelationship,
+            'urgency': application.urgency,
             'submitted': application.submitted,
         }
         res.status(200).json(response);

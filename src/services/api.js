@@ -50,7 +50,8 @@ export function createApplication(application) {
             emergencyContactPhone: application.emergencyContactPhone,
             emergencyContactName: application.emergencyContactName,
             emergencyContactRelationship: application.emergencyContactRelationship,
-            submitted: application.submitted,
+            urgency: application.urgency,
+            submitted: true,
         }),
         headers: {
             'content-type': 'application/json'
@@ -95,7 +96,8 @@ export function createPartialApplication(application) {
             emergencyContactPhone: application.emergencyContactPhone,
             emergencyContactName: application.emergencyContactName,
             emergencyContactRelationship: application.emergencyContactRelationship,
-            submitted: application.submitted,
+            urgency: application.urgency,
+            submitted: false,
         }),
         headers: {
             'content-type': 'application/json'
