@@ -407,7 +407,7 @@ class ShowApplicationPage extends Component {
                                             {this.state.occupantsAdults > 0 && (
                                                 <span>Adults (18-61): {this.state.occupantsAdults}; </span>
                                             )}
-                                            {this.state.seniors > 0 && <span>Seniors (62+): {this.state.seniors}</span>}
+                                            {this.state.occupantsSeniors > 0 && <span>Seniors (62+): {this.state.occupantsSeniors}</span>}
                                         </td>
                                     </tr>
                                     <tr>
