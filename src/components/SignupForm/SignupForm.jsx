@@ -29,7 +29,7 @@ class SignupForm extends Component {
       this.props.handleSignupOrLogin();
       console.log('handled signup')
       // Successfully signed up - show GamePage
-      this.props.history.push('/index');
+      this.props.history.push('/');
     } catch (err) {
       // Invalid user data (probably duplicate email)
       this.props.updateMessage(err.message);
