@@ -10,8 +10,9 @@ import CreateApplicationPage from '../src/pages/CreateApplicationPage/CreateAppl
 import DownloadPage from '../src/pages/DownloadPage/DownloadPage'
 import ListApplicationsPage from '../src/pages/ListApplicationsPage/ListApplicationsPage'
 import ShowApplicationPage from '../src/pages/ShowApplicationPage/ShowApplicationPage'
+import SubmissionPage from '../src/pages/SubmissionPage/SubmissionPage'
 import TestPage from '../src/pages/CreateApplicationPage/TestPage'
-
+// import ClickArea from '../src/components/ClickArea/ClickArea'
 
 class App extends Component {
     constructor() {
@@ -34,6 +35,7 @@ class App extends Component {
         return (
             <div className="container">
                 {/* <header className='header-footer center'><h1>Home Hack</h1></header> */}
+
                 <NavBar
                     user={this.state.user}
                     handleLogout={this.handleLogout}
@@ -45,13 +47,15 @@ class App extends Component {
                             history={history}
                         />
                     } />
-                    <Route exact path='/index' render={() =>
+                    <Route exact path='/' render={() =>
                         <HomePage
                             user={this.state.user}
                         />
                     } />
-                    <Route exact path='/test' render={({ history }) =>
-                        <TestPage />
+                    <Route exact path='/submitted' render={() =>
+                        <SubmissionPage
+                            user={this.state.user}
+                        />
                     } />
                     <Route exact path='/applications'
                         render={props =>
@@ -80,7 +84,7 @@ class App extends Component {
                     <Route exact path='/signup'
                         render={({ history }) =>
                             userService.getUser() ? (
-                                <Redirect to="/index" />
+                                <Redirect to="/" />
                             ) : (
                                     <SignupPage
                                         history={history}
@@ -91,9 +95,8 @@ class App extends Component {
                     />
                     <Route exact path='/login'
                         render={({ history }) =>
-
                             userService.getUser() ? (
-                                <Redirect to="/index" />
+                                <Redirect to="/" />
                             ) : (
                                     <LoginPage
                                         history={history}

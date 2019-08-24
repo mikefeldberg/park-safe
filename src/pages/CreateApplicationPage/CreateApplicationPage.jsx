@@ -65,7 +65,7 @@ class CreateApplicationPage extends Component {
 
         const self = this;
         createApplication(this.state).then(function() {
-            self.props.history.push(`/index`);
+            self.props.history.push(`/submitted`);
         });
     };
 
@@ -143,6 +143,50 @@ class CreateApplicationPage extends Component {
                         onChange={this.handleInputChange}
                     />
                 </div>
+
+                <div className="questionSpacing">
+                    <label>Gender</label>
+                    <div className="form-check">
+                        <input
+                            className="form-check-input"
+                            type="radio"
+                            id="gender"
+                            value="M"
+                            name="gender"
+                            onChange={this.handleInputChange}
+                        />
+                        <label className="form-check-label" for="gender">
+                            <span className="labelMarginLeft">M</span>
+                        </label>
+                    </div>
+                    <div className="form-check">
+                        <input
+                            className="form-check-input"
+                            type="radio"
+                            id="gender"
+                            value="F"
+                            name="gender"
+                            onChange={this.handleInputChange}
+                        />
+                        <label className="form-check-label" for="gender">
+                            <span className="labelMarginLeft">F</span>
+                        </label>
+                    </div>
+                    <div className="form-check">
+                        <input
+                            className="form-check-input"
+                            type="radio"
+                            id="gender"
+                            value="Other"
+                            name="gender"
+                            onChange={this.handleInputChange}
+                        />
+                        <label className="form-check-label" for="location3">
+                            <span className="labelMarginLeft">Not listed/prefer not to disclose</span>
+                        </label>
+                    </div>
+                </div>
+{/* 
                 <div className="questionSpacing">
                     <label className="mr10">Gender</label>
                     <div className="form-check form-check-inline">
@@ -160,10 +204,10 @@ class CreateApplicationPage extends Component {
                     <div className="form-check form-check-inline">
                         <input className="form-check-input" type="radio" name="gender" id="gender" value="O" />
                         <label className="form-check-label" for="inlineRadio2">
-                            <span className="labelMarginLeft">Other</span>
+                            <span className="labelMarginLeft">Not listed/prefer not to disclose</span>
                         </label>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="questionSpacing">
                     <label>Age</label>
